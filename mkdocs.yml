@@ -1,0 +1,193 @@
+site_name: DeepExtension Documentation
+site_url: https://docs.deepextension.ai
+theme:
+  name: material
+  logo: assets/logo.png
+  favicon: assets/favicon.ico
+  language: en
+  features:
+    - navigation.tabs
+    - navigation.instant
+    - content.code.copy
+    - content.action.edit
+    - i18n
+  palette:
+    primary: deep blue
+#  name: readthedocs
+#  highlightjs: true
+
+nav:
+  - Introduction:
+      - Overview: index.md
+      - Key Concepts: intro/key-concepts.md
+      - Product Architecture: intro/architecture.md
+
+plugins:
+  - search
+  - i18n:
+      languages:
+        - locale: en
+          name: English
+          default: true
+          build: true
+        - locale: de
+          name: Deutsch
+          build: true
+          site_name: DeepExtension Dokumentation
+          nav_translations:
+            Introduction: Einführung
+            Overview: Übersicht
+            "Key Concepts": "Zentrale Konzepte"
+            "Product Architecture": "Architektur"
+        - locale: zh
+          name: 中文
+          build: true
+          site_name: DeepExtension 文档
+          nav_translations:
+            Introduction: 介绍
+            Overview: 概览
+            "Key Concepts": "核心概念"
+            "Product Architecture": "产品架构"
+  - mkdocstrings:
+      handlers:
+        # See: https://mkdocstrings.github.io/python/usage/
+        python:
+          options:
+            docstring_style: sphinx
+markdown_extensions:
+#  - pymdownx.copybutton
+  - markdown_include.include:
+      base_path: .
+  - admonition
+  - codehilite
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.superfences
+  - toc:
+      permalink: true
+
+
+# nav_translations:
+#   de:
+#     Introduction: Einführung
+#     Overview: Übersicht
+#   zh:
+#     Introduction: 介绍
+#     Overview: 概览
+  #    - Key Concepts: intro/key-concepts.md
+  #     - Product Architecture: intro/architecture.md
+  # - Getting Started:
+  #     - Quick Start Guide: getting-started/quick-start.md
+  #     - Installation:
+  #         - Ubuntu (CUDA): getting-started/install-ubuntu.md
+  #         - macOS: getting-started/install-macos.md
+  # - User Guide:
+  #     - UI Overview: user-guide/ui-overview.md
+  #     - Managing Datasets: user-guide/dataset-management.md
+  #     - Training Pipelines: user-guide/training-pipelines.md
+  #     - Model Deployment: user-guide/deployment.md
+  #     - Lifecycle Management: user-guide/lifecycle.md
+  #     - Knowledge Base & Prompt Frontend: user-guide/kb-prompt.md
+  # - Tutorials:
+  #     - First End-to-End Workflow: tutorials/e2e.md
+  #     - Custom Model Fine-Tuning: tutorials/custom-finetune.md
+  #     - Integration with Existing Tools: tutorials/integration.md
+  # - Developer Guide:
+  #     - API Overview: developer/api-overview.md
+  #     - Authentication & Tokens: developer/auth.md
+  #     - Data & Training APIs: developer/data-apis.md
+  #     - Deployment APIs: developer/deploy-apis.md
+  #     - Custom Plugin Development: developer/plugins.md
+  #     - Webhooks & Events: developer/webhooks.md
+  # - Deployment & Ops:
+  #     - System Requirements: ops/system-reqs.md
+  #     - Configuration Options: ops/config.md
+  #     - Logging & Monitoring: ops/logging.md
+  #     - Backup & Recovery: ops/backup.md
+  #     - Upgrading: ops/upgrade.md
+  # - FAQ: faq.md
+  # - Release Notes: changelog.md
+  # - About & Support:
+  #     - About the Team: about/team.md
+  #     - Contact & Support: about/support.md
+
+# nav_translations:
+#   de:
+#     - Einführung:
+#         - Übersicht: index.md
+    #     - Zentrale Konzepte: intro/key-concepts.md
+    #     - Architektur: intro/architecture.md
+    # - Erste Schritte:
+    #     - Schnellstart: getting-started/quick-start.md
+    #     - Installation:
+    #         - Ubuntu (CUDA): getting-started/install-ubuntu.md
+    #         - macOS: getting-started/install-macos.md
+    # - Benutzerhandbuch:
+    #     - UI Überblick: user-guide/ui-overview.md
+    #     - Datenverwaltung: user-guide/dataset-management.md
+    #     - Trainingspipelines: user-guide/training-pipelines.md
+    #     - Modellbereitstellung: user-guide/deployment.md
+    #     - Lebenszyklus-Management: user-guide/lifecycle.md
+    #     - Wissensdatenbank & Prompt-Frontend: user-guide/kb-prompt.md
+    # - Tutorials:
+    #     - Erster End-to-End Workflow: tutorials/e2e.md
+    #     - Modell-Feinabstimmung: tutorials/custom-finetune.md
+    #     - Integration mit bestehenden Tools: tutorials/integration.md
+    # - Entwicklerhandbuch:
+    #     - API Überblick: developer/api-overview.md
+    #     - Authentifizierung & Tokens: developer/auth.md
+    #     - Daten- & Trainings-APIs: developer/data-apis.md
+    #     - Bereitstellungs-APIs: developer/deploy-apis.md
+    #     - Plugin-Entwicklung: developer/plugins.md
+    #     - Webhooks & Events: developer/webhooks.md
+    # - Betrieb & Bereitstellung:
+    #     - Systemanforderungen: ops/system-reqs.md
+    #     - Konfigurationsoptionen: ops/config.md
+    #     - Logging & Monitoring: ops/logging.md
+    #     - Backup & Wiederherstellung: ops/backup.md
+    #     - Aktualisierung: ops/upgrade.md
+    # - FAQ: faq.md
+    # - Versionshinweise: changelog.md
+    # - Über & Support:
+    #     - Über das Team: about/team.md
+    #     - Kontakt & Support: about/support.md
+
+  # zh:
+  #   - 简介:
+  #       - 概览: index.md
+    #     - 核心概念: intro/key-concepts.md
+    #     - 产品架构: intro/architecture.md
+    # - 快速开始:
+    #     - 快速指南: getting-started/quick-start.md
+    #     - 安装:
+    #         - Ubuntu（CUDA）: getting-started/install-ubuntu.md
+    #         - macOS: getting-started/install-macos.md
+    # - 用户指南:
+    #     - UI总览: user-guide/ui-overview.md
+    #     - 数据集管理: user-guide/dataset-management.md
+    #     - 训练流程: user-guide/training-pipelines.md
+    #     - 模型部署: user-guide/deployment.md
+    #     - 生命周期管理: user-guide/lifecycle.md
+    #     - 知识库与 Prompt 前端: user-guide/kb-prompt.md
+    # - 教程:
+    #     - 第一个端到端工作流: tutorials/e2e.md
+    #     - 自定义模型微调: tutorials/custom-finetune.md
+    #     - 与现有工具集成: tutorials/integration.md
+    # - 开发者指南:
+    #     - API 总览: developer/api-overview.md
+    #     - 鉴权与令牌: developer/auth.md
+    #     - 数据与训练 API: developer/data-apis.md
+    #     - 部署 API: developer/deploy-apis.md
+    #     - 插件开发: developer/plugins.md
+    #     - Webhooks 与事件: developer/webhooks.md
+    # - 运维部署:
+    #     - 系统要求: ops/system-reqs.md
+    #     - 配置选项: ops/config.md
+    #     - 日志与监控: ops/logging.md
+    #     - 备份与恢复: ops/backup.md
+    #     - 升级: ops/upgrade.md
+    # - 常见问题: faq.md
+    # - 更新日志: changelog.md
+    # - 关于与支持:
+    #     - 团队介绍: about/team.md
+    #     - 联系与支持: about/support.md
