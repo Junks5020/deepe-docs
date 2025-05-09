@@ -21,6 +21,28 @@ nav:
       - Overview: index.md
       - Key Concepts: intro/key-concepts.md
       - Product Architecture: intro/architecture.md
+  - Getting Started:
+      - Quick Start Guide: getting-started/quick-start.md
+      - Installation:
+          - Ubuntu (CUDA): getting-started/install-ubuntu.md
+          - macOS: getting-started/install-macos.md
+  - User Guide:
+      - UI Overview: user-guide/ui-overview.md
+      - Dashboard: user-guide/ui-dashboard.md
+      - DeepPrompt: user-guide/deep-prompt.md
+      - Model Training: user-guide/model-training.md
+      - Datasets Management: user-guide/dataset-management.md
+      - Document Embedding: user-guide/ducument-embedding.md
+      - Model Assessment: user-guide/model-assessment.md
+      - Model Management:
+          - Thirdparty Models: user-guide/thirdparty-models.md
+          - Base Models: user-guide/base-models.md
+          - Tranined Models: user-guide/trained-models.md
+          - Saved Models: user-guide/saved-models.md
+          - Deployed Models: user-guide/deployed-models.md
+      - Setting:
+          - Training Method Management : user-guide/training-methods.md
+          - User Management : user-guide/user-management.md
 
 plugins:
   - search
@@ -83,11 +105,21 @@ markdown_extensions:
   #         - macOS: getting-started/install-macos.md
   # - User Guide:
   #     - UI Overview: user-guide/ui-overview.md
-  #     - Managing Datasets: user-guide/dataset-management.md
-  #     - Training Pipelines: user-guide/training-pipelines.md
-  #     - Model Deployment: user-guide/deployment.md
-  #     - Lifecycle Management: user-guide/lifecycle.md
-  #     - Knowledge Base & Prompt Frontend: user-guide/kb-prompt.md
+  #     - UI Dashboard: user-guide/ui-dashboard.md
+  #     - DeepPrompt: user-guide/deep-prompt.md
+  #     - Model Training: user-guide/model-training.md
+  #     - Datasets Management: user-guide/dataset-management.md
+  #     - Document Embedding: user-guide/ducument-embedding.md
+  #     - Model Assessment: user-guide/model-assessment.md
+  #     - Model Management:
+  #         - Thirdparty Models: user-guide/thirdparty-models.md
+  #         - Base Models: user-guide/base-models.md
+  #         - Tranined Models: user-guide/trained-models.md
+  #         - Saved Models: user-guide/saved-models.md
+  #         - Deployed Models: user-guide/deployed-models.md
+  #     - Setting:
+  #         - Training Method Management : user-guide/training-methods.md
+  #         - User Management : user-guide/user-management.md
   # - Tutorials:
   #     - First End-to-End Workflow: tutorials/e2e.md
   #     - Custom Model Fine-Tuning: tutorials/custom-finetune.md
