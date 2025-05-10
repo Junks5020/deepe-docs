@@ -26,20 +26,17 @@ with explanation or scoring.
 1. Click **"Create a New"** on the Model Assessment page.
 2. Select an **assessment mode**, **dataset**, and **sample size** (default: all rows).
 3. Choose **Model A**, and if applicable, **Model B** and the **Judge Model** — these can be:
-   - Third-party API models (e.g., OpenAI, Anthropic, ModelScope, etc.)
-   - Local fine-tuned adapters or base models
-   - Fully deployed in-house models
+
+    - Third-party API models (e.g., OpenAI, Anthropic, ModelScope, etc.)
+    - Local fine-tuned adapters or base models
+    - Fully deployed in-house models
 
 4. Define prompts:
-   - **Candidate System Prompt**: Standard system prompt for inference (see 
-[DeepPrompt](deep-prompt.md)). If blank, a default like *"I am an AI assistant."* is applied.
-   - **Candidate User Prompt**: Must include dynamic placeholders like `{{column_name}}` to 
-pull values from the dataset (e.g., `Give a short answer to the question: {{question}}`).
-   - **Judge System Prompt**: Tells the judge model what criteria to use; can include 
-`{{CandidateSystemPrompt}}`.
-   - **Judge User Prompt**: Uses placeholders like `{{ResponseA}}`, `{{ResponseB}}`, 
-`{{ref_answer}}`, etc. (e.g., `Compare answer A: {{ResponseA}} and B: {{ResponseB}} based on 
-reference: {{ref_answer}}`).
+
+    - **Candidate System Prompt**: Standard system prompt for inference (see [DeepPrompt](deep-prompt.md)). If blank, a default like *"I am an AI assistant."* is applied.
+    - **Candidate User Prompt**: Must include dynamic placeholders like `{{column_name}}` to pull values from the dataset (e.g., `Give a short answer to the question: {{question}}`).
+    - **Judge System Prompt**: Tells the judge model what criteria to use; can include `{{CandidateSystemPrompt}}`.
+    - **Judge User Prompt**: Uses placeholders like `{{ResponseA}}`, `{{ResponseB}}`, `{{ref_answer}}`, etc. (e.g., `Compare answer A: {{ResponseA}} and B: {{ResponseB}} based on reference: {{ref_answer}}`).
 
 ---
 
