@@ -28,22 +28,23 @@ nav:
           - macOS: getting-started/install-macos.md
   - User Guide:
       - UI Overview: user-guide/ui-overview.md
-      - Dashboard: user-guide/ui-dashboard.md
+#      - Dashboard: user-guide/dashboard.md
       - DeepPrompt: user-guide/deep-prompt.md
       - Model Training: user-guide/model-training.md
       - Datasets Management: user-guide/dataset-management.md
-      - Document Embedding: user-guide/ducument-embedding.md
+      - Document Embedding: user-guide/document-embedding.md
       - Model Assessment: user-guide/model-assessment.md
       - Model Management:
           - Thirdparty Models: user-guide/thirdparty-models.md
           - Base Models: user-guide/base-models.md
-          - Tranined Models: user-guide/trained-models.md
+          - Trained Models: user-guide/trained-models.md
           - Saved Models: user-guide/saved-models.md
           - Deployed Models: user-guide/deployed-models.md
       - Setting:
           - Training Method Management : user-guide/training-methods.md
           - User Management : user-guide/user-management.md
-
+#  - Temp:
+#      - Temp Page: post/how-agents-work-as-team.md
 plugins:
   - search
   - i18n:
@@ -109,7 +110,7 @@ markdown_extensions:
   #     - DeepPrompt: user-guide/deep-prompt.md
   #     - Model Training: user-guide/model-training.md
   #     - Datasets Management: user-guide/dataset-management.md
-  #     - Document Embedding: user-guide/ducument-embedding.md
+  #     - Document Embedding: user-guide/document-embedding.md
   #     - Model Assessment: user-guide/model-assessment.md
   #     - Model Management:
   #         - Thirdparty Models: user-guide/thirdparty-models.md

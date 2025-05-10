@@ -65,7 +65,7 @@ This system helps teams confidently compare fine-tuned models, judge alignment q
 ### 🗂️ Model Management
 Track every model in your organization through the following subcategories:
 
-- **Thirdparty Models**: External models you’ve linked (e.g., OpenAI, HuggingFace, etc.)
+- **Thirdparty Models**: External models you’ve linked (e.g., OpenAI, Anthropic, ModelScope, etc.)
 - **Base Models**: Pretrained foundation models available for use or fine-tuning
 - **Trained Models**: Outputs from the training process, typically PEFT adapters or checkpoints that are linked to a base model (also called as training artifact). These represent models in their intermediate form before merging.
 - **Saved Models**: Fully materialized models created by merging trained adapters into base models. These are independent and versioned snapshots, ready for deployment or further experimentation.
@@ -104,7 +104,7 @@ You can continue with the following chapters for more detail:
 - [DeepPrompt](deep-prompt.md)  
 - [Model Training](model-training.md)  
 - [Dataset Management](dataset-management.md)  
-- [Document Embedding](ducument-embedding.md)  
+- [Document Embedding](document-embedding.md)  
 - [Model Assessment](model-assessment.md)  
 - [Model Management](trained-models.md)  
 - [Settings](training-methods.md)
