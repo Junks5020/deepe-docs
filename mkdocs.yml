@@ -2,8 +2,8 @@ site_name: DeepExtension Documentation
 site_url: https://docs.deepextension.ai
 theme:
   name: material
-  logo: assets/logo.png
-  favicon: assets/favicon.ico
+  logo: assets/images/logo.png
+  favicon: assets/images/favicon.ico
   language: en
   features:
     - navigation.tabs
@@ -78,17 +78,18 @@ plugins:
           options:
             docstring_style: sphinx
 markdown_extensions:
-#  - pymdownx.copybutton
+  - admonition
+  - attr_list
+  - md_in_html
   - markdown_include.include:
       base_path: .
-  - admonition
   - codehilite
   - pymdownx.highlight
   - pymdownx.inlinehilite
   - pymdownx.superfences
   - toc:
       permalink: true
-
+#  - pymdownx.copybutton
 
 # nav_translations:
 #   de:
