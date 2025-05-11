@@ -25,7 +25,7 @@ nav:
       - Quick Start Guide: getting-started/quick-start.md
       - Installation:
           - Ubuntu (CUDA): getting-started/install-ubuntu.md
-          - macOS: getting-started/install-macos.md
+          - MacOS: getting-started/install-macos.md
   - User Guide:
       - UI Overview: user-guide/ui-overview.md
 #      - Dashboard: user-guide/dashboard.md
@@ -43,6 +43,19 @@ nav:
       - Setting:
           - Training Method Management : user-guide/training-methods.md
           - User Management : user-guide/user-management.md
+  - Tutorials:
+      - First End-to-End Workflow (CUDA): tutorials/first-e2e-workflow-cuda.md
+      - First End-to-End Workflow (MacOS): tutorials/first-e2e-workflow-mac.md
+#      - Custom Model Fine-Tuning: tutorials/custom-finetune.md
+  - Developer Guide:
+      - How to Implement Your Own Training: developer/implement-own-ai-training.md
+  - Deployment & Ops:
+      - Ollama as Deployment Tool: ops/ollama-deployment.md
+  - FAQ: faq.md
+  - Release Notes: changelog.md
+  - About & Support:
+      - About the Team: about/team.md
+      - Contact & Support: about/support.md
 #  - Temp:
 #      - Temp Page: post/how-agents-work-as-team.md
 plugins:
