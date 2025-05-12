@@ -46,7 +46,7 @@ Before you begin, make sure you have the following:
    - e.g., `Qwen-1.5-7B`, `OpenLLM`, `Mistral`, or custom
 3. Select a fine-tuning method:
    - Default: **LoRA (PEFT)**
-   - Advanced: **SFT**, **DPO**, **GRPO**
+   - Advanced: **SFT**, **GRPO**
 4. Choose hyperparameters or stick with recommended defaults
 
 ---

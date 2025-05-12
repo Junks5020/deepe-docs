@@ -45,7 +45,7 @@ DeepExtension wurde speziell für das **Training und die Bereitstellung von LLMs
 - Eine vollständig **webbasierte Oberfläche**
 - **Modulare Orchestrierung** von Training, Evaluation und Bereitstellung
 - Unterstützung für **benutzerdefinierte Trainingsskripte**
-- Unterstützung für **PEFT, SFT, DPO, PPO, GRPO** und mehr
+- Unterstützung für **PEFT, SFT, PPO, GRPO** und mehr
 - Vorlagen mit Best Practices aus Bereichen wie **Biotechnologie**, **Materialwissenschaften**, **industrielles Design** und anderen
 
 Besonders geeignet für:

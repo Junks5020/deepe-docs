@@ -6,8 +6,9 @@ used in DeepExtension. These strategies are selectable in [Model Training](model
 base models are adapted to domain-specific tasks.
 
 Supported method types include:
+
 - **SFT** (Supervised Fine-Tuning)
-- **DPO** (Direct Preference Optimization)
+<!-- - **DPO** (Direct Preference Optimization) -->
 - **PEFT** (Parameter-Efficient Fine-Tuning, e.g., LoRA, adapters)
 - **PPO**, **GRPO**, and other reinforcement-based methods
 
@@ -32,7 +33,7 @@ To register a new method:
 2. Fill in required details such as:
    - Internal Name
    - Display Name
-   - Method Type (e.g., SFT, DPO, PEFT)
+   - Method Type (e.g., SFT, PEFT)
    - Description
    - Configuration Options (if applicable)
 

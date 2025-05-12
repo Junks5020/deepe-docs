@@ -34,7 +34,7 @@ Modulare Bausteine für den gesamten Lebenszyklus eines LLMs – über eine benu
 DeepExtension setzt auf **parameter-effizientes Feintuning (PEFT)**, ideal für Teams mit begrenzten Rechenressourcen:
 
 - Techniken wie **LoRA**, **Prompt-/Prefix-Tuning** und **Adaptermodelle**  
-- Zusätzlich unterstützt: **SFT**, **DPO**, **PPO**, **GRPO**  
+- Zusätzlich unterstützt: **SFT**, **PPO**, **GRPO**  
 - Ideal für schnelle Iterationen domänenspezifischer Modelle  
 - Erweiterbar auf vollständiges Feintuning bei Bedarf
 

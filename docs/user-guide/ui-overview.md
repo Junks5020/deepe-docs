@@ -27,17 +27,17 @@ Compared with traditional prompt playgrounds, **DeepPrompt** offers deeper integ
 
 
 ### 🧠 Model Training
-Trigger training jobs using base models, fine-tuning methods (e.g., **LoRA**, **DPO**, **GRPO**), and customizable hyperparameters. All training tasks are fully UI-driven — no coding required.
+Trigger training jobs using base models, fine-tuning methods (e.g., **LoRA**, **GRPO**), and customizable hyperparameters. All training tasks are fully UI-driven — no coding required.
 
 Highlights include:
 
-- **"Copy Train"** button: Instantly duplicate a previous training job, preserving all configurations. Change only a few parameters (e.g., dataset, LoRA rank, learning rate) to create a comparable variation.
+- **"Copy Train"** button: Instantly duplicate a previous training job, preserving all configurations. Change only a few parameters (e.g., base model, dataset, LoRA rank, learning rate) to create a comparable variation.
 - **Real-time training logs and evaluation data**: Loss curves, reward points, and key metrics are fully visualized, making model progress transparent.
-- **Multi-training comparison**: Select multiple training runs and compare them side by side with one click — including performance, configuration, and output differences.
+- **Multi-training comparison**: Select multiple training runs and compare them side by side with one click — including performance, configuration, input and output differences.
 
 
 ### 📂 Dataset Management
-Upload, version, label, and organize datasets. Supports multiple formats like CSV, JSONL, and JSON.
+Upload, version, label, and organize datasets. Supports multiple formats like JSONL, and JSON.
 
 ### 📄 Document Embedding
 Embed large-scale documents for retrieval-augmented generation (RAG) use cases. Supports knowledge base creation and indexing.
@@ -81,7 +81,7 @@ This structure gives users full control over versioning, promotion, and cleanup,
 
 ### ⚙️ Settings
 
-- **Training Method Management**: Configure and register custom fine-tuning strategies (e.g., SFT, DPO, PEFT)
+- **Training Method Management**: Configure and register custom fine-tuning strategies (e.g., SFT, PEFT)
 - **User Management**: Manage team members, permissions, and access control across projects
 
 ---
@@ -100,7 +100,7 @@ This guide is ideal for:
 
 You can continue with the following chapters for more detail:
 
-- [UI Dashboard](ui-dashboard.md)  
+<!-- - [UI Dashboard](ui-dashboard.md)   -->
 - [DeepPrompt](deep-prompt.md)  
 - [Model Training](model-training.md)  
 - [Dataset Management](dataset-management.md)  

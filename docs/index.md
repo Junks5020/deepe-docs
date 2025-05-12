@@ -45,7 +45,7 @@ DeepExtension is purpose-built for **enterprise-grade LLM training and deploymen
 - A fully **web-based interface**
 - **Modular orchestration** of training, evaluation, and deployment
 - Integration of **developer-defined training logic**
-- Support for **PEFT, SFT, DPO, PPO, GRPO**, and more
+- Support for **PEFT, SFT, PPO, GRPO**, and more
 - Real-world case templates from **biotech**, **materials science**, **industrial design**, and beyond
 
 It is especially well-suited for:

@@ -34,7 +34,7 @@ Modular building blocks for the entire LLM lifecycle, accessible through a user-
 DeepExtension emphasizes **Parameter-Efficient Fine-Tuning (PEFT)** to support teams with limited compute and resources:
 
 - Techniques like **LoRA**, **Prompt/Prefix Tuning**, and **adapters**
-- Also utilize **SFT**, **DPO**, **PPO**, and **GRPO** for broader fine-tuning and alignment needs
+- Also utilize **SFT**, **PPO**, and **GRPO** for broader fine-tuning and alignment needs
 - Ideal for quick iterations on domain-specific models
 - Extendable to full fine-tuning when needed
 
