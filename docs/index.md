@@ -8,13 +8,13 @@ Whether you're an AI engineer or a business expert, DeepExtension offers a share
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 Start your journey with DeepExtension by following the **[Quick Start Guide](getting-started/quick-start.md)**.
 
 ---
 
-## 📚 Table of Contents
+## Table of Contents
 
 - [Introduction](intro/overview.md)
 - [Getting Started](getting-started/quick-start.md)
@@ -28,7 +28,7 @@ Start your journey with DeepExtension by following the **[Quick Start Guide](get
 
 ---
 
-## 🌍 Supported Languages
+## Supported Languages
 
 This documentation is available in:
 
@@ -38,7 +38,7 @@ This documentation is available in:
 
 ---
 
-## 📝 About DeepExtension
+## About DeepExtension
 
 DeepExtension is purpose-built for **enterprise-grade LLM training and deployment**. It simplifies complex AI workflows through:
 
@@ -56,7 +56,7 @@ It is especially well-suited for:
 
 ---
 
-## 📞 Contact Support
+## Contact Support
 
 For help or questions, visit our [Support page](about/support.md) or reach out to our team.
 

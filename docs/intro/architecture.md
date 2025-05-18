@@ -4,21 +4,21 @@ DeepExtension is designed as a modular, scalable, and enterprise-grade platform 
 
 ---
 
-## 🏗️ Overview
+## Overview
 
 At a glance, DeepExtension consists of the following key layers:
 
 
 ---
 
-## 🖥️ 1. User Interfaces
+## 1. User Interfaces
 
 - **Web-based UI** (Self-hosted): The primary interface for most users.
 - **RESTful API**: For programmatic access, CI/CD integration, or automation.
 
 ---
 
-## ⚙️ 2. Application Layer
+## 2. Application Layer
 
 This layer powers the user experience and handles:
 
@@ -32,7 +32,7 @@ This layer powers the user experience and handles:
 
 ---
 
-## 🧠 3. Core AI Layer
+## 3. Core AI Layer
 
 This is where DeepExtension becomes AI-specialized:
 
@@ -42,7 +42,7 @@ This is where DeepExtension becomes AI-specialized:
 
 ---
 
-## 🧰 4. Infrastructure Layer
+## 4. Infrastructure Layer
 
 Runs the compute and storage:
 
@@ -58,7 +58,7 @@ Runs the compute and storage:
 
 ---
 
-## 🔗 Integrations
+## Integrations
 
 DeepExtension supports integrations with:
 
@@ -68,7 +68,7 @@ DeepExtension supports integrations with:
 
 ---
 
-## 🔐 Security Features
+## Security Features
 
 - Role-based access control (RBAC)
 - Project-level permission scopes
@@ -77,7 +77,7 @@ DeepExtension supports integrations with:
 
 ---
 
-## 📦 Deployment Options
+## Deployment Options
 
 | Target Environment | Description                            |
 |--------------------|----------------------------------------|
@@ -87,7 +87,7 @@ DeepExtension supports integrations with:
 
 ---
 
-## 🚀 Summary
+## Summary
 
 DeepExtension is engineered to be adaptable for both experimental R&D and mission-critical enterprise deployments. Its layered architecture makes it easy to integrate with existing AI stacks while giving you complete control over your model workflows.
 

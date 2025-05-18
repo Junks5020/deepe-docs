@@ -1,11 +1,13 @@
 
-# 🛠️ Install DeepExtension on Ubuntu (CUDA)
+# 还在改进中, 展示不要review
+
+# Install DeepExtension on Ubuntu (CUDA)
 
 This guide walks you through installing **DeepExtension** on an Ubuntu system with **GPU acceleration (CUDA)**. It covers prerequisites, Docker setup, and how to run DeepExtension using Docker Compose.
 
 ---
 
-## ✅ System Requirements
+## System Requirements
 
 - **OS**: Ubuntu 20.04 or 22.04 (recommended)
 - **GPU**: NVIDIA GPU with CUDA Compute Capability 6.0+
@@ -16,7 +18,7 @@ This guide walks you through installing **DeepExtension** on an Ubuntu system wi
 
 ---
 
-## 📦 1. Install Docker & NVIDIA Container Toolkit
+## 1. Install Docker & NVIDIA Container Toolkit
 
 ### Step 1.1: Install Docker
 
@@ -49,7 +51,7 @@ sudo systemctl restart docker
 
 ---
 
-## ⚙️ 2. Verify GPU Access in Docker
+## 2. Verify GPU Access in Docker
 
 Test if Docker can see your GPU:
 
@@ -61,7 +63,7 @@ Expected output: your GPU information table.
 
 ---
 
-## 📁 3. Clone DeepExtension Repository
+## 3. Clone DeepExtension Repository
 
 ```bash
 git clone https://github.com/your-org/deepextension.git
@@ -72,7 +74,7 @@ cd deepextension
 
 ---
 
-## 🧱 4. Configure Environment
+## 4. Configure Environment
 
 Copy and edit the `.env` file:
 
@@ -88,7 +90,7 @@ Key settings to review:
 
 ---
 
-## 🚀 5. Start DeepExtension with Docker Compose
+## 5. Start DeepExtension with Docker Compose
 
 ```bash
 docker compose -f docker-compose.ubuntu.gpu.yml up -d
@@ -108,7 +110,7 @@ http://localhost:8080
 
 ---
 
-## 🧪 6. First-Time Setup
+## 6. First-Time Setup
 
 - Register the first admin user via the UI
 - Create a project and upload a sample dataset
@@ -116,7 +118,7 @@ http://localhost:8080
 
 ---
 
-## 🧼 7. Stop or Remove
+## 7. Stop or Remove
 
 To stop:
 
@@ -132,7 +134,7 @@ docker compose -f docker-compose.ubuntu.gpu.yml down -v
 
 ---
 
-## 🆘 Troubleshooting
+## Troubleshooting
 
 - **"nvidia-smi not found"**: Ensure host has NVIDIA driver and CUDA installed
 - **Permission denied**: Add your user to `docker` group (`sudo usermod -aG docker $USER`)
@@ -140,7 +142,7 @@ docker compose -f docker-compose.ubuntu.gpu.yml down -v
 
 ---
 
-## 📘 Next Steps
+## Next Steps
 
 - Continue with the [Quick Start Guide](quick-start.md)
 - Read the [System Requirements](system-reqs.md)

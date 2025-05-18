@@ -1,4 +1,4 @@
-# 🚀 Quick Start Guide
+# Quick Start Guide
 
 Welcome to **DeepExtension** — your platform for fast, flexible, and guided domain-specific AI development.
 
@@ -6,7 +6,7 @@ This guide walks you through the basic steps to get up and running, whether you�
 
 ---
 
-## ✅ Prerequisites
+## Prerequisites
 
 Before you begin, make sure you have the following:
 
@@ -20,7 +20,7 @@ Before you begin, make sure you have the following:
 
 ---
 
-## 🧭 Step 1: Log In & Create a Project
+## Step 1: Log In & Create a Project
 
 1. Open your browser and navigate to the DeepExtension web UI.
 2. Log in using your admin or user credentials.
@@ -29,7 +29,7 @@ Before you begin, make sure you have the following:
 
 ---
 
-## 📂 Step 2: Upload Your Dataset
+## Step 2: Upload Your Dataset
 
 1. Inside your project, go to **"Datasets"** → **"Upload Dataset"**.
 2. Upload your training data:
@@ -39,7 +39,7 @@ Before you begin, make sure you have the following:
 
 ---
 
-## 🏗️ Step 3: Define Training Configuration
+## Step 3: Define Training Configuration
 
 1. Go to **"Training"** → **"New Training Job"**
 2. Choose a base model:
@@ -51,7 +51,7 @@ Before you begin, make sure you have the following:
 
 ---
 
-## 🔁 Step 4: Run Training Job
+## Step 4: Run Training Job
 
 1. Click **"Start Training"**
 2. Monitor progress in the **"Jobs"** dashboard
@@ -59,7 +59,7 @@ Before you begin, make sure you have the following:
 
 ---
 
-## 🧪 Step 5: Evaluate the Model
+## Step 5: Evaluate the Model
 
 1. Go to **"Evaluation"**
 2. Choose test inputs or upload an evaluation set
@@ -68,7 +68,7 @@ Before you begin, make sure you have the following:
 
 ---
 
-## 🚀 Step 6: Deploy the Model
+## Step 6: Deploy the Model
 
 1. Go to **"Deployment"** → **"Create Endpoint"**
 2. Choose the model version to deploy
@@ -80,7 +80,7 @@ Before you begin, make sure you have the following:
 
 ---
 
-## 🔧 (Optional) Developer Integration
+## (Optional) Developer Integration
 
 - If you're an AI engineer:
   - Clone the SDK or use the Python API
@@ -89,7 +89,7 @@ Before you begin, make sure you have the following:
 
 ---
 
-## 🧠 Tips for Success
+## Tips for Success
 
 - Start with small, clean datasets
 - Use **predefined templates and cases** for common business tasks
@@ -98,7 +98,7 @@ Before you begin, make sure you have the following:
 
 ---
 
-## 📘 Next Steps
+## Next Steps
 
 - Explore the **User Guide** for details on UI and features
 - Visit the **Developer Guide** if you're integrating training pipelines

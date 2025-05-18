@@ -6,7 +6,7 @@ Whether you're just starting or scaling an AI initiative, DeepExtension brings t
 
 ---
 
-## 📌 1. Case-Driven Onboarding & Best Practice Sharing
+## 1. Case-Driven Onboarding & Best Practice Sharing
 
 DeepExtension is not just a tool—it’s a **repository of proven success stories** and ready-to-use templates.
 
@@ -19,7 +19,7 @@ DeepExtension is not just a tool—it’s a **repository of proven success stori
 
 ---
 
-## 🧱 2. Web-Based, Modular LLM Platform
+## 2. Web-Based, Modular LLM Platform
 
 Modular building blocks for the entire LLM lifecycle, accessible through a user-friendly interface:
 
@@ -29,7 +29,7 @@ Modular building blocks for the entire LLM lifecycle, accessible through a user-
 
 ---
 
-## 🔁 3. PEFT First: Big Impact, Small Footprint
+## 3. PEFT First: Big Impact, Small Footprint
 
 DeepExtension emphasizes **Parameter-Efficient Fine-Tuning (PEFT)** to support teams with limited compute and resources:
 
@@ -40,7 +40,7 @@ DeepExtension emphasizes **Parameter-Efficient Fine-Tuning (PEFT)** to support t
 
 ---
 
-## 👥 4. Collaborative AI Workspace
+## 4. Collaborative AI Workspace
 
 DeepExtension is designed for **dual users**:
 
@@ -50,7 +50,7 @@ DeepExtension is designed for **dual users**:
 
 ---
 
-## ⚙️ 5. Orchestrated Workflows
+## 5. Orchestrated Workflows
 
 Enable structured, auditable AI processes from start to finish:
 
@@ -62,7 +62,7 @@ Enable structured, auditable AI processes from start to finish:
 
 ---
 
-## 🧩 6. Extensible Architecture
+## 6. Extensible Architecture
 
 DeepExtension can adapt to your existing environment:
 
@@ -72,7 +72,7 @@ DeepExtension can adapt to your existing environment:
 
 ---
 
-## 🔐 7. Enterprise-Ready by Default
+## 7. Enterprise-Ready by Default
 
 Built to meet enterprise IT and MLOps standards:
 
@@ -83,7 +83,7 @@ Built to meet enterprise IT and MLOps standards:
 
 ---
 
-## 🌍 8. Multilingual and Team-Oriented
+## 8. Multilingual and Team-Oriented
 
 Collaborate across languages and departments:
 
@@ -93,7 +93,7 @@ Collaborate across languages and departments:
 
 ---
 
-## 🧭 9. Guided AI 
+## 9. Guided AI 
 <!-- with GRPO -->
 
 At the core of DeepExtension is **Guided Reinforcement with Prompt Optimization**:
