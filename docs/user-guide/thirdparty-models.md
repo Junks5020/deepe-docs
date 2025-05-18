@@ -1,5 +1,5 @@
 
-# 🌐 Thirdparty Models
+# Thirdparty Models
 
 **Thirdparty Models** refer to external models integrated into DeepExtension — including services like **OpenAI**, 
 **Anthropic**, **ModelScope**, or even locally deployed models accessible via API. These models are essential components 
@@ -7,7 +7,7 @@ of DeepExtension workflows and can be used for inference, evaluation, and embedd
 
 ---
 
-## 🔗 Why Thirdparty Models Matter
+## Why Thirdparty Models Matter
 
 Thirdparty models are deeply integrated into the DeepExtension ecosystem:
 
@@ -21,12 +21,12 @@ uploaded documents.
 - In **Model Assessment**, you can use any thirdparty model as a **candidate** or **judge** — enabling rich benchmarking 
 and evaluation scenarios.
 
-> 💡 Even locally deployed models (e.g., those running on LAN or containerized endpoints) must be registered as 
+> Even locally deployed models (e.g., those running on LAN or containerized endpoints) must be registered as 
 thirdparty models since DeepExtension itself does not host or serve models directly.
 
 ---
 
-## ➕ Add a New Model
+## Add a New Model
 
 To add a new thirdparty model:
 
@@ -48,7 +48,7 @@ To add a new thirdparty model:
 
 ---
 
-## ✏️ Edit an Existing Model
+## Edit an Existing Model
 
 To update a model:
 

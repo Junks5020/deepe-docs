@@ -1,5 +1,5 @@
 
-# 📄 Document Embedding
+# Document Embedding
 
 The **Document Embedding** module in DeepExtension allows users to convert documents into vector representations 
 for use in **retrieval-augmented generation (RAG)** and related knowledge-aware AI workflows. This is especially 
@@ -7,7 +7,7 @@ useful for enterprise applications that require grounding LLM outputs in interna
 
 ---
 
-## 🧠 Create a Knowledge Base
+## Create a Knowledge Base
 
 To set up a new Knowledge Base:
 
@@ -19,7 +19,7 @@ Models](thirdparty-models.md).
 
 ---
 
-## 📂 Add Embedded Documents
+## Add Embedded Documents
 
 To add documents to an existing Knowledge Base:
 
@@ -34,7 +34,7 @@ selected model) or skip for later parsing.
 
 ---
 
-## 📑 Document Embedding Behavior
+## Document Embedding Behavior
 
 While document upload and embedding are supported, full **Knowledge Base search and RAG-style retrieval** are 
 still under development and listed on our roadmap for future releases.

@@ -1,5 +1,5 @@
 
-# 📂 Dataset Management
+# Dataset Management
 
 The **Dataset Management** module in DeepExtension provides a structured and version-controlled environment for uploading and organizing the training 
 and evaluation data used across your AI workflows.
@@ -8,7 +8,7 @@ You can manage datasets in formats like **JSONL** and **JSON**, define their sch
 
 ---
 
-## 📥 Upload a Dataset
+## Upload a Dataset
 
 To upload a new dataset:
 
@@ -19,7 +19,7 @@ To upload a new dataset:
 5. Once complete, click **"View"** to inspect the uploaded dataset.  
 6. If any error occurs, click **"Log"** to check the detailed error messages.
 
-### ⚠️ Upload Requirements
+### Upload Requirements
 
 Currently, only UTF-8 encoded `.json` or `.jsonl` files are supported. Please follow these format rules:
 
@@ -32,7 +32,7 @@ Currently, only UTF-8 encoded `.json` or `.jsonl` files are supported. Please fo
 
 ---
 
-## 📑 Dataset Management Behavior
+## Dataset Management Behavior
 
 Each dataset upload creates a **new, separate dataset entry**.  
 Version control is not yet available but is currently on the roadmap for future updates.
@@ -43,7 +43,7 @@ Version control is not yet available but is currently on the roadmap for future 
 
 ---
 
-## 🔄 Dataset Usage
+## Dataset Usage
 
 Datasets can be used in:
 

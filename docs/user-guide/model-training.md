@@ -1,5 +1,5 @@
 
-# 🧠 Model Training
+# Model Training
 
 The **Model Training** module in DeepExtension allows users to fine-tune language models through a fully visual, no-code interface. It supports various 
 fine-tuning strategies, integrates seamlessly with your datasets, and provides transparent monitoring and comparison tools throughout the training 
@@ -7,7 +7,7 @@ lifecycle.
 
 ---
 
-## 🚀 Start a New Train
+## Start a New Train
 
 To begin a new training job:
 
@@ -15,7 +15,7 @@ To begin a new training job:
 2. Select a fine-tuning method from those defined in [Training Method Management](training-methods.md).
 3. Fill in the required parameters as described below.
 
-### 🧾 Parameter Reference Table
+### Parameter Reference Table
 
 | **Parameter Name**     | **Meaning**                                                | **Typical Values / Range**                             |
 |------------------------|------------------------------------------------------------|--------------------------------------------------------|
@@ -40,14 +40,14 @@ To begin a new training job:
 | `PromptInputColumn`        | Dataset column used as input prompt (e.g., the "question")         | e.g., `question`, `instruction`, `query`               |
 | `PromptOutputColumn`       | Dataset column used as expected output (e.g., the "answer")        | e.g., `answer`, `response`, `completion`               |
 
-> 💡 Most of these parameters are passed directly to your training logic. To customize their use, refer to [Implement Your Own Training](../developer/implement-own-ai-training.md).
+> Most of these parameters are passed directly to your training logic. To customize their use, refer to [Implement Your Own Training](../developer/implement-own-ai-training.md).
 
 
 Once you click **"Run the Train"**, the job will be submitted and processed in **batch mode** on your backend infrastructure.
 
 ---
 
-## 📊 View Train Details & Monitor Progress
+## View Train Details & Monitor Progress
 
 To inspect an existing training job:
 
@@ -62,7 +62,7 @@ You will see three tabs:
 
 ---
 
-## 📋 Copy a Train
+## Copy a Train
 
 To quickly replicate and tweak a previous training job:
 
@@ -75,7 +75,7 @@ This is ideal for A/B testing or iterative improvements.
 
 ---
 
-## 📈 Training Comparison
+## Training Comparison
 
 You can compare multiple training jobs side-by-side:
 

@@ -1,4 +1,4 @@
-# 🧭 UI Overview
+# UI Overview
 
 Welcome to the **DeepExtension User Interface (UI)** — a web-based, modular workspace designed for both domain experts and AI developers to 
 collaborate seamlessly throughout the model development lifecycle.
@@ -8,15 +8,15 @@ requiring users to write code.
 
 ---
 
-## 🧱 What You'll Find in This Section
+## What You'll Find in This Section
 
 The **User Guide** is organized by feature areas of the DeepExtension interface. It helps you understand what each part of the UI does and how 
 to use it effectively:
 
-### 📊 Dashboard
+### Dashboard
 Get a real-time overview of active projects, training jobs, model deployments, usage stats, and recent activity — all in one glance.
 
-### 🎯 DeepPrompt
+### DeepPrompt
 Use structured prompt templates to guide LLM behavior. Ideal for business logic alignment and creating repeatable AI actions.
 
 Compared with traditional prompt playgrounds, **DeepPrompt** offers deeper integration with your data and models. It allows users to:
@@ -26,8 +26,8 @@ Compared with traditional prompt playgrounds, **DeepPrompt** offers deeper integ
 - Simulate production behavior with partial training results, accelerating evaluation cycles  
 
 
-### 🧠 Model Training
-Trigger training jobs using base models, fine-tuning methods (e.g., **LoRA**, **GRPO**), and customizable hyperparameters. All training tasks are fully UI-driven — no coding required.
+### Model Training
+Trigger training jobs using base models, fine-tuning methods (e.g., **SFT**, **GRPO**), with or without parameter-efficient techniques like **LoRA**, and customizable hyperparameters. All training tasks are fully UI-driven — no coding required.
 
 Highlights include:
 
@@ -36,13 +36,13 @@ Highlights include:
 - **Multi-training comparison**: Select multiple training runs and compare them side by side with one click — including performance, configuration, input and output differences.
 
 
-### 📂 Dataset Management
+### Dataset Management
 Upload, version, label, and organize datasets. Supports multiple formats like JSONL, and JSON.
 
-### 📄 Document Embedding
+### Document Embedding
 Embed large-scale documents for retrieval-augmented generation (RAG) use cases. Supports knowledge base creation and indexing.
 
-### 📈 Model Assessment
+### Model Assessment
 
 DeepExtension provides a powerful, **batch-oriented model evaluation framework** designed to help you compare model outputs at scale using real datasets.
 
@@ -62,7 +62,7 @@ Key capabilities include:
 This system helps teams confidently compare fine-tuned models, judge alignment quality, and standardize LLM output evaluation.
 
 
-### 🗂️ Model Management
+### Model Management
 Track every model in your organization through the following subcategories:
 
 - **Thirdparty Models**: External models you’ve linked (e.g., OpenAI, Anthropic, ModelScope, etc.)
@@ -79,14 +79,16 @@ The UI provides **one-click actions** to move models forward through this lifecy
 
 This structure gives users full control over versioning, promotion, and cleanup, ensuring that only valuable models progress while maintaining a clear and auditable lifecycle.
 
-### ⚙️ Settings
+### Settings
 
-- **Training Method Management**: Configure and register custom fine-tuning strategies (e.g., SFT, PEFT)
+- **Deployment Tool Configuration**: Maintain integration settings for deployment tools.  
+  Currently, only **Ollama** is supported. When deploying a saved model, the system uses this configuration to connect with your local Ollama environment. More local LLM serving tools such as **LM Studio** are planned for future support.
+- **Training Method Management**: Configure and register custom fine-tuning strategies (e.g., SFT, GRPO)
 - **User Management**: Manage team members, permissions, and access control across projects
 
 ---
 
-## 🎯 Who Should Use This
+## Who Should Use This
 
 This guide is ideal for:
 
@@ -96,7 +98,7 @@ This guide is ideal for:
 
 ---
 
-## 📘 Next Steps
+## Next Steps
 
 You can continue with the following chapters for more detail:
 
@@ -106,8 +108,8 @@ You can continue with the following chapters for more detail:
 - [Dataset Management](dataset-management.md)  
 - [Document Embedding](document-embedding.md)  
 - [Model Assessment](model-assessment.md)  
-- [Model Management](trained-models.md)  
-- [Settings](training-methods.md)
+- [Model Management](thirdparty-models.md)  
+- [Settings](deployment-tool-configuration.md)
 
 ---
 

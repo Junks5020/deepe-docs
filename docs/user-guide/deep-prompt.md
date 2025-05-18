@@ -1,5 +1,5 @@
 
-# 🎯 DeepPrompt
+# DeepPrompt
 
 **DeepPrompt** is a powerful prompt experimentation tool within DeepExtension that allows users to design, 
 test, and compare structured prompts across different model states and sources. It is designed for **business 
@@ -7,15 +7,13 @@ logic alignment**, **prompt evaluation**, and **reproducible model behavior** �
 
 ---
 
-## 🧠 What Makes DeepPrompt Unique
+## What Makes DeepPrompt Unique
 
 Unlike traditional prompt playgrounds, DeepPrompt provides **tight integration with your models and embedded enterprise documents**, enabling deeper control and more realistic testing environments.
 
 Key features include:
 
-- **Inference with Unmerged Models**: Run prompts directly against **trained adapters or PEFT checkpoints**, 
-even before they are merged into a base model. During model selection, models are clearly labeled and grouped 
-by type/stage (e.g., base, trained, saved, deployed).
+- **Inference with Trained Models**: You can run prompts directly against **trained adapters or PEFT checkpoints** — even before they are merged into a base model. During model selection, **trained models** and all **third-party models** are listed, and each is clearly labeled by type.
 
 - **Embedded Document Integration**: Reference enterprise documents or embedded knowledge bases directly 
 inside your prompts. This is especially useful for retrieval-augmented generation (RAG) use cases.
@@ -34,7 +32,16 @@ merging.
 
 ---
 
-## 💡 Use Cases
+### Important Notes
+
+- For **trained models**, the corresponding **saved models** (after merging) are expected to produce identical outputs during inference.
+- We strongly recommend using **deployed saved models** for production scenarios, as they offer **significantly better inference speed and stability**.
+- The inference capability for trained models is primarily intended for **validation and experimentation**, not for high-load or low-latency production usage.
+- **Base models** are not available for direct inference here. If you wish to use them, we recommend deploying them first to benefit from **much faster performance**.
+
+---
+
+## Use Cases
 
 - Evaluate prompt robustness across model versions  
 - Compare inference behavior across different configurations for testing across multiple dimensions.
@@ -44,7 +51,7 @@ merging.
 
 ---
 
-## 📘 Next Steps
+## Next Steps
 
 - Start by selecting a model and input prompt  
 - Embed reference data or system instructions as needed  

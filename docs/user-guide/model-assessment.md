@@ -1,5 +1,5 @@
 
-# 📈 Model Assessment
+# Model Assessment
 
 The **Model Assessment** module in DeepExtension provides a powerful, batch-based framework 
 for evaluating and comparing language model outputs using real-world datasets. It is designed 
@@ -8,7 +8,7 @@ qualitatively — at scale.
 
 ---
 
-## 🎯 Assessment Modes
+## Assessment Modes
 
 DeepExtension supports four flexible assessment modes:
 
@@ -21,14 +21,14 @@ with explanation or scoring.
 
 ---
 
-## 🆕 Create a New Assessment
+## Create a New Assessment
 
 1. Click **"Create a New"** on the Model Assessment page.
 2. Select an **assessment mode**, **dataset**, and **sample size** (default: all rows).
-3. Choose **Model A**, and if applicable, **Model B** and the **Judge Model** — these can be:
+3. Choose **Model A**, and if applicable, **Model B** and the **Judge Model**. Model selection follows the same scope and rules as described in [Deep Prompt](deep-prompt.md), and may include:
 
     - Third-party API models (e.g., OpenAI, Anthropic, ModelScope, etc.)
-    - Local fine-tuned adapters or base models
+    - Trained Models
     - Fully deployed in-house models
 
 4. Define prompts:
@@ -40,7 +40,7 @@ with explanation or scoring.
 
 ---
 
-## 👀 Preview Before Execution
+## Preview Before Execution
 
 Before launching the assessment, you may **preview the result** using up to 5 data samples to 
 validate correctness:
@@ -54,7 +54,7 @@ Only when you're satisfied, click **"Submit the Assessment"** — the process wi
 
 ---
 
-## 📊 View an Assessment
+## View an Assessment
 
 On the Model Assessment main page:
 
@@ -66,13 +66,13 @@ On the Model Assessment main page:
 
 ---
 
-## 📁 Download Results
+## Download Results
 
 Click **"Download"** next to a completed assessment to export results as a `.csv` file.
 
 ---
 
-## 📋 Copy an Existing Assessment
+## Copy an Existing Assessment
 
 To replicate and tweak an existing assessment:
 
