@@ -5,6 +5,9 @@
 serve as the starting point for fine-tuning and inference. These models form the backbone of your LLM development 
 pipeline.
 
+> **Note**: Adding a base model is required before you can initiate training or perform fine-tuning in DeepExtension. We classify this as a **developer task** since it requires access to the backend file system — typically only **admin users** have the necessary permissions.  
+> See [How to Add Base Models](../../developer/how-to-add-base-models.md) for step-by-step guidance.
+
 ---
 
 ## Overview
@@ -45,7 +48,7 @@ Once saved, DeepExtension will attempt to load metadata and configuration detail
 
 - The **Template for Model Deployment** is only required when deploying models using **Ollama**. If you do not plan to use Ollama, you may leave this field blank.
 - You can always update this field later by clicking **"Update Deployment Template File"** on the Base Models page.
-- For more information about what a Modelfile is, what the **Template for Model Deployment** refers to, and how to prepare one, please refer to the developer guide: [How to Get Modelfile for Base Models](../../developer/how-to-get-modelfile.md)
+- For more information about what a Modelfile is, what the **Template for Model Deployment** refers to, and how to prepare one, please refer to the developer guide: [How to Add Base Models](../../developer/how-to-add-base-models)
 
 ---
 

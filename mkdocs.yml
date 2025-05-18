@@ -50,17 +50,18 @@ nav:
       - "Quick Start: Run Your First Training:": tutorials/tutorial-quick-start.md
   - Developer Guide:
       - Overview: developer/overview.md
-      - Supported Hardware & Why It Matters: developer/hardware-overview.md 
+      - Supported AI Platform & Why It Matters: developer/ai-platform-overview.md 
       - Installation Guide: developer/install.md
       - Add Base Models: developer/how-to-add-base-models.md 
-      - How to Implement Your Own Training (CUDA): developer/implement-own-ai-training.md
+      - Implement Your Own Training (CUDA): developer/implement-own-ai-training-cuda.md
       - Implement Your Own Training (MacOS): developer/implement-own-ai-training-mlx.md)
   - Deployment & Ops:
       - Ollama as Deployment Tool: deployment/ollama-deployment.md
   - FAQ: faq.md
   - Release Notes: changelog.md
   - About & Support:
-      - About Us: about/team.md
+      - About Us: about/about-us.md
+      - Acknowledgement: about/acknowledgement.md
       - Contact & Support: about/support.md
 #  - Temp:
 #      - Temp Page: post/how-agents-work-as-team.md

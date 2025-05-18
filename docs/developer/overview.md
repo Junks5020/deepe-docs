@@ -52,7 +52,8 @@ points so you can build progressively.
 
 Choose a chapter below to dive in:
 
-- [Supported Hardware & Why It Matters](hardware-overview.md)  
+
+- [Supported AI Platform & Why It Matters](ai-platform-overview.md)
 - [Installation Guide](install.md)  
 - [Add Base Models](how-to-add-base-models.md)  
 - [Implement Your Own Training (CUDA)](implement-own-ai-training-cuda.md)  
