@@ -2,8 +2,8 @@ site_name: DeepExtension Documentation
 site_url: https://docs.deepextension.ai
 theme:
   name: material
-  logo: assets/images/logo.png
-  favicon: assets/images/favicon.ico
+  logo: assets/images/LOGO-White.svg
+  favicon: assets/images/favicon.svg
   language: en
   features:
     - navigation.tabs
@@ -12,7 +12,7 @@ theme:
     - content.action.edit
     - i18n
   palette:
-    primary: deep blue
+    primary: blue #'#0a1a35' #'#07142A'
 #  name: readthedocs
 #  highlightjs: true
 
