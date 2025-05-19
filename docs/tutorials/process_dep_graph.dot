@@ -1,0 +1,61 @@
+digraph g {
+	ratio=fill;
+	splines=spline;
+	overlap=scale;
+
+    edge [fontsize=20, fontname="Helvetica"];
+
+	node [
+		shape=box,
+		// fixedsize=true,
+		width=0.3,
+		color="black",
+		fillcolor="#eeeeee",
+		style="filled,solid",
+		fontsize=25,
+        fontname="Helvetica"
+	];
+
+    subgraph cluster_1 {
+		node [style=filled];
+		nRAG -> nPromp [style=dashed, label="optional"];
+        nThirdModel -> nRAG [label="embedding model(s)"];
+        nDataset -> nPromp [label="only required for Assessment"];
+        nThirdModel -> nPromp [style=dashed, label="optional"];
+		label = "No Training Mode";
+        fontsize=30
+	}
+
+    subgraph cluster_0 {
+		style=filled;
+		color=lightgrey;
+		node [style=filled,color=white];
+		nBModel -> nTrainingModels;
+        nTrainingModels -> nTrainedModels [style="bold,tapered", arrowhead=vee, penwidth=3, color=blue, label="train", fontsize=30];
+        nTrainedModels -> nSavedModels [style="bold,tapered", arrowhead=vee, penwidth=3, color=blue, label="save", fontsize=30];
+        nSavedModels -> nDeployedModels [style="bold,tapered", arrowhead=vee, penwidth=3, color=blue, label="deploy", fontsize=30];
+        label = "Model Lifecycle\nManagement";
+        fontsize=30
+	}
+
+
+
+	nRAG [label="Embedded Documents (RAG)"];
+	nBModel [label="Base Models"];
+	nDataset [label="Datasets"];
+	nThirdModel [label="Thirdparty Models"];
+	nPromp [label="DeepPrompt\nModel Assessment"];
+	nTrainingModels [label="Model Training"];
+	nTrainedModels [label="Trained Models"];
+	nSavedModels [label="Saved Models"];
+	nDeployedModels [label="Deployed Models"];
+	nDeployEnv [label="Deployment Environment"];
+	nTrainingMethods [label="Training Methods"];
+	// n [label=""]
+    nDataset -> nTrainingModels;
+    nTrainingMethods -> nTrainingModels;
+    nDeployEnv -> nDeployedModels;
+    nDeployedModels -> nThirdModel [style="bold,tapered", arrowhead=vee, penwidth=3, color=blue, taillabel="register", fontsize=30, labeldistance=40, labelangle=3 ];
+    nTrainedModels -> nPromp [style="bold,tapered", arrowhead=vee, penwidth=3, color=blue, taillabel="evaluate", fontsize=30, labeldistance=4, labelangle=35];
+
+}
