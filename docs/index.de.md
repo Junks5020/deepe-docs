@@ -8,13 +8,13 @@ Egal ob Sie KI-Entwickler oder Fachexperte sind – DeepExtension bietet eine ge
 
 ---
 
-## 🚀 Erste Schritte
+## Erste Schritte
 
 Starten Sie mit der **[Schnellstart-Anleitung](getting-started/quick-start.md)**.
 
 ---
 
-## 📚 Inhaltsverzeichnis
+## Inhaltsverzeichnis
 
 - [Einführung](intro/overview.md)
 - [Erste Schritte](getting-started/quick-start.md)
@@ -28,7 +28,7 @@ Starten Sie mit der **[Schnellstart-Anleitung](getting-started/quick-start.md)**
 
 ---
 
-## 🌍 Unterstützte Sprachen
+## Unterstützte Sprachen
 
 Diese Dokumentation ist verfügbar in:
 
@@ -38,7 +38,7 @@ Diese Dokumentation ist verfügbar in:
 
 ---
 
-## 📝 Über DeepExtension
+## Über DeepExtension
 
 DeepExtension wurde speziell für das **Training und die Bereitstellung von LLMs auf Unternehmensebene** entwickelt. Es vereinfacht komplexe KI-Workflows durch:
 
@@ -56,7 +56,7 @@ Besonders geeignet für:
 
 ---
 
-## 📞 Support kontaktieren
+## Support kontaktieren
 
 Bei Fragen oder Problemen besuchen Sie bitte unsere [Support-Seite](about/support.md) oder kontaktieren Sie unser Team.
 

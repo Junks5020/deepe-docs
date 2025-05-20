@@ -39,7 +39,6 @@ digraph g {
 	}
 
 
-
 	nRAG [label="Embedded Documents (RAG)"];
 	nBModel [label="Base Models"];
 	nDataset [label="Datasets"];
@@ -57,5 +56,5 @@ digraph g {
     nDeployEnv -> nDeployedModels;
     nDeployedModels -> nThirdModel [style="bold,tapered", arrowhead=vee, penwidth=3, color=blue, taillabel="register", fontsize=30, labeldistance=40, labelangle=3 ];
     nTrainedModels -> nPromp [style="bold,tapered", arrowhead=vee, penwidth=3, color=blue, taillabel="evaluate", fontsize=30, labeldistance=4, labelangle=35];
-
+    // https://edotor.net/
 }

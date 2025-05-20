@@ -38,7 +38,7 @@
 
 ---
 
-## 📝 关于 DeepExtension
+## 关于 DeepExtension
 
 DeepExtension 致力于打造一个**企业级 LLM 训练与部署平台**，通过以下方式简化复杂的 AI 工作流程：
 
@@ -56,7 +56,7 @@ DeepExtension 致力于打造一个**企业级 LLM 训练与部署平台**，通
 
 ---
 
-## 📞 联系支持
+## 联系支持
 
 如需帮助，请访问我们的 [支持页面](about/support.md) 或直接联系技术团队。
 

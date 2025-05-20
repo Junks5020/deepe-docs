@@ -82,6 +82,56 @@ plugins:
             Overview: Übersicht
             "Key Concepts": "Zentrale Konzepte"
             "Product Architecture": "Architektur"
+
+            Getting Started: Erste Schritte
+            "Quick Start Guide": Schnellstart-Anleitung
+            Installation: Installation
+            "Ubuntu (CUDA)": Ubuntu (CUDA)
+            MacOS: macOS
+
+            User Guide: Benutzerhandbuch
+            "UI Overview": UI-Übersicht
+            #    Dashboard: Dashboard
+            DeepPrompt: DeepPrompt
+            "Model Training": Modelltraining
+            "Datasets Management": Datensatzverwaltung
+            "Document Embedding": Dokumenteneinbettung
+            "Model Assessment": Modellauswertung
+            "Model Management": Modellverwaltung
+            "Thirdparty Models": Drittanbieter-Modelle
+            "Base Models": Basismodelle
+            "Trained Models": Trainierte Modelle
+            "Saved Models": Gespeicherte Modelle
+            "Deployed Models": Bereitgestellte Modelle
+
+            Setting: Einstellungen
+            "Deployment Tool Configuration": Bereitstellungskonfiguration
+            "Training Method Management": Trainingsmethodenverwaltung
+            "User Management": Benutzerverwaltung
+
+            Tutorials: Tutorials
+            Overview: Überblick
+            "Process Dependency": Prozessabhängigkeiten
+            "Quick Start: Run Your First Training:": "Schnellstart: Erstes Training durchführen"
+
+            "Developer Guide": Entwicklerhandbuch
+            Overview: Übersicht
+            "Supported AI Platform & Why It Matters": Unterstützte KI-Plattformen & deren Bedeutung
+            "Installation Guide": Installationsanleitung
+            "Add Base Models": Basismodelle hinzufügen
+            "Implement Your Own Training (CUDA)": Eigenes Training implementieren (CUDA)
+            "Implement Your Own Training (MacOS)": Eigenes Training implementieren (macOS)
+
+            "Deployment & Ops": Bereitstellung & Betrieb
+            "Ollama as Deployment Tool": Ollama als Bereitstellungswerkzeug
+
+            FAQ: FAQ
+            "Release Notes": Versionshinweise
+
+            "About & Support": Über & Support
+            "About Us": Über uns
+            "Acknowledgement": Danksagung
+            "Contact & Support": Kontakt & Support
         - locale: zh
           name: 中文
           build: true
@@ -91,6 +141,55 @@ plugins:
             Overview: 概览
             "Key Concepts": "核心概念"
             "Product Architecture": "产品架构"
+            Getting Started: 入门指南
+            "Quick Start Guide": 快速开始
+            Installation: 安装
+            "Ubuntu (CUDA)": Ubuntu（CUDA）
+            MacOS: MacOS
+
+            User Guide: 用户指南
+            "UI Overview": UI 总览
+            #    Dashboard: 控制面板
+            DeepPrompt: DeepPrompt
+            "Model Training": 模型训练
+            "Datasets Management": 数据集管理
+            "Document Embedding": 文档嵌入
+            "Model Assessment": 模型评估
+            "Model Management": 模型管理
+            "Thirdparty Models": 第三方模型
+            "Base Models": 基础模型
+            "Trained Models": 已训练模型
+            "Saved Models": 已保存模型
+            "Deployed Models": 已部署模型
+
+            Setting: 系统设置
+            "Deployment Tool Configuration": 部署工具配置
+            "Training Method Management": 训练方法管理
+            "User Management": 用户管理
+
+            Tutorials: 教程
+            "Overview": 教程概览
+            "Process Dependency": 流程依赖
+            "Quick Start: Run Your First Training:": 快速上手：运行你的第一个训练
+
+            "Developer Guide": 开发者指南
+            "Overview": 概览
+            "Supported AI Platform & Why It Matters": 支持的 AI 平台及其意义
+            "Installation Guide": 安装指南
+            "Add Base Models": 添加基础模型
+            "Implement Your Own Training (CUDA)": 自定义训练实现（CUDA）
+            "Implement Your Own Training (MacOS)": 自定义训练实现（MacOS）
+
+            "Deployment & Ops": 部署与运维
+            "Ollama as Deployment Tool": 使用 Ollama 部署模型
+
+            FAQ: 常见问题
+            "Release Notes": 更新日志
+
+            "About & Support": 关于与支持
+            "About Us": 关于我们
+            "Acknowledgement": 鸣谢
+            "Contact & Support": 联系与支持
   - mkdocstrings:
       handlers:
         # See: https://mkdocstrings.github.io/python/usage/

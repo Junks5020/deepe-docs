@@ -4,20 +4,20 @@
 
 ---
 
-## 🏗️ Überblick
+## Überblick
 
 Auf einen Blick besteht DeepExtension aus den folgenden Hauptkomponenten:
 
 ---
 
-## 🖥️ 1. Benutzeroberflächen
+## 1. Benutzeroberflächen
 
 - **Webbasierte Benutzeroberfläche** (Self-Hosted): Die primäre Schnittstelle für die meisten Benutzer  
 - **RESTful API**: Für programmatischen Zugriff, CI/CD-Integration oder Automatisierung
 
 ---
 
-## ⚙️ 2. Anwendungsschicht
+## 2. Anwendungsschicht
 
 Diese Schicht steuert die Benutzererfahrung und verarbeitet:
 
@@ -30,7 +30,7 @@ Diese Schicht steuert die Benutzererfahrung und verarbeitet:
 
 ---
 
-## 🧠 3. KI-Kernschicht
+## 3. KI-Kernschicht
 
 Hier wird DeepExtension KI-spezifisch:
 
@@ -40,7 +40,7 @@ Hier wird DeepExtension KI-spezifisch:
 
 ---
 
-## 🧰 4. Infrastrukturschicht
+## 4. Infrastrukturschicht
 
 Ausführung der Berechnungs- und Speicherkomponenten:
 
@@ -55,7 +55,7 @@ Ausführung der Berechnungs- und Speicherkomponenten:
 
 ---
 
-## 🔗 Integrationen
+## Integrationen
 
 DeepExtension unterstützt Integrationen mit:
 
@@ -65,7 +65,7 @@ DeepExtension unterstützt Integrationen mit:
 
 ---
 
-## 🔐 Sicherheitsfunktionen
+## Sicherheitsfunktionen
 
 - Rollenbasierte Zugriffskontrolle (RBAC)  
 - Projektbasierte Berechtigungsebenen  
@@ -74,7 +74,7 @@ DeepExtension unterstützt Integrationen mit:
 
 ---
 
-## 📦 Bereitstellungsoptionen
+## Bereitstellungsoptionen
 
 | Zielumgebung         | Beschreibung                                 |
 |----------------------|----------------------------------------------|
@@ -84,6 +84,6 @@ DeepExtension unterstützt Integrationen mit:
 
 ---
 
-## 🚀 Zusammenfassung
+## Zusammenfassung
 
 **DeepExtension** ist so konzipiert, dass es sich sowohl für experimentelle Forschung als auch für unternehmenskritische Anwendungen eignet. Die schichtenbasierte Architektur erleichtert die Integration in bestehende KI-Stacks und ermöglicht gleichzeitig die vollständige Kontrolle über Modell-Workflows.

@@ -6,7 +6,7 @@ Egal, ob Sie gerade erst mit KI starten oder bereits bestehende Initiativen skal
 
 ---
 
-## 📌 1. Fallbasierter Einstieg & Best-Practice-Sharing
+## 1. Fallbasierter Einstieg & Best-Practice-Sharing
 
 DeepExtension ist nicht nur ein Tool – es ist ein **Repository bewährter Erfolgsgeschichten** und sofort einsetzbarer Vorlagen.
 
@@ -19,7 +19,7 @@ DeepExtension ist nicht nur ein Tool – es ist ein **Repository bewährter Erfo
 
 ---
 
-## 🧱 2. Webbasierte, modulare LLM-Plattform
+## 2. Webbasierte, modulare LLM-Plattform
 
 Modulare Bausteine für den gesamten Lebenszyklus eines LLMs – über eine benutzerfreundliche Oberfläche bedienbar:
 
@@ -29,7 +29,7 @@ Modulare Bausteine für den gesamten Lebenszyklus eines LLMs – über eine benu
 
 ---
 
-## 🔁 3. PEFT zuerst: Große Wirkung bei kleinem Aufwand
+## 3. PEFT zuerst: Große Wirkung bei kleinem Aufwand
 
 DeepExtension setzt auf **parameter-effizientes Feintuning (PEFT)**, ideal für Teams mit begrenzten Rechenressourcen:
 
@@ -40,7 +40,7 @@ DeepExtension setzt auf **parameter-effizientes Feintuning (PEFT)**, ideal für 
 
 ---
 
-## 👥 4. Kollaborativer KI-Arbeitsbereich
+## 4. Kollaborativer KI-Arbeitsbereich
 
 DeepExtension ist für **zwei Hauptzielgruppen** konzipiert:
 
@@ -50,7 +50,7 @@ DeepExtension ist für **zwei Hauptzielgruppen** konzipiert:
 
 ---
 
-## ⚙️ 5. Orchestrierte Workflows
+## 5. Orchestrierte Workflows
 
 Ermöglicht strukturierte, nachvollziehbare KI-Prozesse von Anfang bis Ende:
 
@@ -62,7 +62,7 @@ Ermöglicht strukturierte, nachvollziehbare KI-Prozesse von Anfang bis Ende:
 
 ---
 
-## 🧩 6. Erweiterbare Architektur
+## 6. Erweiterbare Architektur
 
 DeepExtension lässt sich nahtlos in bestehende Systemlandschaften integrieren:
 
@@ -72,7 +72,7 @@ DeepExtension lässt sich nahtlos in bestehende Systemlandschaften integrieren:
 
 ---
 
-## 🔐 7. Unternehmensbereit – von Anfang an
+## 7. Unternehmensbereit – von Anfang an
 
 Konzipiert für die Anforderungen von Enterprise-IT und MLOps:
 
@@ -83,7 +83,7 @@ Konzipiert für die Anforderungen von Enterprise-IT und MLOps:
 
 ---
 
-## 🌍 8. Mehrsprachig & teamorientiert
+## 8. Mehrsprachig & teamorientiert
 
 Unterstützt Zusammenarbeit über Abteilungen und Sprachräume hinweg:
 
@@ -93,7 +93,7 @@ Unterstützt Zusammenarbeit über Abteilungen und Sprachräume hinweg:
 
 ---
 
-## 🧭 9. Guided AI
+## 9. Guided AI
 
 Im Zentrum von DeepExtension steht **geführtes Reinforcement Learning mit Prompt-Optimierung (GRPO)**:
 

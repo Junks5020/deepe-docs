@@ -4,20 +4,20 @@
 
 ---
 
-## 🏗️ 总览（Overview）
+## 总览（Overview）
 
 从整体上看，DeepExtension 包含以下关键架构层：
 
 ---
 
-## 🖥️ 1. 用户界面层（User Interfaces）
+## 1. 用户界面层（User Interfaces）
 
 - **基于 Web 的用户界面**（自部署）：大多数用户使用的主要交互界面  
 - **RESTful API**：支持程序化访问、CI/CD 集成或自动化操作
 
 ---
 
-## ⚙️ 2. 应用层（Application Layer）
+## 2. 应用层（Application Layer）
 
 该层负责核心业务逻辑和用户体验，包括：
 
@@ -30,7 +30,7 @@
 
 ---
 
-## 🧠 3. 核心 AI 层（Core AI Layer）
+## 3. 核心 AI 层（Core AI Layer）
 
 这一层是 DeepExtension 的 AI 核心所在：
 
@@ -40,7 +40,7 @@
 
 ---
 
-## 🧰 4. 基础设施层（Infrastructure Layer）
+## 4. 基础设施层（Infrastructure Layer）
 
 用于提供计算能力与存储支持：
 
@@ -55,7 +55,7 @@
 
 ---
 
-## 🔗 集成能力（Integrations）
+## 集成能力（Integrations）
 
 DeepExtension 支持与多种平台和工具集成：
 
@@ -65,7 +65,7 @@ DeepExtension 支持与多种平台和工具集成：
 
 ---
 
-## 🔐 安全特性（Security Features）
+## 安全特性（Security Features）
 
 - 基于角色的访问控制（RBAC）  
 - 项目级权限隔离  
@@ -74,7 +74,7 @@ DeepExtension 支持与多种平台和工具集成：
 
 ---
 
-## 📦 部署选项（Deployment Options）
+## 部署选项（Deployment Options）
 
 | 目标环境             | 描述说明                                 |
 |----------------------|------------------------------------------|
@@ -84,6 +84,6 @@ DeepExtension 支持与多种平台和工具集成：
 
 ---
 
-## 🚀 总结（Summary）
+## 总结（Summary）
 
 **DeepExtension** 的系统架构兼顾了实验性研发和企业级关键场景的灵活性。通过分层设计，它能够轻松集成到现有的 AI 技术栈中，同时为用户提供对模型工作流的全面控制。

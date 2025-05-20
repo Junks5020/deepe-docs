@@ -1,0 +1,58 @@
+
+digraph g {
+	ratio=fill;
+	splines=spline;
+	overlap=scale;
+
+    edge [fontsize=20, fontname="Helvetica"];
+
+	node [
+		shape=box,
+		width=0.3,
+		color="black",
+		fillcolor="#eeeeee",
+		style="filled,solid",
+		fontsize=25,
+        fontname="Helvetica"
+	];
+
+    subgraph cluster_1 {
+		node [style=filled];
+		nRAG -> nPromp [style=dashed, label="可选"];
+        nThirdModel -> nRAG [label="嵌入模型"];
+        nDataset -> nPromp [label="仅模型评估时需要"];
+        nThirdModel -> nPromp [style=dashed, label="可选"];
+		label = "无训练模式";
+        fontsize=30
+	}
+
+    subgraph cluster_0 {
+		style=filled;
+		color=lightgrey;
+		node [style=filled,color=white];
+		nBModel -> nTrainingModels;
+        nTrainingModels -> nTrainedModels [style="bold,tapered", arrowhead=vee, penwidth=3, color=blue, label="训练", fontsize=30];
+        nTrainedModels -> nSavedModels [style="bold,tapered", arrowhead=vee, penwidth=3, color=blue, label="保存", fontsize=30];
+        nSavedModels -> nDeployedModels [style="bold,tapered", arrowhead=vee, penwidth=3, color=blue, label="部署", fontsize=30];
+        label = "模型生命周期
+管理";
+        fontsize=30
+	}
+
+	nRAG [label="文档嵌入（RAG）"];
+	nBModel [label="基础模型"];
+	nDataset [label="数据集"];
+	nThirdModel [label="第三方模型"];
+	nPromp [label="推理与评估"];
+	nTrainingModels [label="模型训练"];
+	nTrainedModels [label="训练中模型"];
+	nSavedModels [label="保存的模型"];
+	nDeployedModels [label="部署的模型"];
+	nDeployEnv [label="部署环境"];
+	nTrainingMethods [label="训练方法"];
+    nDataset -> nTrainingModels;
+    nTrainingMethods -> nTrainingModels;
+    nDeployEnv -> nDeployedModels;
+    nDeployedModels -> nThirdModel [style="bold,tapered", arrowhead=vee, penwidth=3, color=blue, taillabel="注册", fontsize=30, labeldistance=40, labelangle=3 ];
+    nTrainedModels -> nPromp [style="bold,tapered", arrowhead=vee, penwidth=3, color=blue, taillabel="评估", fontsize=30, labeldistance=4, labelangle=35];
+}
