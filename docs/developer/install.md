@@ -16,10 +16,9 @@ Choose a directory as your DeepExtension base folder. We'll refer to this path a
 
 We recommend **not** using Docker to run your PostgreSQL database. Use a local or dedicated database server for better stability.
 
-1. Install a local PostgreSQL server (version 16.1 is known to run stably)
-2. Choose an IP and port (e.g., `5439`), referred to as `{psql_url}` and `{psql_port}`
-3. (Optional for advanced users) Change the DB password and update it in the configuration file `de-psql.conf`
-4. Initialize the database schema using the **golang-migrate** tool:
+1. Install a local PostgreSQL server (version 16 is known to run stably)
+2. Make sure to note down the following parameters for later use: {dbname}, {dbuser}, {dbpassword}, {dbhost}, and {dbport}.
+3. Initialize the database schema using the **golang-migrate** tool:
 
 ### 1.4.1 Install golang-migrate
 
@@ -54,17 +53,19 @@ migrate -version
 ### 1.4.2 Execute the Migration
 ```bash
 # Run the migration command with the appropriate connection string
-migrate -path {deepextension_base_dir}/migrations -database "postgres://{dbuser}:{dbpassword}@{dbhost}:{dbport}/postgres?sslmode=disable" up
+cd {deepextension_base_dir}
+migrate -path migrations -database "postgres://{dbuser}:{dbpassword}@{dbhost}:{dbport}/{dbname}?sslmode=disable" up
 ```
 
 ### 1.4.3 Verify Migration
-After running the migration, enter the database and check:
+After running the migration, enter the database and run the following query:
 ```sql
-select is_init from sys_version_config where deploy_version = 0.1;
+SELECT COUNT(*) FROM pg_tables WHERE schemaname = 'public';
 ```
-If the result of `is_init` is `true`, the schema migration has completed successfully.
+If the result is greater than 20, it indicates that the schema migration was successful and the required tables have been created.
 
-Once migration is verified, you may start DeepExtension. If the schema was not properly initialized, the application will fail to start.
+Once the migration is successfully verified, you can proceed with the next installation steps.
+If the schema is not properly initialized, the program will fail to start.
 
 ---
 
@@ -82,30 +83,17 @@ Check that the clone was successful and without errors.
 
 ---
 
-## 3. Configure Database Access
-
-**Create** the file `{deepextension_base_dir}/db_conf.data` and enter the following:
-
-```
-DB_HOST={psql_url}
-DB_PORT={psql_port}
-```
-
-> 💡 If your system’s IP address changes frequently (e.g., on a MacBook or a server without a fixed IP), you may need to update it manually. For servers, we recommend setting a static IP address.
-
----
-
-## 4. Configure AI Training Image
+## 3. Configure AI Training Image
 
 There are three options depending on your platform:
 
 ### A. CUDA (Linux, NVIDIA GPUs)
 
-1. In `{deepextension_base_dir}/image.env`, find `CUSTOM_TRAINING_AI_IMAGE_VERSION` (e.g., `a1b2c3d4` as {ai_image_version})
+1. In `{deepextension_base_dir}/prod.env`, find `SCP_AI_IMAGE_NAME` as {ai_image_name} `TRAINING_AI_IMAGE_VERSION` (e.g., `a1b2c3d4` as {ai_image_version})
 2. Go to `{deepextension_base_dir}` and build the training image using the following command:
 
 ```bash
-docker build --platform=linux/amd64 -t jianweisoft.cn/scpe/training-py:{ai_image_version} -f deep-e-python/Dockerfile .
+docker build --platform=linux/amd64 -t {ai_image_name}:{ai_image_version} -f deep-e-python/Dockerfile .
 ```
 
 ### B. Apple macOS (M1–M4)
@@ -160,7 +148,8 @@ pip3 install -r requirements.txt
 ```
 4. Test installation:
 ```bash
-python3 test_installation_with_tiny_training.py
+cd {deepextension_base_dir}/deep-e-python
+python3 app.py
 ```
 
 #### c. For users without Conda
@@ -187,14 +176,34 @@ npm install -g pm2
 
 ### C. No AI Image (no-training mode)
 
-1. Create a file named `{deepextension_base_dir}/ai-image.conf`
-2. Add:
+No action is required in this step — just make sure to set {WITH_AI_IMAGE} appropriately in the next configuration step.
+
+---
+
+## 4. Configure Database Access and Other Settings
+
+**Create** the confuguration file `{deepextension_base_dir}/custom.conf` from template:
 
 ```
-WITH_AI_IMAGE = false
+cd {deepextension_base_dir}
+cp custom.conf.template custom.conf
 ```
+Open `custom.conf` with any text editor and edit the following fields:
+```
+DB_HOST={dbhost}
+DB_PORT={dbport}
+DB_USER={dbuser}
+DB_PASS={dbpassword}
+DB_NAME={dbname}
+SCP_GO_AI_TRAINING_HOST={localhost-ip}
+SCP_GO_AI_TRAINING_PORT={localhost-ip}
+UI_AI_EXPOSED_PORT={desized-webui-port}
+WITH_AI_IMAGE=[true for CUDA-based installations; false otherwise]
+```
+- `{local_ip}` must be the actual IP address of the current machine — **not** `localhost` or `127.0.0.1`.
+- `{desired_webui_port}` can be any available port (we recommend `88` or a similar number).
 
-By default, training image is enabled if this file does not exist.
+> 💡 If your machine’s IP address changes frequently (e.g., on laptops or systems without a static IP), you may need to update it manually in this file. For servers, it’s recommended to configure a static IP to avoid connection issues.
 
 ---
 
@@ -211,7 +220,15 @@ Verify that:
 - All images are downloaded
 - All containers start successfully
 
-Open `http://localhost:88` to check the Web UI.
+Open `http://localhost:{desized-webui-port}` to check the Web UI.
+
+### Verify Database Initialization (First Run Only)
+During the first application launch, initial data will be populated into the database.
+To verify that the schema migration was successful, connect to the database and run:
+```sql
+select is_init from sys_version_config where deploy_version = 0.1;
+```
+If the result of `is_init` is `true`, it confirms that the schema was migrated successfully.
 
 ---
 
