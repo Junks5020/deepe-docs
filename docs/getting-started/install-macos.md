@@ -1,6 +1,6 @@
 
 
-# 还在改进中, 展示不要review
+# 还在改进中, 暂时不要review
 
 # Install DeepExtension on macOS (Local Dev)
 
