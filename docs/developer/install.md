@@ -200,6 +200,7 @@ SCP_GO_AI_TRAINING_PORT={localhost-ip}
 UI_AI_EXPOSED_PORT={desized-webui-port}
 WITH_AI_IMAGE=[true for CUDA-based installations; false otherwise]
 ```
+
 - `{local_ip}` must be the actual IP address of the current machine — **not** `localhost` or `127.0.0.1`.
 - `{desired_webui_port}` can be any available port (we recommend `88` or a similar number).
 
