@@ -20,7 +20,7 @@ We recommend **not** using Docker to run your PostgreSQL database. Use a local o
 2. Make sure to note down the following parameters for later use: {dbname}, {dbuser}, {dbpassword}, {dbhost}, and {dbport}.
 3. Initialize the database schema using the **golang-migrate** tool:
 
-### 1.4.1 Install golang-migrate
+### 1.3.1 Install golang-migrate
 
 You can install this tool via CLI or Homebrew (for macOS users):
 
@@ -50,14 +50,14 @@ migrate -version
 # Example output: v4.18.3
 ```
 
-### 1.4.2 Execute the Migration
+### 1.3.2 Execute the Migration
 ```bash
 # Run the migration command with the appropriate connection string
 cd {deepextension_base_dir}
 migrate -path migrations -database "postgres://{dbuser}:{dbpassword}@{dbhost}:{dbport}/{dbname}?sslmode=disable" up
 ```
 
-### 1.4.3 Verify Migration
+### 1.3.3 Verify Migration
 After running the migration, enter the database and run the following query:
 ```sql
 SELECT COUNT(*) FROM pg_tables WHERE schemaname = 'public';
@@ -68,6 +68,27 @@ Once the migration is successfully verified, you can proceed with the next insta
 If the schema is not properly initialized, the program will fail to start.
 
 ---
+
+### 1.3.4 Configure Database Access
+
+**Create** the confuguration file `{deepextension_base_dir}/custom.conf` from template:
+
+```
+cd {deepextension_base_dir}
+cp custom.conf.template custom.conf
+```
+Open `custom.conf` with any text editor and edit the following fields:
+```
+DB_HOST={dbhost}
+DB_PORT={dbport}
+DB_USER={dbuser}
+DB_PASS={dbpassword}
+DB_NAME={dbname}
+```
+
+- `{dbhost}` must be the actual IP address of the machine — **not** `localhost` or `127.0.0.1`.
+
+> 💡 If the machine’s IP address changes frequently (e.g., on laptops or systems without a static IP), you may need to update it manually in this file. For servers, it’s recommended to configure a static IP to avoid connection issues.
 
 ## 2. Clone the Repository
 
@@ -87,22 +108,22 @@ Check that the clone was successful and without errors.
 
 There are three options depending on your platform:
 
-### A. CUDA (Linux, NVIDIA GPUs)
+### Option A: CUDA (Linux, NVIDIA GPUs)
 
-1. In `{deepextension_base_dir}/prod.env`, find `SCP_AI_IMAGE_NAME` as {ai_image_name} `TRAINING_AI_IMAGE_VERSION` (e.g., `a1b2c3d4` as {ai_image_version})
+1. In `{deepextension_base_dir}/prod.env`, find `SCP_AI_IMAGE_NAME` as {ai_image_name} `TRAINING_AI_IMAGE_VERSION` (e.g., `a1b2c3d4`) as {ai_image_version}
 2. Go to `{deepextension_base_dir}` and build the training image using the following command:
 
 ```bash
 docker build --platform=linux/amd64 -t {ai_image_name}:{ai_image_version} -f deep-e-python/Dockerfile .
 ```
 
-### B. Apple macOS (M1–M4)
+### Option B: Apple macOS (M1–M4)
 
 #### a. Prepare the MLX code
 
 1. Download the entire repository from https://github.com/ml-explore/mlx-lm (tested successfully with v0.24.1)
-2. Copy the `mlx_lm` directory into `{deepextension_base_dir}/deep-e-python`
-3. Edit `{deepextension_base_dir}/deep-e-python/tuner/datasets.py`:
+2. Copy the `mlx_lm` subdirectory from the `mlx-lm` project  into `{deepextension_base_dir}/deep-e-python`
+3. Edit `{deepextension_base_dir}/deep-e-python/mlx_lm/tuner/datasets.py`:
 
 Change from:
 ```python
@@ -118,7 +139,7 @@ train = load_subset(data_path)
 # train, valid, test = [load_subset(data_path / f"{n}.jsonl") for n in names]
 return train, train, None
 ```
-4. Edit `tuner/trainer.py`:
+  4. Edit `tuner/trainer.py`:
 
 Change from:
 ```python
@@ -132,27 +153,31 @@ mx.set_wired_limit(8 * 1024 * 1024 * 1024)
 
 > This sets a memory limit of 8GB, suitable for LoRA training on a 1.5B base model with a 16GB Mac. Adjust as needed for your system.
 
-#### b. For users with Conda installed
+#### b. Set Up the Python Environment and Install Required Packages
+Option 1: For users with Conda installed
 
 1. Create a new environment (e.g., for Python 3.11):
 ```bash
 conda create -n deepe_prod python=3.11
 ```
-2. Activate the environment:
+1. Activate the environment:
 ```bash
 conda activate deepe_prod
 ```
-3. Install dependencies:
+1. Install dependencies:
 ```bash
 pip3 install -r requirements.txt
 ```
-4. Test installation:
+1. Test installation:
 ```bash
 cd {deepextension_base_dir}/deep-e-python
 python3 app.py
 ```
+Press **Ctrl + C** to stop the process after confirming it starts successfully.
 
-#### c. For users without Conda
+Option 2: For users without Conda installed
+
+Set up a Python virtual environment using venv and install the required packages manually.
 
 1. Create and activate a virtual environment:
 ```bash
@@ -162,10 +187,11 @@ pip3 install -r requirements.txt
 ```
 2. Test installation:
 ```bash
-python3 test_installation_with_tiny_training.py
+python3 app.py
 ```
+Press **Ctrl + C** to stop the process after confirming it starts successfully.
 
-#### d. Finalize with:
+#### c. Finalize with:
 
 1. Install Node.js and NPM
 2. Run:
@@ -174,34 +200,23 @@ python3 test_installation_with_tiny_training.py
 npm install -g pm2
 ```
 
-### C. No AI Image (no-training mode)
+### Option C: No AI Image (no-training mode)
 
 No action is required in this step — just make sure to set {WITH_AI_IMAGE} appropriately in the next configuration step.
 
 ---
 
-## 4. Configure Database Access and Other Settings
+## 4. Configure other Settings
 
-**Create** the confuguration file `{deepextension_base_dir}/custom.conf` from template:
-
+Open `{deepextension_base_dir}/custom.conf` with any text editor and edit the following fields:
 ```
-cd {deepextension_base_dir}
-cp custom.conf.template custom.conf
-```
-Open `custom.conf` with any text editor and edit the following fields:
-```
-DB_HOST={dbhost}
-DB_PORT={dbport}
-DB_USER={dbuser}
-DB_PASS={dbpassword}
-DB_NAME={dbname}
-SCP_GO_AI_TRAINING_HOST={localhost-ip}
-SCP_GO_AI_TRAINING_PORT={localhost-ip}
 UI_AI_EXPOSED_PORT={desized-webui-port}
 WITH_AI_IMAGE=[true for CUDA-based installations; false otherwise]
+SCP_GO_AI_TRAINING_HOST={localhost-ip}
+SCP_GO_AI_TRAINING_PORT=[TRAINING_START_PORT from prod.env]
 ```
 
-- `{local_ip}` must be the actual IP address of the current machine — **not** `localhost` or `127.0.0.1`.
+- `{localhost-ip}` must be the actual IP address of the current machine — **not** `localhost` or `127.0.0.1`.
 - `{desired_webui_port}` can be any available port (we recommend `88` or a similar number).
 
 > 💡 If your machine’s IP address changes frequently (e.g., on laptops or systems without a static IP), you may need to update it manually in this file. For servers, it’s recommended to configure a static IP to avoid connection issues.
@@ -251,5 +266,5 @@ During the first launch, a root user is created automatically. The initial passw
 
 ## Important
 
-- Do **not** manually modify any files or configurations without contacting the DeepExtension team.
+- Do **not** manually modify any files or configurations without contacting the DeepExtension Team.
 - Always follow upgrade instructions during version updates.
