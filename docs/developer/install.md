@@ -222,14 +222,14 @@ No action is required in this step — just make sure to set {WITH_AI_IMAGE} app
 
 Open `{deepextension_base_dir}/custom.conf` with any text editor and edit the following fields:
 ```
-UI_AI_EXPOSED_PORT={desized-webui-port}
+UI_AI_EXPOSED_PORT={preferred_webui_port}
 WITH_AI_IMAGE=[true for CUDA-based installations; false otherwise]
 SCP_GO_AI_TRAINING_HOST={localhost-ip}
 SCP_GO_AI_TRAINING_PORT=[TRAINING_START_PORT from prod.env]
 ```
 
 - `{localhost-ip}` must be the actual IP address of the current machine — **not** `localhost` or `127.0.0.1`.
-- `{desired_webui_port}` can be any available port (we recommend `88` or a similar number).
+- `{preferred_webui_port}` can be any available port (we recommend `88` or a similar number).
 
 > 💡 If your machine’s IP address changes frequently (e.g., on laptops or systems without a static IP), you may need to update it manually in this file. For servers, it’s recommended to configure a static IP to avoid connection issues.
 
@@ -248,7 +248,7 @@ Verify that:
 - All images are downloaded
 - All containers start successfully
 
-Open `http://localhost:{desized-webui-port}` to check the Web UI.
+Open `http://localhost:{preferred_webui_port}` to check the Web UI.
 
 ### Verify Database Initialization (First Run Only)
 During the first application launch, initial data will be populated into the database.
