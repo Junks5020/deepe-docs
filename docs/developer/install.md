@@ -104,7 +104,19 @@ Check that the clone was successful and without errors.
 
 ---
 
-## 3. Configure AI Training Image
+## 3. Set Up Model Training Environment
+
+> **Note**  
+> 
+> DeepExtension offers different setup options based on your platform’s capabilities:
+> 
+> - On **Linux (CUDA)** systems, model training can be run **inside Docker** because Docker supports full GPU acceleration through **NVIDIA’s native CUDA integration**. This allows you to containerize the training process and benefit from isolation, reproducibility, and simplified deployment.
+> 
+> - On **macOS (M1–M4)** systems, GPU acceleration is provided via **Metal Performance Shaders (MPS)**. However, Docker does **not support GPU passthrough** on macOS. As a result, training must run **outside of Docker**, directly on the host.  
+>   To ensure that training services behave like a Docker-managed process (with auto-restart, background execution, and logging), we use **PM2**, a process manager for Node.js.
+> 
+> - The **"No AI Image" (no-training mode)** option is intended for users who want to explore DeepExtension’s features **without GPU hardware**. This mode is functional but **not recommended**.
+
 
 There are three options depending on your platform:
 
