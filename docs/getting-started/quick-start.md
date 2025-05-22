@@ -1,111 +1,59 @@
-# 还在改进中, 暂时不要review
-
 # Quick Start Guide
 
-Welcome to **DeepExtension** — your platform for fast, flexible, and guided domain-specific AI development.
+Welcome to **DeepExtension** — a unified platform for domain-specific LLM training, evaluation, and deployment.
 
-This guide walks you through the basic steps to get up and running, whether you’re a domain expert using the UI or a developer looking to plug in custom training logic.
-
----
-
-## Prerequisites
-
-Before you begin, make sure you have the following:
-
-- A working DeepExtension deployment:
-  - Local (macOS/Linux with Docker)
-  - Server-based (Ubuntu + CUDA)
-  - Self-hosted (SaaS-style)
-- Access to the web interface (usually at `http://localhost:8080` or your configured domain)
-- A test dataset (CSV, JSONL, or JSON format)
-- (Optional) Python environment if you're integrating custom training code
+This quick guide will help you get started — from installation to your first training run — using our no-code, web-based UI.
 
 ---
 
-## Step 1: Log In & Create a Project
+## Prerequisite: Installation First
 
-1. Open your browser and navigate to the DeepExtension web UI.
-2. Log in using your admin or user credentials.
-3. Click **"New Project"** and name it (e.g., `product-forecasting-v1`).
-4. Choose your working language and domain (optional metadata).
+Before you can start using DeepExtension, you need to set up the platform. Installation typically requires some development experience.
 
----
+- Refer to the full [Installation Guide](../developer/install.md) for step-by-step instructions.
+- You can install DeepExtension on:
 
-## Step 2: Upload Your Dataset
+    - Ubuntu (with CUDA for GPU training)
+    - macOS (with MLX on Apple M-series)
+    - Any Linux/macOS environment (in **no-training mode**) for UI exploration and inference only
 
-1. Inside your project, go to **"Datasets"** → **"Upload Dataset"**.
-2. Upload your training data:
-   - Supported formats: `.csv`, `.json`, `.jsonl`
-   - You can label columns or fields directly after upload
-3. DeepExtension automatically tracks dataset versions
+Once the installation is complete and the Web UI is accessible (default: `http://localhost:88`), you're ready to move forward.
 
 ---
 
-## Step 3: Define Training Configuration
+## Your First Training Run
 
-1. Go to **"Training"** → **"New Training Job"**
-2. Choose a base model:
-   - e.g., `Qwen-1.5-7B`, `OpenLLM`, `Mistral`, or custom
-3. Select a fine-tuning method:
-   - Default: **LoRA (PEFT)**
-   - Advanced: **SFT**, **GRPO**
-4. Choose hyperparameters or stick with recommended defaults
+After installation, we recommend starting with a **demo training method**. DeepExtension includes preinstalled training methods depending on your platform.
 
----
+- See [Quick Start: Run Your First Training](../tutorials/tutorial-quick-start.md) for hands-on instructions.
 
-## Step 4: Run Training Job
+You'll be guided through:
 
-1. Click **"Start Training"**
-2. Monitor progress in the **"Jobs"** dashboard
-3. Training output will be saved as a model version linked to this project
+1. Uploading a sample dataset  
+2. Choosing a base model  
+3. Launching a training job
+
+All demo training methods come with sample datasets and configurations so you can run a successful training in minutes.
 
 ---
 
-## Step 5: Evaluate the Model
+## After Training
 
-1. Go to **"Evaluation"**
-2. Choose test inputs or upload an evaluation set
-3. Use built-in scoring tools or define custom evaluation scripts (optional)
-4. Use JSON schema validators, business rule checks, or manual review
+Once your training job completes successfully, you can:
 
----
-
-## Step 6: Deploy the Model
-
-1. Go to **"Deployment"** → **"Create Endpoint"**
-2. Choose the model version to deploy
-3. Set access control and rate limits
-4. Deploy as:
-   - API endpoint
-   - Offline batch inference
-   - Integration with internal apps
+- Explore model results in the **Trained Models** tab
+- Save or deploy your model for inference
+- Run prompt-based evaluations using **DeepPrompt**
+- Compare models using the **Model Assessment** module
 
 ---
 
-## (Optional) Developer Integration
+## Where to Go Next
 
-- If you're an AI engineer:
-  - Clone the SDK or use the Python API
-  - Write custom training logic compatible with DeepExtension's interface
-  - Register your script and test it in the UI
-
----
-
-## Tips for Success
-
-- Start with small, clean datasets
-- Use **predefined templates and cases** for common business tasks
-- Track model performance across multiple iterations
-- Involve domain experts during evaluation
+- [Tutorial Overview](../tutorials/overview.md) — A complete map of prerequisites and training flows
+- [User Guide](../user-guide/ui-overview.md) — Learn each module in detail
+- [Developer Guide](../developer/overview.md) — If you're customizing training or contributing your own model logic
 
 ---
 
-## Next Steps
-
-- Explore the **User Guide** for details on UI and features
-- Visit the **Developer Guide** if you're integrating training pipelines
-- Browse **Tutorials** for real-world examples
-
----
-
-*DeepExtension — Extend AI Capabilities for Enterprises*
+*DeepExtension — Extend AI capabilities for your business.*

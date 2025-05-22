@@ -16,15 +16,15 @@ Start your journey with DeepExtension by following the **[Quick Start Guide](get
 
 ## Table of Contents
 
-- [Introduction](intro/overview.md)
+- [Introduction](index.md)
 - [Getting Started](getting-started/quick-start.md)
 - [User Guide](user-guide/ui-overview.md)
-- [Developer Guide](developer/api-overview.md)
-- [Tutorials](tutorials/e2e.md)
-- [Deployment & Operations](ops/system-reqs.md)
+- [Tutorials](tutorials/overview.md)
+- [Developer Guide](developer/overview.md)
+- [Deployment & Operations](deployment/ollama-deployment.md)
 - [FAQ](faq.md)
 - [Release Notes](changelog.md)
-- [About & Support](about/team.md)
+- [About & Support](about/about-us.md)
 
 ---
 

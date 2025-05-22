@@ -21,11 +21,10 @@ nav:
       - Overview: index.md
       - Key Concepts: intro/key-concepts.md
       - Product Architecture: intro/architecture.md
-  - Getting Started:
-      - Quick Start Guide: getting-started/quick-start.md
-      - Installation:
-          - Ubuntu (CUDA): getting-started/install-ubuntu.md
-          - MacOS: getting-started/install-macos.md
+  - Getting Started: getting-started/quick-start.md
+#      - Installation:
+#          - Ubuntu (CUDA): getting-started/install-ubuntu.md
+#          - MacOS: getting-started/install-macos.md
   - User Guide:
       - UI Overview: user-guide/ui-overview.md
 #      - Dashboard: user-guide/dashboard.md
@@ -47,7 +46,7 @@ nav:
   - Tutorials:
       - Overview: tutorials/overview.md
       - Process Dependency: tutorials/tutorial-process-dependency.md
-      - "Quick Start: Run Your First Training:": tutorials/tutorial-quick-start.md
+      - "Quick Start: Run Your First Training": tutorials/tutorial-quick-start.md
   - Developer Guide:
       - Overview: developer/overview.md
       - Supported AI Platform & Why It Matters: developer/ai-platform-overview.md 
