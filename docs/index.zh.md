@@ -16,15 +16,15 @@
 
 ## 📚 文档目录
 
-- [项目简介](intro/overview.md)
+- [项目简介](.)
 - [快速开始](getting-started/quick-start.md)
 - [用户指南](user-guide/ui-overview.md)
-- [开发者指南](developer/api-overview.md)
-- [使用教程](tutorials/e2e.md)
-- [部署与运维](ops/system-reqs.md)
+- [使用教程](tutorials/overview.md)
+- [开发者指南](developer/overview.md)
+- [部署与运维](deployment/ollama-deployment.md)
 - [常见问题 FAQ](faq.md)
 - [版本更新记录](changelog.md)
-- [关于与支持](about/team.md)
+- [关于与支持](about/about-us.md)
 
 ---
 
@@ -32,9 +32,9 @@
 
 本文档提供多语言版本：
 
-- [英文](#)（默认）
-- [德语](de/index.md)
-- [中文](zh/index.md)
+- [英文](../)（默认）
+- [德语](../de)
+- [中文](.)
 
 ---
 
@@ -63,4 +63,4 @@ DeepExtension 致力于打造一个**企业级 LLM 训练与部署平台**，通
 ---
 
 *DeepExtension – 为企业扩展 AI 能力*  
-版权所有 © 2025 DeepExtension Technologies
+版权所有 © 2025 DeepExtension 团队

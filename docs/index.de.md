@@ -16,15 +16,15 @@ Starten Sie mit der **[Schnellstart-Anleitung](getting-started/quick-start.md)**
 
 ## Inhaltsverzeichnis
 
-- [Einführung](intro/overview.md)
+- [Einführung](.)
 - [Erste Schritte](getting-started/quick-start.md)
 - [Benutzerhandbuch](user-guide/ui-overview.md)
-- [Entwicklerhandbuch](developer/api-overview.md)
-- [Anleitungen](tutorials/e2e.md)
-- [Bereitstellung & Betrieb](ops/system-reqs.md)
+- [Anleitungen](tutorials/overview.md)
+- [Entwicklerhandbuch](developer/overview.md)
+- [Bereitstellung & Betrieb](deployment/ollama-deployment.md)
 - [FAQ](faq.md)
 - [Versionshinweise](changelog.md)
-- [Über uns & Support](about/team.md)
+- [Über uns & Support](about/about-us.md)
 
 ---
 
@@ -32,9 +32,9 @@ Starten Sie mit der **[Schnellstart-Anleitung](getting-started/quick-start.md)**
 
 Diese Dokumentation ist verfügbar in:
 
-- [Englisch](#) (Standard)
-- [Deutsch](de/index.md)
-- [中文](zh/index.md)
+- [English](../) (Standard)
+- [Deutsch](.)
+- [中文](../zh)
 
 ---
 
@@ -63,4 +63,4 @@ Bei Fragen oder Problemen besuchen Sie bitte unsere [Support-Seite](about/suppor
 ---
 
 *DeepExtension – Erweiterte KI-Fähigkeiten für Unternehmen*  
-*Copyright © 2025 DeepExtension Technologies*
+*Copyright © 2025 DeepExtension Team*

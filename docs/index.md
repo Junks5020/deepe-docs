@@ -33,8 +33,8 @@ Start your journey with DeepExtension by following the **[Quick Start Guide](get
 This documentation is available in:
 
 - [English](#) (Default)
-- [Deutsch](de/index.md)
-- [中文](zh/index.md)
+- [Deutsch](de/)
+- [中文](zh/)
 
 ---
 
@@ -63,4 +63,4 @@ For help or questions, visit our [Support page](about/support.md) or reach out t
 ---
 
 *DeepExtension – Extend AI Capabilities for Enterprises*  
-*Copyright © 2025 DeepExtension Technologies*
+*Copyright © 2025 DeepExtension Team*
