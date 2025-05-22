@@ -131,6 +131,10 @@ docker build --platform=linux/amd64 -t {ai_image_name}:{ai_image_version} -f dee
 
 ### Option B: Apple macOS (M1–M4)
 
+> ⚠️ **Attention**  
+> The MLX-based training method requires **macOS version 13.5 or higher**.  
+> If your system does not meet this requirement, please skip to **Option C: No AI Image (no-training mode)**.
+
 #### a. Prepare the MLX code
 
 1. Download the entire repository from https://github.com/ml-explore/mlx-lm (tested successfully with v0.24.1)
@@ -203,7 +207,31 @@ python3 app.py
 ```
 Press **Ctrl + C** to stop the process after confirming it starts successfully.
 
-#### c. Finalize with:
+#### c. Update Redis Connection Configuration
+
+To ensure that your local training process can properly connect to the Redis service running in Docker, update the Redis configuration in the Python training module.
+
+1. Open the file `{deepextension_base_dir}/deep-e-python/redis_util.py`
+2. Locate the following lines (typically around line 18–19):
+
+```python
+host=os.getenv('AI_PY_REDIS_HOST'),
+port=os.getenv('AI_PY_REDIS_START_PORT'),
+```
+
+3. Replace them with:
+```python
+host="{localhost-ip}",
+port={AI_PY_REDIS_START_PORT},
+```
+
+- `{localhost-ip}` must be the actual IP address of the current machine — **not** `localhost` or `127.0.0.1`.
+
+- You find the value of {AI_PY_REDIS_START_PORT} in the `{deepextension_base_dir}/prod.env` file.
+
+> This ensures that the training script running outside of Docker on macOS can communicate with the Redis service running in a container.
+
+#### d. Install pm2:
 
 1. Install Node.js and NPM
 2. Run:
@@ -211,6 +239,26 @@ Press **Ctrl + C** to stop the process after confirming it starts successfully.
 ```bash
 npm install -g pm2
 ```
+
+#### e. Troubleshooting Python Environment Issues
+
+> **Note**  
+> During our testing, we observed that issues may arise depending on the specific Python version in use, or whether you're invoking `python3` vs. `python`. Please be patient — environment setup may require several iterations to get right.
+
+If the training service fails to start or behaves unexpectedly:
+
+- Run the following to inspect runtime logs, — especially helpful when running training for the first time:
+  ```bash
+  pm2 logs training-py
+  ```
+
+- If you encounter missing dependencies or version mismatches, install the required packages, then clear the PM2 cache:
+  ```bash
+  pm2 delete training-py
+  ```
+- After applying fixes or updating packages, restart the training service by following the instructions in Step 5.
+
+> In our experience, sometimes the setup process is quick and smooth, but in other cases, it may take time to resolve all package and compatibility issues. Don’t worry — once the environment is correctly set up, it will remain stable.
 
 ### Option C: No AI Image (no-training mode)
 
