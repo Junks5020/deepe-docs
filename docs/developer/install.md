@@ -69,7 +69,21 @@ If the schema is not properly initialized, the program will fail to start.
 
 ---
 
-### 1.3.4 Configure Database Access
+## 2. Clone the Repository
+
+Clone the DeepExtension repository from GitHub.
+
+```bash
+cd /opt
+git clone {deepextension_github_url} deepextension
+cd deepextension
+```
+
+Check that the clone was successful and without errors.
+
+---
+
+### 2.1 Configure Database Access
 
 **Create** the confuguration file `{deepextension_base_dir}/custom.conf` from template:
 
@@ -90,19 +104,6 @@ DB_NAME={dbname}
 
 > 💡 If the machine’s IP address changes frequently (e.g., on laptops or systems without a static IP), you may need to update it manually in this file. For servers, it’s recommended to configure a static IP to avoid connection issues.
 
-## 2. Clone the Repository
-
-Clone the DeepExtension repository from GitHub.
-
-```bash
-cd /opt
-git clone {deepextension_github_url} deepextension
-cd deepextension
-```
-
-Check that the clone was successful and without errors.
-
----
 
 ## 3. Set Up Model Training Environment
 
@@ -219,15 +220,13 @@ host=os.getenv('AI_PY_REDIS_HOST'),
 port=os.getenv('AI_PY_REDIS_START_PORT'),
 ```
 
-3. Replace them with:
+3. You find the value of {AI_PY_REDIS_START_PORT} in the `{deepextension_base_dir}/prod.env` file. Replace them with:
 ```python
 host="{localhost-ip}",
 port={AI_PY_REDIS_START_PORT},
 ```
 
 - `{localhost-ip}` must be the actual IP address of the current machine — **not** `localhost` or `127.0.0.1`.
-
-- You find the value of {AI_PY_REDIS_START_PORT} in the `{deepextension_base_dir}/prod.env` file.
 
 > This ensures that the training script running outside of Docker on macOS can communicate with the Redis service running in a container.
 
@@ -273,7 +272,6 @@ Open `{deepextension_base_dir}/custom.conf` with any text editor and edit the fo
 UI_AI_EXPOSED_PORT={preferred_webui_port}
 WITH_AI_IMAGE=[true for CUDA-based installations; false otherwise]
 SCP_GO_AI_TRAINING_HOST={localhost-ip}
-SCP_GO_AI_TRAINING_PORT=[TRAINING_START_PORT from prod.env]
 ```
 
 - `{localhost-ip}` must be the actual IP address of the current machine — **not** `localhost` or `127.0.0.1`.
@@ -318,9 +316,19 @@ During the first launch, a root user is created automatically. The initial passw
 
 ### Steps:
 
-1. Log in with this password
-2. Immediately change it
-3. **Delete** the password file for security
+1. Use the following credentials to log in for the first time:  
+
+    - **Project Code**: `1001`  
+    - **Username**: `admin`  
+    - **Initial Password**: *(see file)* `{deepextension_base_dir}/adminPassword/adminPassword.txt`
+
+2. Immediately change the password after logging in.
+
+3. **Delete** the password file to ensure security.
+
+4. Go to [User Management](../user-guide/user-management.md) to add new normal users.  
+   > Only the **admin** user should perform administrative tasks. Regular users should have their own accounts.
+
 
 ---
 
