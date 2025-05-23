@@ -12,7 +12,21 @@ Choose a directory as your DeepExtension base folder. We'll refer to this path a
 
 ---
 
-## 1. Prepare the Database
+## 1. Clone the Repository
+
+Clone the DeepExtension repository from GitHub.
+
+```bash
+cd /opt
+git clone {deepextension_github_url} deepextension
+cd deepextension
+```
+
+Check that the clone was successful and without errors.
+
+---
+
+## 2. Prepare the Database
 
 We recommend **not** using Docker to run your PostgreSQL database. Use a local or dedicated database server for better stability.
 
@@ -22,7 +36,7 @@ We recommend **not** using Docker to run your PostgreSQL database. Use a local o
 3. Make sure to note down the following parameters for later use: {dbname}, {dbuser}, {dbpassword}, {dbhost}, and {dbport}.
 4. Initialize the database schema using the **golang-migrate** tool:
 
-### 1.3.1 Install golang-migrate
+### 2.4.1 Install golang-migrate
 
 You can install this tool via CLI or Homebrew (for macOS users):
 
@@ -52,14 +66,14 @@ migrate -version
 # Example output: v4.18.3
 ```
 
-### 1.3.2 Execute the Migration
+### 2.4.2 Execute the Migration
 ```bash
 # Run the migration command with the appropriate connection string
 cd {deepextension_base_dir}
 migrate -path migrations -database "postgres://{dbuser}:{dbpassword}@{dbhost}:{dbport}/{dbname}?sslmode=disable" up
 ```
 
-### 1.3.3 Verify Migration
+### 2.4.3 Verify Migration
 After running the migration, enter the database and run the following query:
 ```sql
 SELECT COUNT(*) FROM pg_tables WHERE schemaname = 'public';
@@ -71,21 +85,9 @@ If the schema is not properly initialized, the program will fail to start.
 
 ---
 
-## 2. Clone the Repository
 
-Clone the DeepExtension repository from GitHub.
 
-```bash
-cd /opt
-git clone {deepextension_github_url} deepextension
-cd deepextension
-```
-
-Check that the clone was successful and without errors.
-
----
-
-### 2.1 Configure Database Access
+### 2.5 Configure Database Access
 
 **Create** the confuguration file `{deepextension_base_dir}/custom.conf` from template:
 
@@ -237,7 +239,7 @@ Press **Ctrl + C** to stop the process after confirming it starts successfully.
 npm install -g pm2
 ```
 
-#### e. Troubleshooting Python Environment Issues
+#### d. Troubleshooting Python Environment Issues
 
 > **Note**  
 > During our testing, we observed that issues may arise depending on the specific Python version in use, or whether you're invoking `python3` vs. `python`. Please be patient — environment setup may require several iterations to get right.
