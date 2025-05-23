@@ -17,8 +17,10 @@ Choose a directory as your DeepExtension base folder. We'll refer to this path a
 We recommend **not** using Docker to run your PostgreSQL database. Use a local or dedicated database server for better stability.
 
 1. Install a local PostgreSQL server (version 16 is known to run stably)
-2. Make sure to note down the following parameters for later use: {dbname}, {dbuser}, {dbpassword}, {dbhost}, and {dbport}.
-3. Initialize the database schema using the **golang-migrate** tool:
+2. To ensure successful initialization, you **must** use the default superuser:  
+   **`dbuser = postgres`**  
+3. Make sure to note down the following parameters for later use: {dbname}, {dbuser}, {dbpassword}, {dbhost}, and {dbport}.
+4. Initialize the database schema using the **golang-migrate** tool:
 
 ### 1.3.1 Install golang-migrate
 
@@ -140,12 +142,21 @@ docker build --platform=linux/amd64 -t {ai_image_name}:{ai_image_version} -f dee
 
 1. Download the entire repository from https://github.com/ml-explore/mlx-lm (tested successfully with v0.24.1)
 2. Copy the `mlx_lm` subdirectory from the `mlx-lm` project  into `{deepextension_base_dir}/deep-e-python`
-3. Edit `{deepextension_base_dir}/deep-e-python/mlx_lm/tuner/datasets.py`:
+3. Run the preparation script to apply required MLX code modifications for DeepExtension compatibility:
 
-Change from:
+```bash
+cd {deepextension_base_dir}/deep-e-python
+chmod +x prepare_mlx_changes.sh
+./prepare_mlx_changes.sh
+```
+
+Using the script saves time and helps avoid manual editing errors. The changes are
+
+-  For `{deepextension_base_dir}/deep-e-python/mlx_lm/tuner/datasets.py`,
+
+change from:
 ```python
 names = ("train", "valid", "test")
-train = load_subset(data_path)
 train, valid, test = [load_subset(data_path / f"{n}.jsonl") for n in names]
 return train, valid, test
 ```
@@ -153,18 +164,17 @@ To:
 ```python
 # names = ("train", "valid", "test")
 train = load_subset(data_path)
-# train, valid, test = [load_subset(data_path / f"{n}.jsonl") for n in names]
 return train, train, None
 ```
-  4. Edit `tuner/trainer.py`:
 
-Change from:
+-  For `{deepextension_base_dir}/deep-e-python/mlx_lm/tuner/trainer.py`,
+
+change from:
 ```python
 mx.set_wired_limit(mx.metal.device_info()["max_recommended_working_set_size"])
 ```
 To:
 ```python
-# mx.set_wired_limit(mx.metal.device_info()["max_recommended_working_set_size"])
 mx.set_wired_limit(8 * 1024 * 1024 * 1024)
 ```
 
@@ -220,10 +230,10 @@ host=os.getenv('AI_PY_REDIS_HOST'),
 port=os.getenv('AI_PY_REDIS_START_PORT'),
 ```
 
-3. You find the value of {AI_PY_REDIS_START_PORT} in the `{deepextension_base_dir}/prod.env` file. Replace them with:
+3. You find the value of {AI_PY_REDIS_EXPOSED_PORT} in the `{deepextension_base_dir}/prod.env` file. Replace them with:
 ```python
 host="{localhost-ip}",
-port={AI_PY_REDIS_START_PORT},
+port={AI_PY_REDIS_EXPOSED_PORT},
 ```
 
 - `{localhost-ip}` must be the actual IP address of the current machine — **not** `localhost` or `127.0.0.1`.
