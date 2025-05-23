@@ -95,17 +95,26 @@ cp custom.conf.template custom.conf
 ```
 Open `custom.conf` with any text editor and edit the following fields:
 ```
-DB_HOST={dbhost}
 DB_PORT={dbport}
-DB_USER={dbuser}
+DB_USER=postgres
 DB_PASS={dbpassword}
 DB_NAME={dbname}
 ```
 
-- `{dbhost}` must be the actual IP address of the machine — **not** `localhost` or `127.0.0.1`.
+For cases where the database is located on the **same machine** as the DeepExtension installation,  
+you do **not** need to modify `{dbhost}` — a default value is already specified in `{deepextension_base_dir}/prod.env`.
 
-> 💡 If the machine’s IP address changes frequently (e.g., on laptops or systems without a static IP), you may need to update it manually in this file. For servers, it’s recommended to configure a static IP to avoid connection issues.
+If the database is hosted on a **different machine**, you must explicitly set the host IP by adding the following line to `{deepextension_base_dir}/custom.conf`:
 
+```bash
+DB_HOST={dbhost}
+```
+
+> 💡  Important: 
+> 
+> - {dbhost} must be the actual IP address of the database machine — not localhost or 127.0.0.1. 
+> - If the db machine’s IP address changes frequently (e.g., on laptops or networks without static IPs), you will need to manually update this value. 
+> - For production servers, it is strongly recommended to configure a static IP address to prevent connection issues.
 
 ## 3. Set Up Model Training Environment
 
@@ -129,7 +138,8 @@ There are three options depending on your platform:
 2. Go to `{deepextension_base_dir}` and build the training image using the following command:
 
 ```bash
-docker build --platform=linux/amd64 -t {ai_image_name}:{ai_image_version} -f deep-e-python/Dockerfile .
+cd {deepextension_base_dir}/deep-e-python
+docker build -t {ai_image_name}:{ai_image_version} -f Dockerfile . --load
 ```
 
 ### Option B: Apple macOS (M1–M4)
@@ -218,29 +228,7 @@ python3 app.py
 ```
 Press **Ctrl + C** to stop the process after confirming it starts successfully.
 
-#### c. Update Redis Connection Configuration
-
-To ensure that your local training process can properly connect to the Redis service running in Docker, update the Redis configuration in the Python training module.
-
-1. Open the file `{deepextension_base_dir}/deep-e-python/redis_util.py`
-2. Locate the following lines (typically around line 18–19):
-
-```python
-host=os.getenv('AI_PY_REDIS_HOST'),
-port=os.getenv('AI_PY_REDIS_START_PORT'),
-```
-
-3. You find the value of {AI_PY_REDIS_EXPOSED_PORT} in the `{deepextension_base_dir}/prod.env` file. Replace them with:
-```python
-host="{localhost-ip}",
-port={AI_PY_REDIS_EXPOSED_PORT},
-```
-
-- `{localhost-ip}` must be the actual IP address of the current machine — **not** `localhost` or `127.0.0.1`.
-
-> This ensures that the training script running outside of Docker on macOS can communicate with the Redis service running in a container.
-
-#### d. Install pm2:
+#### c. Install pm2:
 
 1. Install Node.js and NPM
 2. Run:
@@ -268,26 +256,34 @@ If the training service fails to start or behaves unexpectedly:
 - After applying fixes or updating packages, restart the training service by following the instructions in Step 5.
 
 > In our experience, sometimes the setup process is quick and smooth, but in other cases, it may take time to resolve all package and compatibility issues. Don’t worry — once the environment is correctly set up, it will remain stable.
+### Option C: No AI Image (No-Training Mode)
 
-### Option C: No AI Image (no-training mode)
+To run DeepExtension without training capabilities, open `{deepextension_base_dir}/custom.conf` with any text editor and add the following line:
 
-No action is required in this step — just make sure to set {WITH_AI_IMAGE} appropriately in the next configuration step.
+```bash
+WITH_AI_IMAGE=false
+```
+
+> By default, WITH_AI_IMAGE is set to true.
+> If you intend to use no-training mode, you must explicitly set this value to false.
+
 
 ---
 
-## 4. Configure other Settings
+## 4. Configure Optional Environment Settings
 
-Open `{deepextension_base_dir}/custom.conf` with any text editor and edit the following fields:
-```
+By default, the Web UI uses port **88**, which is defined by `{UI_AI_EXPOSED_PORT}` in `{deepextension_base_dir}/prod.env`.  
+If you prefer a different port, or if port 88 is already in use, open `{deepextension_base_dir}/custom.conf` with any text editor and set:
+
+```ini
 UI_AI_EXPOSED_PORT={preferred_webui_port}
-WITH_AI_IMAGE=[true for CUDA-based installations; false otherwise]
-SCP_GO_AI_TRAINING_HOST={localhost-ip}
 ```
 
-- `{localhost-ip}` must be the actual IP address of the current machine — **not** `localhost` or `127.0.0.1`.
-- `{preferred_webui_port}` can be any available port (we recommend `88` or a similar number).
-
-> 💡 If your machine’s IP address changes frequently (e.g., on laptops or systems without a static IP), you may need to update it manually in this file. For servers, it’s recommended to configure a static IP to avoid connection issues.
+Similarly, the default port for the AI Redis service is **6490**, defined by {AI_PY_REDIS_EXPOSED_PORT} in`{deepextension_base_dir}/prod.env`.
+If you prefer a different port, or if 6490 is already in use, add or edit the following in `{deepextension_base_dir}/custom.conf`:
+``` ini
+AI_PY_REDIS_EXPOSED_PORT={preferred_redis_port}
+```
 
 ---
 
@@ -304,7 +300,7 @@ Verify that:
 - All images are downloaded
 - All containers start successfully
 
-Open `http://localhost:{preferred_webui_port}` to check the Web UI.
+Open `http://localhost:88` or `http://localhost:{preferred_webui_port}` to check the Web UI.
 
 ### Verify Database Initialization (First Run Only)
 During the first application launch, initial data will be populated into the database.
