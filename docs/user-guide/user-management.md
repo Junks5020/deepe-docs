@@ -12,9 +12,7 @@ The **User Management** main page lists all registered users within your DeepExt
 user is shown along with:
 
 - Username
-- Role (Admin, Developer, Viewer, etc.)
-- Account status
-- Last login time
+- Project ID
 
 This module is essential for multi-user environments, enabling collaboration while maintaining 
 security and visibility.
@@ -28,10 +26,8 @@ To create a new user:
 1. Click **"Add User"**
 2. Enter the new user's:
    - Username
-   - Display name (optional)
-   - Role or permission level
-3. The system will automatically assign an **initial password** (identical to the root/admin 
-account's initial password by default)
+   - Display name
+   - **initial password** 
 
 Once created, users can log in and are encouraged to change their password upon first use.
 

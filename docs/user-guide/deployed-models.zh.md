@@ -14,20 +14,20 @@
 - **自动生成的名称**：遵循以下命名规则：
 
 ```
-[deployed_model_name] = [saved_model_name]_d_[quant_type]_[first4ofDeployingUUID]
+[deployed_model_name] = [saved_model_name]_d_[first4ofDeployingUUID]_[quant_type]
 ```
 
 - **部署状态**
 - **关联部署工具**（例如 Ollama、LMStudio）
 - **模型卡信息**：展示继承自已保存模型和部署过程的配置信息
 
-> 已部署模型由外部工具本地服务。如需在 DeepPrompt 或 Model Assessment 等模块中使用它们，需单独注册。
+> 已部署模型由外部工具本地服务。如果需要在 DeepPrompt 或模型评估等模块中使用，需单独注册。
 
 ---
 
 ## 注册为第三方模型
 
-若要在 DeepExtension 模块中使用已部署模型：
+如果要在 DeepExtension 模块中使用已部署模型，首先需要将其注册为第三方模型：
 
 1. 点击部署模型条目中的 **“注册”**
 2. 模型将被添加到 [第三方模型](thirdparty-models.zh.md) 列表中

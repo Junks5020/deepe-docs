@@ -31,7 +31,7 @@ nav:
       - DeepPrompt: user-guide/deep-prompt.md
       - Model Training: user-guide/model-training.md
       - Datasets Management: user-guide/dataset-management.md
-      - Document Embedding: user-guide/document-embedding.md
+      - Document Embedding  (RAG): user-guide/document-embedding.md
       - Model Assessment: user-guide/model-assessment.md
       - Model Management:
           - Thirdparty Models: user-guide/thirdparty-models.md
@@ -98,7 +98,7 @@ plugins:
             DeepPrompt: DeepPrompt
             "Model Training": Modelltraining
             "Datasets Management": Datensatzverwaltung
-            "Document Embedding": Dokumenteneinbettung
+            "Document Embedding  (RAG)": Dokumenteneinbettung  (RAG)
             "Model Assessment": Modellauswertung
             "Model Management": Modellverwaltung
             "Thirdparty Models": Drittanbieter-Modelle
@@ -164,7 +164,7 @@ plugins:
             DeepPrompt: DeepPrompt
             "Model Training": 模型训练
             "Datasets Management": 数据集管理
-            "Document Embedding": 文档嵌入
+            "Document Embedding  (RAG)": 文档嵌入（RAG）
             "Model Assessment": 模型评估
             "Model Management": 模型管理
             "Thirdparty Models": 第三方模型

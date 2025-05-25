@@ -8,7 +8,7 @@
 
 ## 总览
 
-在 **已保存模型** 页面中，您可以查看所有通过 [训练模型](trained-models.zh.md) 接口成功保存的合并模型列表。
+在 **已保存模型** 页面中，可以查看所有通过 [已训练模型](trained-models.zh.md) 接口成功保存的模型列表。
 
 每个模型条目包含以下信息：
 
@@ -24,19 +24,19 @@
 
 ## 部署已保存模型
 
-要使一个已保存模型可用于实时推理：
+部署已保存模型使其可用于实时推理：
 
 1. 点击所选模型旁的 **“部署”** 按钮
 2. 提供所需的额外参数（如量化配置、部署环境）
-3. DeepExtension 会将部署请求转发至您配置好的 LLM 部署工具（目前仅支持 **Ollama**）
+3. DeepExtension 会将部署请求转发至配置好的 LLM 部署工具（目前仅支持 **Ollama**）
 4. 部署成功后，该模型将出现在 [已部署模型](deployed-models.zh.md) 页面中
 
 > **注意：**
 >
-> - 部署前需要先与外部部署后端进行集成。DeepExtension 本身并不直接提供模型服务。
-> - 若使用 **Ollama** 进行部署，您需提供有效的 **模型部署模板文件（Deployment Template File）**。详见 [基础模型](base-models.zh.md)。
-> - 您必须正确设置 **部署环境**，详见 [部署工具配置](deployment-tool-configuration.zh.md)。
-> - 当前仅支持以下几种量化模式：`no_quantization`、`q8_0`、`q4_K_M` 和 `q4_K_S` —— 这是因为目前 Ollama API 仅支持这些选项。
+> - DeepExtension 本身并不直接提供模型服务，所以部署前需要先与外部部署后端进行集成。
+> - 使用 **Ollama** 进行部署时，需提供有效的 **模型部署模板文件（Deployment Template File）**，详见 [基础模型](base-models.zh.md)。
+> - 必须正确设置 **部署环境**，详见 [部署工具配置](deployment-tool-configuration.zh.md)。
+> - 因为目前 Ollama API 支持的量化模型限制，DeepExtension 当前也仅支持以下几种量化模式：`no_quantization`、`q8_0`、`q4_K_M` 和 `q4_K_S` 。
 
 ---
 

@@ -16,7 +16,7 @@ Each model entry includes:
 - **Auto-Generated Name**: Follows the naming convention:
 
 ```
-[deployed_model_name] = [saved_model_name]_d_[quant_type]_[first4ofDeployingUUID]
+[deployed_model_name] = [saved_model_name]_d_[first4ofDeployingUUID]_[quant_type]
 ```
 
 - **Deployment Status**

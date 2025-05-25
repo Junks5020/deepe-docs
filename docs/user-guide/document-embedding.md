@@ -1,5 +1,5 @@
 
-# Document Embedding
+# Document Embedding (RAG)
 
 The **Document Embedding** module in DeepExtension allows users to convert documents into vector representations 
 for use in **retrieval-augmented generation (RAG)** and related knowledge-aware AI workflows. This is especially 
