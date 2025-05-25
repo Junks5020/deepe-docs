@@ -71,7 +71,7 @@ Fill in the following fields:
 |------------------------|---------------------------------|---------------------------------------------------------------|
 | Technical Name         | `qw2.5-7-i`                     | Must be short and unique                                      |
 | Model Name             | `Qwen2.5-7B-Instruct`           | Descriptive, full name                                        |
-| Model Path             | `./models/Qwen2.5-7B-Instruct`  | Path must match the directory in Step 2                       |
+| Model Path             | `models/Qwen2.5-7B-Instruct`    | Path must match the directory in Step 2                       |
 | Deployment Template    | *(Paste from Step 3)*           | Required only for Ollama deployment                          |
 
 > You can leave the **Deployment Template** field empty and fill it later using **"Update Deployment Template File"**.

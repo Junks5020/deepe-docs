@@ -224,11 +224,40 @@ python3 -m venv deepe_prod
 source deepe_prod/bin/activate
 pip3 install -r requirements.txt
 ```
+
 2. Test installation:
 ```bash
 python3 app.py
 ```
 Press **Ctrl + C** to stop the process after confirming it starts successfully.
+
+For both options above, we should verify that all required packages are installed correctly and completely.
+Before continuing to test the overall installation, you may want to verify that the local environment is properly configured — especially if you plan to run Mac-native training using MLX.
+
+We recommend following the **“Test the Localized Script”** section in  
+[How We Implemented MLX-Demo (MacOS)](implement-mlx-demo.md).  
+This ensures that the `mlx_lm.lora` module is correctly installed and that your environment can execute a minimal MLX-based training run.
+
+Specifically, confirm the following:
+
+- A base model (e.g., `Qwen2.5-1.5B-Instruct`) is available in `{deepextension_base_dir}/models`
+- A dataset file is available at `examples/mlx-demo-train-dataset.jsonl`
+
+Then run:
+
+```bash
+cd {deepextension_base_dir}/deep-e-python
+python3 -m mlx_lm.lora \
+    --model ../models/Qwen2.5-1.5B-Instruct \
+    --train \
+    --data examples/mlx-demo-train-dataset.jsonl \
+    --iters 2
+```
+
+If the command runs without errors, your local environment is confirmed to be functional.
+
+>  Only proceed to the next installation test step after this check passes.
+
 
 #### c. Install pm2:
 

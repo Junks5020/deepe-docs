@@ -1,5 +1,5 @@
 
-# 🛠️ How to Implement Your Own Training
+# How to Implement Your Own Training
 
 DeepExtension allows you to integrate your custom AI training code into its UI-driven workflow.  
 If your training code can run in a standalone Python environment, it can likely be adapted to run inside DeepExtension.
@@ -8,7 +8,7 @@ This guide explains how to modify and register your own training script for use 
 
 ---
 
-## 🚀 Basic Idea
+## Basic Idea
 
 Any trainable Python code can be connected to DeepExtension as long as it meets the following:
 
@@ -25,31 +25,35 @@ In essence, you only need to:
 
 ---
 
-## 📁 Files Involved
+## Files Involved
 
-Navigate to the `training/` directory in your DeepExtension Docker workspace.  
+Let `{deepextension_base_dir}` be the directory where you installed your DeepExtension.
+
+Navigate to the `{deepextension_base_dir}/deep-e-python` directory.
 You will find the following files:
 
 - `custom-template.py`  
 - `run_local_train_test_template.py`  
-- `test-training-code.py`  
 
+
+> `{deepextension_base_dir}/deep-e-python` is the **base directory** for all AI-related code. 
+> Unless otherwise specified, all subsequent operations should be performed within this directory.
+> 
 > Do **not** modify these base templates. Only work within a copy of the template.
-
+> 
 ---
 
-## 🧪 Prepare Your Custom Training Method
+## Prepare Your Custom Training Method
 
-Assume you want to implement `custom01.py`, a customizable training method listed in **Training Method Management**.
+Assume you want to implement `{deepextension_base_dir}/deep-e-python/custom01.py`, a customizable training method listed in [Training Method Management](../user-guide/training-methods.md).
 
 ### Step 1: Create Your Method File
+
+> If `custom01.py` already exists, back it up first.
 
 ```bash
 cp custom-template.py custom01.py
 ```
-
-If `custom01.py` already exists, back it up first.
-
 ### Step 2: Paste Your Code into the Defined Block
 
 Inside `custom01.py`, you will see the block:
@@ -110,7 +114,7 @@ These will be handled by DeepExtension's backend automatically.
 
 ---
 
-## 🧪 Test Your Custom Code Locally
+## Test Your Custom Code Locally
 
 Before testing and executing from the UI, test your custom method locally:
 
@@ -133,7 +137,7 @@ In `run_local_train_test.py`, replace:
 ### Step C: Run
 
 ```bash
-python run_local_train_test.py
+python3 run_local_train_test.py
 ```
 
 ### Step D: Verify
@@ -145,12 +149,12 @@ Ensure:
 
 ---
 
-## ✅ If All Looks Good
+## If All Looks Good
 
-You can now start a training job using the **Custom01_Train** method directly from the DeepExtension UI.
+You can now start a training job using the **Custom Training 1** method directly from the DeepExtension UI.
 
 For how to launch a training job, see:  
-📘 [Model Training](../user-guide/model-training.md)
+[Model Training](../user-guide/model-training.md)
 
 ---
 

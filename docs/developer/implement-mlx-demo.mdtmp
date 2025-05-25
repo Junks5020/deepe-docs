@@ -1,0 +1,81 @@
+# How We Implemented SFT-Demo and GRPO-Demo (CUDA)
+
+This document shows how DeepExtension internally implemented the built-in training method: **MLX-Demo**.
+
+This demo is a read-only example, showing how to plug in third-party training code into the DeepExtension workflow.  
+
+---
+
+## Demos Used
+
+- **MLX-Demo** is based on lora training implemented in https://github.com/ml-explore/mlx-lm
+
+From "Installation Guide: developer/install.md" you have downloaded files in directory
+
+- `{deepextension_base_dir}/deep-e-python/mlx_lm`
+
+---
+
+## Prerequisites: Make It Runnable Locally
+
+By default, the MLX example uses dataset from directory but DeepExtension need the file.
+Hence some small changes should be done during "Installation".
+These are included during executing "prepare_mlx_changes.sh".
+
+### Base Model (Local)
+
+Make sure a base model like `Qwen2.5-1.5B-Instruct` is downloaded and placed in:
+
+```
+{deepextension_base_dir}/models/Qwen2.5-1.5B-Instruct
+```
+
+> You can also use any other locally available compatible model.
+
+### Dataset (Local)
+
+- For **MLX-Demo**, you may use the dataset saved in :
+
+  ```
+  examples/mlx-demo-train-dataset.jsonl
+  ```
+
+### Test the Localized Script
+
+Now it's time to verify that the localized script runs correctly in your environment.
+
+```bash
+cd {deepextension_base_dir}/deep-e-python
+```
+
+```bash
+python3 -m mlx_lm.lora \
+    --model ../models/Qwen2.5-1.5B-Instruct \
+    --train \
+    --data examples/mlx-demo-train-dataset.jsonl \
+    --iters 2
+```
+> Assume you have downloaded Qwen2.5-1.5B-Instruct in {deepextension_base_dir}/model.
+> You can also use any other locally available compatible model.
+
+If everything is set up properly, the program should terminate normally without errors.
+
+> **Only proceed to the next integration steps if this test succeeds.**
+
+---
+
+## Implementing `mlx-demo.py`
+
+After that `mlx-demo.py` was created. Unlike the process in [How You Implement Own Training (CUDA)](implement-own-ai-training-cuda.md) where training code should be directly copied into `training-demo.py`,
+`mlx-demo.py` will call the command like "cmd = ['python3', '-m', 'mlx_lm.lora']".
+
+
+## Summary
+
+- The **MLX-Demo** is a fully functional example integrated into DeepExtension.
+- This demo is great references for implementing your own method.
+
+---
+
+> DeepExtension — Bring real training examples into your enterprise AI stack.  
+> No hacks. No surprises. Just clean integration.

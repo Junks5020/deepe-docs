@@ -27,13 +27,18 @@ As outlined in [Process Dependency](tutorial-process-dependency.md), make sure t
 - A **dataset** is available
 - A demo **training method** (already preinstalled)
 
-We recommend trying one of the following example datasets:
+We recommend starting with one of the following example datasets:
 
-- `grpo-demo-train-dataset.jsonl`
-- `sft-demo-train-dataset.jsonl`
-- [`mlx-demo-train-dataset.jsonl`](../assets/datasets/mlx-demo-train-dataset.jsonl)
+- **GRPO-Demo** (first 100 lines from the dataset `openai/gsm8k`):  
+  [`openai-gsm8k_first_100_lines.jsonl.jsonl`](../assets/datasets/openai-gsm8k_first_100_lines.jsonl)
 
-You can also use your own dataset, but please ensure the structure matches one of the examples (i.e., it includes the same fields).
+- **SFT-Demo** (first 100 lines from the dataset `yahma/alpaca-cleaned`):  
+  [`alpaca_data_cleaned_first_100_lines.jsonl`](../assets/datasets/alpaca_data_cleaned_first_100_lines.jsonl)
+
+- **MLX-Demo** (provided directly in the MLX repository):  
+  [`mlx-demo-train-dataset.jsonl`](../assets/datasets/mlx-demo-train-dataset.jsonl)
+
+You’re also welcome to use your own dataset — just make sure it follows the same structure as one of these examples, including matching field names.
 
 ---
 
