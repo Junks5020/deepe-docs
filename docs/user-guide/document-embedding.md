@@ -29,7 +29,7 @@ To add documents to an existing Knowledge Base:
 local directory.  
 4. Choose whether to enable **“Parsing During Creation”** (this will trigger immediate embedding using the 
 selected model) or skip for later parsing.  
-5. Click **"Execute"** to begin uploading. The process runs in **batch mode**.  
+5. Click **"Execute"** to begin uploading. The process runs in **background mode**.  
 6. If an error occurs, click **"Log"** to inspect detailed error messages.
 
 ---

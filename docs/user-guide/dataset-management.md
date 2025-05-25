@@ -15,7 +15,7 @@ To upload a new dataset:
 1. Click **"Upload a Dataset"** from the dataset page.  
 2. Fill in the **dataset name** and **dataset description**.  
 3. Click **"Upload"** to select a file in `.json` or `.jsonl` format from your local directory.  
-4. After selecting the file, click **"Execute"** to start the upload. The upload runs in **batch mode**.  
+4. After selecting the file, click **"Execute"** to start the upload. The upload runs in **background mode**.  
 5. Once complete, click **"View"** to inspect the uploaded dataset.  
 6. If any error occurs, click **"Log"** to check the detailed error messages.
 

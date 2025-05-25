@@ -50,7 +50,7 @@ validate correctness:
 - Adjust parameters as needed
 
 Only when you're satisfied, click **"Submit the Assessment"** — the process will then run in 
-**batch mode**.
+**background mode**.
 
 ---
 
@@ -61,7 +61,7 @@ On the Model Assessment main page:
 - Click **"View"** to inspect a completed assessment
 - Three tabs will be available:
   - **Assessment Overview**: Displays all configuration details
-  - **Log**: System logs during the batch process
+  - **Log**: System logs during the background process
   - **Result**: Shows final results in table format
 
 ---

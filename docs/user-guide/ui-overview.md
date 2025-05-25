@@ -55,7 +55,7 @@ Key capabilities include:
   - **1 Candidate + 1 Judge**: A judge model evaluates a single model's answer using predefined metrics
   - **2 Candidates + 1 Judge**: A judge model compares both answers and selects the better one, with scoring -->
 - Each assessment job includes a **preview stage** to verify setup (model, dataset, measurement prompt, etc.)
-- Execution is done in **batch mode**, allowing large-scale evaluations
+- Execution is done in **background mode**, allowing large-scale evaluations
 - Results are fully viewable in the UI and can also be **exported as local files**
 - **Any model can be used** — including third-party APIs, local adapters at any training stage, or fully deployed in-house models
 

@@ -43,7 +43,7 @@ To begin a new training job:
 > Most of these parameters are passed directly to your training logic. To customize their use, refer to [Implement Your Own Training](../developer/implement-own-ai-training.md).
 
 
-Once you click **"Run the Train"**, the job will be submitted and processed in **batch mode** on your backend infrastructure.
+Once you click **"Run the Train"**, the job will be submitted and processed in **background mode** on your backend infrastructure.
 
 ---
 

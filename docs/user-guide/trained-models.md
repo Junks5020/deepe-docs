@@ -35,7 +35,7 @@ To promote a trained model to a standalone **Saved Model**:
 2. Confirm the automatically generated parameters — no additional manual input is required  
 3. Click **"OK"** to submit the saving job
 
-The process runs in **batch mode**, and once complete, the new model will appear in the [Saved Models](saved-models.md) section.
+The process runs in **background mode**, and once complete, the new model will appear in the [Saved Models](saved-models.md) section.
 
 > **Note:** Quantization is **not supported** during the saving process for the following reasons:
 >
