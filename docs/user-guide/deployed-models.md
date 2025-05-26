@@ -28,12 +28,12 @@ use them in workflows like DeepPrompt or Model Assessment.
 
 ---
 
-## Register as Thirdparty Model
+## Register as Third-party Model
 
 To use a deployed model across DeepExtension modules:
 
 1. Click **"Register"** on the deployed model entry
-2. The model will be added to the [Thirdparty Models](thirdparty-models.md) list.
+2. The model will be added to the [Third-party Models](thirdparty-models.md) list.
 
 > Requires integration with a compatible LLM deployment backend (e.g., Ollama or LMStudio)
 
@@ -46,7 +46,7 @@ To undeploy and remove a model from your LLM runtime:
 1. Click **"Delete"** on the deployed model entry
 2. This will instruct the backend deployment tool to remove the model from active service
 
-> This does **not** affect its entry in [Thirdparty Models](thirdparty-models.md) if previously 
+> This does **not** affect its entry in [Third-party Models](thirdparty-models.md) if previously 
 registered.
 
 > Deletion actions also require a valid connection to your external deployment system

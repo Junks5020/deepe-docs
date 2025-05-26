@@ -22,7 +22,7 @@ Ollama provides a lightweight and local-first way to serve LLMs. It's especially
 With Ollama, you can:
 
 - **Deploy models from DeepExtension** directly to Ollama and use them for real-time inference.
-- **Register Ollama-hosted models** in DeepExtension as **Thirdparty Models** for use in:
+- **Register Ollama-hosted models** in DeepExtension as **Third-party Models** for use in:
 
     - Prompting (via **DeepPrompt**)
     - Evaluation (via **Model Assessment**)

@@ -29,12 +29,12 @@ nav:
       - UI Overview: user-guide/ui-overview.md
 #      - Dashboard: user-guide/dashboard.md
       - DeepPrompt: user-guide/deep-prompt.md
+      - Dataset Management: user-guide/dataset-management.md
+      - Knowledge Base (RAG): user-guide/document-embedding.md
       - Model Training: user-guide/model-training.md
-      - Datasets Management: user-guide/dataset-management.md
-      - Document Embedding  (RAG): user-guide/document-embedding.md
       - Model Assessment: user-guide/model-assessment.md
       - Model Management:
-          - Thirdparty Models: user-guide/thirdparty-models.md
+          - Third-party Models: user-guide/thirdparty-models.md
           - Base Models: user-guide/base-models.md
           - Trained Models: user-guide/trained-models.md
           - Saved Models: user-guide/saved-models.md
@@ -97,11 +97,11 @@ plugins:
             #    Dashboard: Dashboard
             DeepPrompt: DeepPrompt
             "Model Training": Modelltraining
-            "Datasets Management": Datensatzverwaltung
-            "Document Embedding  (RAG)": Dokumenteneinbettung  (RAG)
+            "Dataset Management": Datensatzverwaltung
+            "Knowledge Base (RAG)": Wissensdatenbank (RAG)
             "Model Assessment": Modellauswertung
             "Model Management": Modellverwaltung
-            "Thirdparty Models": Drittanbieter-Modelle
+            "Third-party Models": Drittanbieter-Modelle
             "Base Models": Basismodelle
             "Trained Models": Trainierte Modelle
             "Saved Models": Gespeicherte Modelle
@@ -163,11 +163,11 @@ plugins:
             #    Dashboard: 控制面板
             DeepPrompt: DeepPrompt
             "Model Training": 模型训练
-            "Datasets Management": 数据集管理
-            "Document Embedding  (RAG)": 文档嵌入（RAG）
+            "Dataset Management": 数据集管理
+            "Knowledge Base (RAG)": 知识库（RAG）
             "Model Assessment": 模型评估
             "Model Management": 模型管理
-            "Thirdparty Models": 第三方模型
+            "Third-party Models": 第三方模型
             "Base Models": 基础模型
             "Trained Models": 已训练模型
             "Saved Models": 已保存模型

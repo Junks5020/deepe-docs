@@ -25,7 +25,7 @@ Here’s how to read the arrows:
 You need:
 
 - A **Base Model** (see [Base Models](../user-guide/base-models.md))
-- A **Dataset** (see [Datasets Management](../user-guide/dataset-management.md))
+- A **Dataset** (see [Dataset Management](../user-guide/dataset-management.md))
 
 Don’t worry about training methods — some are already built in.
 
@@ -40,7 +40,7 @@ To run a prompt with **DeepPrompt**, you need a model.
 You can use:
 
 - A model you’ve just trained
-- A thirdparty model
+- A third-party model
 
 You can also attach an **Embedded Document** (Knowledge Base), but that’s optional.  
 See [DeepPrompt](../user-guide/deep-prompt.md) and [Document Embedding](../user-guide/document-embedding.md)

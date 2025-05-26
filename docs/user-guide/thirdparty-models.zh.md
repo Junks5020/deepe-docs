@@ -1,5 +1,5 @@
 
-# 第三方模型（Thirdparty Models）
+# 第三方模型（Third-party Models）
 
 **第三方模型**，是指集成至 DeepExtension 的外部模型，包括像 **阿里百炼**、**硅基流动**、**DeepSeek** 等平台的在线服务，或通过 API 可访问的本地部署模型。这些模型是 DeepExtension 工作流中的关键组成部分，可用于推理、评估和嵌入任务。
 

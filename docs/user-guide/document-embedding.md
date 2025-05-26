@@ -1,7 +1,7 @@
 
-# Document Embedding (RAG)
+# Knowledge Base (RAG)
 
-The **Document Embedding** module in DeepExtension allows users to convert documents into vector representations 
+The **Knowledge Base** module in DeepExtension allows users to convert documents into vector representations 
 for use in **retrieval-augmented generation (RAG)** and related knowledge-aware AI workflows. This is especially 
 useful for enterprise applications that require grounding LLM outputs in internal documentation.
 
@@ -13,7 +13,7 @@ To set up a new Knowledge Base:
 
 1. Click **"Create a Knowledge Base"** on the Embedding page.  
 2. Fill in the **Knowledge Base name** and a short **description**.  
-3. Select an embedding model. If no models appear, register a usable embedding model via [Thirdparty 
+3. Select an embedding model. If no models appear, register a usable embedding model via [Third-party 
 Models](thirdparty-models.md).  
 4. Click **"Save"** — your Knowledge Base will be created immediately.
 

@@ -1,34 +1,34 @@
 
-# Thirdparty Models
+# Third-party Models
 
-**Thirdparty Models** refer to external models integrated into DeepExtension — including services like **OpenAI**, 
+**Third-party Models** refer to external models integrated into DeepExtension — including services like **OpenAI**, 
 **Anthropic**, **ModelScope**, or even locally deployed models accessible via API. These models are essential components 
 of DeepExtension workflows and can be used for inference, evaluation, and embedding.
 
 ---
 
-## Why Thirdparty Models Matter
+## Why Third-party Models Matter
 
-Thirdparty models are deeply integrated into the DeepExtension ecosystem:
+Third-party models are deeply integrated into the DeepExtension ecosystem:
 
 - In **DeepPrompt**, you can:
   - Compare your fine-tuned models or local adapters against public APIs like GPT-4
   - Test how external models interact with your **knowledge base** or **system prompts**
 
-- In **Document Embedding**, an **embedding model** must be registered as a thirdparty model to support vectorization of 
+- In **Document Embedding**, an **embedding model** must be registered as a third-party model to support vectorization of 
 uploaded documents.
 
-- In **Model Assessment**, you can use any thirdparty model as a **candidate** or **judge** — enabling rich benchmarking 
+- In **Model Assessment**, you can use any third-party model as a **candidate** or **judge** — enabling rich benchmarking 
 and evaluation scenarios.
 
 > Even locally deployed models (e.g., those running on LAN or containerized endpoints) must be registered as 
-thirdparty models since DeepExtension itself does not host or serve models directly.
+third-party models since DeepExtension itself does not host or serve models directly.
 
 ---
 
 ## Add a New Model
 
-To add a new thirdparty model:
+To add a new third-party model:
 
 1. Click **"Add a New Model"**
 2. Fill in the following parameters:
