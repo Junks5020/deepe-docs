@@ -136,7 +136,7 @@ There are three options depending on your platform:
 
 ### Option A: CUDA (Linux, NVIDIA GPUs)
 
-1. In `{deepextension_base_dir}/prod.env`, find `SCP_AI_IMAGE_NAME` as {ai_image_name} `TRAINING_AI_IMAGE_VERSION` (e.g., `a1b2c3d4`) as {ai_image_version}
+1. In `{deepextension_base_dir}/prod.env`, find `TRAINING_AI_IMAGE_NAME` (e.g., `local_deep_e_python_image`) as {ai_image_name} `TRAINING_AI_IMAGE_VERSION` (e.g., `a1b2c3d4`) as {ai_image_version}
 2. Go to `{deepextension_base_dir}` and build the training image using the following command:
 
 ```bash
@@ -205,7 +205,7 @@ conda activate deepe_prod
 ```
 1. Install dependencies:
 ```bash
-pip3 install -r requirements.txt
+pip3 install -r requirements-mac.txt
 ```
 1. Test installation:
 ```bash
@@ -222,7 +222,7 @@ Set up a Python virtual environment using venv and install the required packages
 ```bash
 python3 -m venv deepe_prod
 source deepe_prod/bin/activate
-pip3 install -r requirements.txt
+pip3 install -r requirements-mac.txt
 ```
 
 2. Test installation:
