@@ -240,7 +240,7 @@ This ensures that the `mlx_lm.lora` module is correctly installed and that your 
 
 Specifically, confirm the following:
 
-- A base model (e.g., `Qwen2.5-1.5B-Instruct`) is available in `{deepextension_base_dir}/models`
+- A base model (e.g., `Qwen2.5-1.5B-Instruct`) is available in `{deepextension_base_dir}/models` (see also [Add Base Models](how-to-add-base-models.md))
 - A dataset file is available at `examples/mlx-demo-train-dataset.jsonl`
 
 Then run:
