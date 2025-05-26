@@ -34,11 +34,11 @@ nav:
       - Model Training: user-guide/model-training.md
       - Model Assessment: user-guide/model-assessment.md
       - Model Management:
-          - Third-party Models: user-guide/thirdparty-models.md
           - Base Models: user-guide/base-models.md
           - Trained Models: user-guide/trained-models.md
           - Saved Models: user-guide/saved-models.md
           - Deployed Models: user-guide/deployed-models.md
+          - Third-party Models: user-guide/thirdparty-models.md
       - Setting:
           - Deployment Tool Configuration : user-guide/deployment-tool-configuration.md
           - Training Method Management : user-guide/training-methods.md
