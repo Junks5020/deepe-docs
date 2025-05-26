@@ -114,6 +114,10 @@ You can check the differences by:
 diff sft-demo.py examples/qwen2_5_(7b)_alpaca_local.py
 ```
 
+> 💡 Note: We intentionally did not map PromptInputColumn and PromptOutputColumn into the Training Methods.
+> This was done to make the first runs easier and more approachable for new users.
+> These parameters can be used for training methods that require field-level control over prompt formatting.
+
 ### Step 4: Add Logging Callback
 
 Make sure your `trainer` initialization includes:

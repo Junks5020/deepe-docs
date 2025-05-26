@@ -8,6 +8,11 @@ This guide explains how to modify and register your own training script for use 
 
 ---
 
+> The built-in training methods **SFT-Demo** and **GRPO-Demo**, described in  
+> [How We Implemented SFT-Demo and GRPO-Demo (CUDA)](implement-sft-grpo-demo.md), follow the exact same steps outlined in this guide. 
+> You can use them as real, working references for implementing your own training method.
+
+---
 ## Basic Idea
 
 Any trainable Python code can be connected to DeepExtension as long as it meets the following:

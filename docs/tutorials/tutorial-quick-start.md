@@ -48,8 +48,8 @@ Below is a minimal parameter configuration that works reliably for all demo trai
 
 | **Parameter Name**        | **Description**                                      | **Recommended Value**         |
 |---------------------------|------------------------------------------------------|--------------------------------|
-| Base Model / MODEL_PATH   | Foundation model for fine-tuning                     | `Qwen2.5-1.5B`                 |
-| Dataset / DATASET_PATH    | Dataset to be used                                   | `demo-dataset`                |
+| Base Model                | Foundation model for fine-tuning                     | `Qwen2.5-1.5B`                 |
+| Dataset                   | Dataset to be used                                   | `demo-dataset`                |
 | LORA_RANK                 | LoRA adapter rank                                    | `8`                            |
 | LOAD_IN_4BIT              | Enable 4-bit quantization                            | `true`                         |
 | MAX_SEQ_LENGTH            | Max sequence length                                  | `1024`                         |
@@ -58,18 +58,23 @@ Below is a minimal parameter configuration that works reliably for all demo trai
 | MAX_SAMPLES               | Max number of training samples                       | `1000`                         |
 | NUM_GENERATIONS           | Generations per batch                                | `2`                            |
 | MAX_GRAD_NORM             | Gradient clipping norm                               | `0.5`                          |
-| EPOCHS                    | Number of training epochs                            | `1`                            |
+| EPOCHS*                    | Number of training epochs                            | `1`                            |
 | MAX_STEPS                 | Max training steps                                   | `10`                           |
 | BATCH_SIZE                | Training batch size                                  | `2`                            |
 | GRAD_ACCUM_STEPS          | Gradient accumulation steps                          | `2`                            |
 | LEARNING_RATE             | Initial learning rate                                | `2e-5`                         |
 | WARMUP_STEPS              | Warmup steps                                         | `2`                            |
-| WARMUP_RATIO              | Warmup ratio (alternative to warmup steps)           | `0.01`                         |
+| WARMUP_RATIO*              | Warmup ratio (alternative to warmup steps)           | `0.01`                         |
 | OUTPUT_DIR                | Output directory                                     | System auto-generated          |
-| PromptInputColumn         | Input prompt field name                              | `input`                        |
-| PromptOutputColumn        | Output/response field name                           | `input`                        |
+| PromptInputColumn**         | Input prompt field name                              |                         |
+| PromptOutputColumn**        | Output/response field name                           |                         |
+
+> \* These parameters will be available in the very near future.  
+> \** These parameters are not required for all Demo Training Methods.
 
 You can fine-tune these parameters later as you gain more experience.
+
+ 
 
 ---
 
