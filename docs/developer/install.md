@@ -204,7 +204,7 @@ conda activate deepe_prod
 ```
 1. Install dependencies:
 ```bash
-pip3 install -r requirements-mac.txt
+pip3 install -r requirements_mac.txt
 ```
 
 Option 2: For users without Conda installed
@@ -215,7 +215,7 @@ Set up a Python virtual environment using venv and install the required packages
 ```bash
 python3 -m venv deepe_prod
 source deepe_prod/bin/activate
-pip3 install -r requirements-mac.txt
+pip3 install -r requirements_mac.txt
 ```
 
 

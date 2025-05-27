@@ -43,7 +43,7 @@ We value your feedback. Let us know what works, what doesn’t, and what you’d
 
 Submit your ideas via:
 
-- Email: feedback@deepextension.ai
+- Email: contact@deepextension.ai
 - GitHub Issues (for technical requests)
 
 ---
