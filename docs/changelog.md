@@ -15,7 +15,7 @@ This milestone marks the beginning of a new chapter in enabling enterprise teams
 - **Batch Model Assessment**: Four powerful modes to test model quality with real-world datasets  
 - **Embedding & RAG Support**: Build knowledge bases and enable document-grounded inference  
 - **Ollama Integration**: Seamless deployment to local environments  
-- **Multi-platform Support**: Fully supports Linux (CUDA) and macOS (MLX on M1–M4 chips)
+- **Multi-platform Support**: Fully supports CUDA（Linux or Windows via WSL) and macOS (MLX on M1–M4 chips)
 
 ---
 

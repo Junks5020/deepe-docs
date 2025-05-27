@@ -1,8 +1,8 @@
 # 快速开始：运行您的首次训练任务
 
-DeepExtension 通过完全可视化的界面，帮助您轻松启动首次模型训练 —— 无需编写代码。
+DeepExtension 通过完全可视化的界面，帮助您在无需编写代码的情况下轻松启动首次模型训练。
 
-根据您系统的 AI 平台，我们已预安装多个演示训练方法，助您快速上手。
+根据系统的 AI 平台，我们已预安装多个演示训练方法，助您快速上手。
 
 ---
 
@@ -21,13 +21,13 @@ DeepExtension 通过完全可视化的界面，帮助您轻松启动首次模型
 
 ## 开始之前
 
-如 [流程依赖关系](tutorial-process-dependency.md) 页面所述，请确保以下组件已准备就绪：
+如 [流程依赖关系](tutorial-process-dependency.md) 页面所述，确保以下组件已准备就绪：
 
 - 已添加一个**基础模型**
 - 拥有一个**数据集**
 - 至少一个已预安装的**演示训练方法**
 
-我们建议使用以下示例数据集之一：
+建议使用以下示例数据集之一：
 
 - **GRPO-Demo**（`openai/gsm8k` 数据集前 100 行）：  
   [`openai-gsm8k_first_100_lines.jsonl`](../assets/datasets/openai-gsm8k_first_100_lines.jsonl)
@@ -38,7 +38,7 @@ DeepExtension 通过完全可视化的界面，帮助您轻松启动首次模型
 - **MLX-Demo**（来自 MLX 官方仓库）：  
   [`mlx-demo-train-dataset.jsonl`](../assets/datasets/mlx-demo-train-dataset.jsonl)
 
-您也可以使用自己的数据集 —— 只需确保其结构与上述任一示例保持一致，包括字段名的匹配。
+也可以使用自己的数据集，需要确保其结构与上述任一示例保持一致，包括字段名的匹配。
 
 ---
 
@@ -72,7 +72,7 @@ DeepExtension 通过完全可视化的界面，帮助您轻松启动首次模型
 > \* 这些参数将在近期版本中提供。  
 > \** 并非所有演示训练方法都需要这些参数。
 
-您可以根据实际情况灵活调整上述参数配置。
+可以根据实际情况灵活调整上述参数配置。
 
 ---
 
@@ -80,13 +80,13 @@ DeepExtension 通过完全可视化的界面，帮助您轻松启动首次模型
 
 - 进入主导航中的 [模型训练](../user-guide/model-training.md) 页面
 - 启动训练任务并查看实时进度
-- 当任务进入 **已完成** 状态后，您可以在 [已训练模型](../user-guide/trained-models.md) 页面中查看结果
+- 当任务进入 **已完成** 状态后，可以在 [已训练模型](../user-guide/trained-models.md) 页面中查看结果
 
 ---
 
 ## 下一步操作
 
-完成训练后，您可以：
+完成训练后，可以：
 
 - 使用 [模型评估](../user-guide/model-assessment.md) 功能进行效果评估
 - 在 [DeepPrompt](../user-guide/deep-prompt.md) 中运行推理

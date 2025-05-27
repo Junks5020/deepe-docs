@@ -75,7 +75,7 @@ run their first fine-tuning workflow right from their Mac.
 
 | Platform        | Backend   | Supported OS | Use Cases                                |
 |----------------|-----------|--------------|------------------------------------------|
-| **CUDA**        | PyTorch   | Linux, Windows (via WSL)  | Full-scale model training, production    |
+| **CUDA**        | PyTorch / TensorFlow   | Linux, Windows (via WSL)  | Full-scale model training, production    |
 | **MLX**         | MLX       | macOS (M1–M4)| Local development, small-scale training  |
 
 > Other platforms are not currently supported, but may be considered based on user demand.

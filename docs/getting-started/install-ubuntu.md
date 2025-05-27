@@ -1,7 +1,7 @@
 
 # 还在改进中, 暂时不要review
 
-# Install DeepExtension on Ubuntu (CUDA)
+# Install DeepExtension on CUDA（Linux or Windows via WSL)
 
 This guide walks you through installing **DeepExtension** on an Ubuntu system with **GPU acceleration (CUDA)**. It covers prerequisites, Docker setup, and how to run DeepExtension using Docker Compose.
 

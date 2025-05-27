@@ -8,16 +8,16 @@ Thank you for using **DeepExtension**. We are committed to providing the best po
 
 For general inquiries, partnership opportunities, or press requests, please contact:
 
-- 📧 **Email**: support@deepextension.ai
-- 🌐 **Website**: [https://www.deepextension.ai](https://www.deepextension.ai)
+- **Email**: contact@deepextension.ai
+- **Website**: [https://www.deepextension.ai](https://www.deepextension.ai)
 
 ---
 
 ## Community & Documentation
 
-- 📘 **Documentation**: Visit our official [DeepExtension Documentation Portal](https://docs.deepextension.ai)
-- 💬 **Community Forum**: Join discussions, share feedback, or request features with our growing user community (Coming soon)
-- 🐙 **GitHub**: Track releases, submit issues, and contribute to our open-source AI components  
+- **Documentation**: Visit our official [DeepExtension Documentation Portal](https://docs.deepextension.ai)
+- **Community Forum**: Join discussions, share feedback, or request features with our growing user community (Coming soon)
+- **GitHub**: Track releases, submit issues, and contribute to our open-source AI components  
   [https://github.com/deepextension](https://github.com/deepextension)
 
 ---
@@ -27,7 +27,7 @@ For general inquiries, partnership opportunities, or press requests, please cont
 If you encounter a problem using DeepExtension:
 
 1. First, check the documentation and FAQs.
-2. If the issue persists, please email us with the following details:
+2. If the issue persists, please email support@deepextension.ai with the following details:
 
    - DeepExtension version
    - Operating system / environment

@@ -1,6 +1,7 @@
 # Ollama as Deployment Tool
 
-DeepExtension currently offers robust integration with **Ollama** as an external deployment tool. Whether you're deploying models trained inside DeepExtension or connecting to externally managed ones, Ollama enables a complete deployment and registration loop.
+DeepExtension is now fully integrated with **Ollama**, enabling unified access to both locally deployed and externally loaded models.
+You can register models trained within DeepExtension or connect to external models managed by Ollama.
 
 This guide helps you understand how to use Ollama with DeepExtension effectively.
 

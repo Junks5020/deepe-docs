@@ -123,7 +123,7 @@ DB_HOST={dbhost}
 > 
 > DeepExtension offers different setup options based on your platform’s capabilities:
 > 
-> - On **Linux (CUDA)** systems, model training can be run **inside Docker** because Docker supports full GPU acceleration through **NVIDIA’s native CUDA integration**. This allows you to containerize the training process and benefit from isolation, reproducibility, and simplified deployment.
+> - On **CUDA（Linux or Windows via WSL)** systems, model training can be run **inside Docker** because Docker supports full GPU acceleration through **NVIDIA’s native CUDA integration**. This allows you to containerize the training process and benefit from isolation, reproducibility, and simplified deployment.
 > 
 > - On **macOS (M1–M4)** systems, GPU acceleration is provided via **Metal Performance Shaders (MPS)**. However, Docker does **not support GPU passthrough** on macOS. As a result, training must run **outside of Docker**, directly on the host.  
 >   To ensure that training services behave like a Docker-managed process (with auto-restart, background execution, and logging), we use **PM2**, a process manager for Node.js.
@@ -133,7 +133,7 @@ DB_HOST={dbhost}
 
 There are three options depending on your platform:
 
-### Option A: CUDA (Linux, NVIDIA GPUs)
+### Option A: CUDA (Linux or Windows via WSL, NVIDIA GPUs)
 
 1. In `{deepextension_base_dir}/prod.env`, find `TRAINING_AI_IMAGE_NAME` (e.g., `local_deep_e_python_image`) as {ai_image_name} `TRAINING_AI_IMAGE_VERSION` (e.g., `a1b2c3d4`) as {ai_image_version}
 2. Go to `{deepextension_base_dir}` and build the training image using the following command:

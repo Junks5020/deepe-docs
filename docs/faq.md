@@ -54,7 +54,7 @@ However, for the initial installation (especially on Linux/Mac), someone with **
 
 Currently:
 
-- **CUDA (Linux, NVIDIA GPU)** — full support including training
+- **CUDA (Linux or Windows via WSL)** — full support including training
 - **MLX (macOS, Apple Silicon)** — lightweight training with prebuilt methods
 
 We are actively evaluating more platforms like **AMD ROCm**, **ONNX Runtime**, and **Windows CPU inference**.
@@ -80,7 +80,7 @@ You can use local base models, run training, deploy models, and even evaluate th
 ### How do I install DeepExtension?
 
 We provide detailed installation instructions for:
-- **Linux (CUDA)** systems
+- **CUDA（Linux or Windows via WSL)** systems
 - **macOS (Apple Silicon)**
 
 Installation uses **Docker Compose**, and a typical setup can be completed in under 30 minutes if requirements are met.  

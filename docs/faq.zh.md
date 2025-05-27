@@ -54,7 +54,7 @@
 
 当前支持：
 
-- **CUDA（Linux，NVIDIA GPU）** —— 支持完整训练功能
+- **CUDA（Linux 或者 Windows (通过 WSL)）** —— 支持完整训练功能
 - **MLX（macOS，Apple Silicon）** —— 支持轻量训练
 
 我们正在积极评估支持更多平台，例如 **AMD ROCm**、**ONNX Runtime** 和 **Windows CPU 推理**。
@@ -81,7 +81,7 @@ DeepExtension 支持多种 **参数高效微调方法**，如 **SFT**、**LoRA**
 
 我们提供详细的安装说明，适用于：
 
-- **Linux（CUDA）**
+- **CUDA（Linux 或者 Windows (通过 WSL)）**
 - **macOS（Apple Silicon）**
 
 安装过程基于 **Docker Compose**，如果环境准备完毕，通常可在 30 分钟内完成部署。  
