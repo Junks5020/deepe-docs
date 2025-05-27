@@ -39,7 +39,7 @@ digraph g {
         fontsize=30
 	}
 
-	nRAG [label="文档嵌入（RAG）"];
+	nRAG [label="知识库（RAG）"];
 	nBModel [label="基础模型"];
 	nDataset [label="数据集"];
 	nThirdModel [label="第三方模型"];

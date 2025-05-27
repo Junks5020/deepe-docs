@@ -60,7 +60,7 @@ preconfigured workflows.
 
 To help users get started quickly, DeepExtension provides several **pre-installed training methods** based on your operating environment.
 
-### For Ubuntu (CUDA) Users
+### CUDA（Linux or Windows via WSL) Users
 
 - **GRPO-Demo**: A ready-to-use GRPO (Guided Reinforcement with Prompt Optimization) method for logic-aligned fine-tuning
 - **SFT-Demo**: A supervised fine-tuning example suitable for small-scale tasks

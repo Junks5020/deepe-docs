@@ -46,7 +46,7 @@ This is where DeepExtension becomes AI-specialized:
 
 Runs the compute and storage:
 
-- **CUDA GPU Support** on Ubuntu for training and inference
+- **CUDA GPU Support** on Linux or Windows via WSL for training and inference
 - **Local macOS Support** for development and preview
 - **Docker Compose**: Manages services (database, vector store, API, UI)
 - **Storage Backends**:
@@ -81,7 +81,7 @@ DeepExtension supports integrations with:
 
 | Target Environment | Description                            |
 |--------------------|----------------------------------------|
-| `Ubuntu + CUDA`    | Optimized for high-performance training |
+| `CUDA（Linux or Windows via WSL)`    | Optimized for high-performance training |
 | `macOS` (Dev)      | Runs via Docker (currently for local use and study only) |
 | `Self-hosted SaaS` | Full deployment for internal or external use |
 

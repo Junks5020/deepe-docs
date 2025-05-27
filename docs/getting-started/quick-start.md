@@ -13,7 +13,7 @@ Before you can start using DeepExtension, you need to set up the platform. Insta
 - Refer to the full [Installation Guide](../developer/install.md) for step-by-step instructions.
 - You can install DeepExtension on:
 
-    - Ubuntu (with CUDA for GPU training)
+    - Linux or Windows via WSL (with CUDA for GPU training)
     - macOS (with MLX on Apple M-series)
     - Any Linux/macOS environment (in **no-training mode**) for UI exploration and inference only
 

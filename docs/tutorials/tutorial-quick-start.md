@@ -8,7 +8,7 @@ Depending on your system’s AI platform, we provide preinstalled demo training 
 
 ## Available Demo Training Methods
 
-### For Ubuntu (CUDA) Users
+### For CUDA（Linux or Windows via WSL) Users
 
 - **GRPO-Demo**: A ready-to-use GRPO (Guided Reinforcement with Prompt Optimization) method for logic-aligned fine-tuning.
 - **SFT-Demo**: A supervised fine-tuning example suitable for small-scale tasks.
@@ -30,7 +30,7 @@ As outlined in [Process Dependency](tutorial-process-dependency.md), make sure t
 We recommend starting with one of the following example datasets:
 
 - **GRPO-Demo** (first 100 lines from the dataset `openai/gsm8k`):  
-  [`openai-gsm8k_first_100_lines.jsonl.jsonl`](../assets/datasets/openai-gsm8k_first_100_lines.jsonl)
+  [`openai-gsm8k_first_100_lines.jsonl`](../assets/datasets/openai-gsm8k_first_100_lines.jsonl)
 
 - **SFT-Demo** (first 100 lines from the dataset `yahma/alpaca-cleaned`):  
   [`alpaca_data_cleaned_first_100_lines.jsonl`](../assets/datasets/alpaca_data_cleaned_first_100_lines.jsonl)

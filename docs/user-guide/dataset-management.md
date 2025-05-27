@@ -4,7 +4,9 @@
 The **Dataset Management** module in DeepExtension provides a structured and version-controlled environment for uploading and organizing the training 
 and evaluation data used across your AI workflows.
 
-You can manage datasets in formats like **JSONL** and **JSON**, define their schema, and maintain clean records for traceability and reuse.
+You can manage datasets in formats **JSONL**, define their schema, and maintain clean records for traceability and reuse.
+
+> **Note:** Currently, only the **JSONL** format is supported. If your data is in other formats such as `JSON`, `CSV`, or `Parquet`, there are many readily available (online) tools to convert them into JSONL. Support for additional formats is on our roadmap.
 
 ---
 
@@ -14,14 +16,14 @@ To upload a new dataset:
 
 1. Click **"Upload a Dataset"** from the dataset page.  
 2. Fill in the **dataset name** and **dataset description**.  
-3. Click **"Upload"** to select a file in `.json` or `.jsonl` format from your local directory.  
+3. Click **"Upload"** to select a file in `.jsonl` format from your local directory.  
 4. After selecting the file, click **"Execute"** to start the upload. The upload runs in **background mode**.  
 5. Once complete, click **"View"** to inspect the uploaded dataset.  
 6. If any error occurs, click **"Log"** to check the detailed error messages.
 
 ### Upload Requirements
 
-Currently, only UTF-8 encoded `.json` or `.jsonl` files are supported. Please follow these format rules:
+Currently, only UTF-8 encoded `.jsonl` files are supported. Please follow these format rules:
 
 1. The file **must be encoded in UTF-8**.  
 2. Each line must be a **valid JSON object** (for `.jsonl` files).  

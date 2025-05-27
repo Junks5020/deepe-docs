@@ -50,7 +50,7 @@
 
 为帮助用户快速入门，DeepExtension 根据操作系统预装了若干训练方法示例。
 
-### Ubuntu（CUDA）用户
+### CUDA（Linux 或者 Windows (通过 WSL)）用户
 
 - **GRPO-Demo**：用于逻辑型微调任务的 GRPO（引导式强化学习）示例方法
 - **SFT-Demo**：适用于小规模任务的监督式微调示例

@@ -18,13 +18,13 @@ This guide will walk you through:
 speed and capacity.
 
 - **Installation Guide**  
-  How to set up DeepExtension from scratch on supported platforms like Ubuntu (CUDA-enabled) and macOS.
+  How to set up DeepExtension from scratch on supported platforms like Linux or Windows via WSL (CUDA-enabled) and macOS.
 
 - **Base Model Management**  
   Learn how to register and organize local base models that serve as the foundation for all fine-tuning 
 activities.
 
-- **Implementing Your Own Training (Ubuntu + CUDA)**  
+- **Implementing Your Own Training (CUDA（Linux or Windows via WSL))**  
   Extend DeepExtension by integrating your own training script (LoRA, SFT, GRPO, etc.) using our built-in 
 templates.
 

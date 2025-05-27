@@ -1,4 +1,4 @@
-# Process Dependency
+# Process Overview
 
 This guide gives you a simple overview of how different parts of **DeepExtension** connect with each other.  
 It answers a key question:
@@ -42,7 +42,7 @@ You can use:
 - A model you’ve just trained
 - A third-party model
 
-You can also attach an **Embedded Document** (Knowledge Base), but that’s optional.  
+You can also attach an **Knowledge Base** (RAG), but that’s optional.  
 See [DeepPrompt](../user-guide/deep-prompt.md) and [Document Embedding](../user-guide/document-embedding.md)
 
 ---

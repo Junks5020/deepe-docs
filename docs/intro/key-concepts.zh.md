@@ -79,7 +79,7 @@ DeepExtension 能够无缝适配您的现有环境：
 - **基于角色的权限控制（RBAC）**  
 - **审计日志与合规支持**  
 - **GPU 资源调度感知**  
-- 支持部署于 **Ubuntu + CUDA**、**macOS**
+- 支持部署于 **Linux + CUDA**、**Windows (通过 WSL) + CUDA**、**macOS**
 
 ---
 

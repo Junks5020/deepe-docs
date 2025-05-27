@@ -44,7 +44,7 @@ Hier wird DeepExtension KI-spezifisch:
 
 Ausführung der Berechnungs- und Speicherkomponenten:
 
-- **CUDA-GPU-Unterstützung** auf Ubuntu für Training und Inferenz  
+- **CUDA-GPU-Unterstützung** auf Linux oder Windows über WSL für Training und Inferenz  
 - **Lokale macOS-Unterstützung** für Entwicklung und Vorschau  
 - **Docker Compose**: Verwaltung aller Dienste (Datenbank, Vektorspeicher, API, UI)  
 - **Speicher-Backends**:
@@ -78,7 +78,7 @@ DeepExtension unterstützt Integrationen mit:
 
 | Zielumgebung         | Beschreibung                                 |
 |----------------------|----------------------------------------------|
-| `Ubuntu + CUDA`      | Optimiert für leistungsintensives Training   |
+| `CUDA（Linux oder Windows über WSL)`      | Optimiert für leistungsintensives Training   |
 | `macOS` (Entwicklung) | Läuft über Docker (ideal für lokale Nutzung oder Schulung) |
 | `Self-hosted SaaS`   | Vollständige Bereitstellung für interne oder externe Nutzung |
 

@@ -39,7 +39,7 @@ digraph g {
 	}
 
 
-	nRAG [label="Embedded Documents (RAG)"];
+	nRAG [label="Knowledge Base (RAG)"];
 	nBModel [label="Base Models"];
 	nDataset [label="Datasets"];
 	nThirdModel [label="Thirdparty Models"];

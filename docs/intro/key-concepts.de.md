@@ -79,7 +79,7 @@ Konzipiert für die Anforderungen von Enterprise-IT und MLOps:
 - **RBAC** (rollenbasierte Zugriffskontrolle)  
 - **Audit-Logging** und Compliance-Unterstützung  
 - **GPU-bewusste Aufgabenplanung**  
-- Unterstützung für Deployment auf **Ubuntu + CUDA**, **macOS**
+- Unterstützung für Deployment auf **Linux + CUDA**, **Windows über WSL + CUDA**,**macOS**
 
 ---
 

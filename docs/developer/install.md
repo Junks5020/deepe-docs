@@ -73,15 +73,15 @@ cd {deepextension_base_dir}
 migrate -path migrations -database "postgres://{dbuser}:{dbpassword}@{dbhost}:{dbport}/{dbname}?sslmode=disable" up
 ```
 
-### 2.4.3 Verify Migration
-After running the migration, enter the database and run the following query:
-```sql
-SELECT COUNT(*) FROM pg_tables WHERE schemaname = 'public';
+After running the migration, you should see no error messages and output similar to the following:
 ```
-If the result is greater than 20, it indicates that the schema migration was successful and the required tables have been created.
+1747303002/u create_initialize_type (***ms)
+1747303003/u create_initialize_table (***ms)
+```
 
-Once the migration is successfully verified, you can proceed with the next installation steps.
-If the schema is not properly initialized, the program will fail to start.
+This indicates that the migration completed successfully. You can now proceed with the next steps of the installation.
+
+> If the schema is not initialized correctly, the program will fail to start.
 
 ---
 
@@ -114,7 +114,6 @@ DB_HOST={dbhost}
 
 > 💡  Important: 
 > 
-> - {dbhost} must be the actual IP address of the database machine — not localhost or 127.0.0.1. 
 > - If the db machine’s IP address changes frequently (e.g., on laptops or networks without static IPs), you will need to manually update this value. 
 > - For production servers, it is strongly recommended to configure a static IP address to prevent connection issues.
 
@@ -207,12 +206,6 @@ conda activate deepe_prod
 ```bash
 pip3 install -r requirements-mac.txt
 ```
-1. Test installation:
-```bash
-cd {deepextension_base_dir}/deep-e-python
-python3 app.py
-```
-Press **Ctrl + C** to stop the process after confirming it starts successfully.
 
 Option 2: For users without Conda installed
 
@@ -225,13 +218,8 @@ source deepe_prod/bin/activate
 pip3 install -r requirements-mac.txt
 ```
 
-2. Test installation:
-```bash
-python3 app.py
-```
-Press **Ctrl + C** to stop the process after confirming it starts successfully.
 
-For both options above, we should verify that all required packages are installed correctly and completely.
+For both options 1 and 2 above, we should verify that all required packages are installed correctly and completely.
 Before continuing to test the overall installation, you may want to verify that the local environment is properly configured — especially if you plan to run Mac-native training using MLX.
 
 We recommend following the **“Test the Localized Script”** section in  

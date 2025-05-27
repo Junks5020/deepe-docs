@@ -79,7 +79,7 @@ Built to meet enterprise IT and MLOps standards:
 - **RBAC** (Role-Based Access Control)
 - **Audit logging** and compliance support
 - **GPU-aware scheduling**
-- Deployment across **Ubuntu + CUDA**, **macOS**
+- Deployment across **Linux + CUDA**, **Windows über WSL + CUDA**,**macOS**
 
 ---
 
