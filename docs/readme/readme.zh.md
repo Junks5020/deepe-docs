@@ -90,9 +90,10 @@ DeepExtension 采用模块化、分层式的系统架构，确保平台具备高
 - 邮箱：contact@deepextension.ai
 - 官网：https://www.deepextension.ai
 - 微信公众号: 简帷软件
-<div align="center" style="margin-top:20px;margin-bottom:20px;">
-<img src="library/20250528-163040.jpeg" width="1200"/>
+<div align="left" style="margin-top:20px;margin-bottom:20px; ">
+<img src="library/20250528-163040.jpeg" width="300"/>
 </div>
+
 ## 👥 9. 意见与功能建议
 我们非常重视您的反馈，欢迎告知好用的功能和存在的问题，以及您希望未来能加入功能。
 反馈渠道：
