@@ -4,12 +4,12 @@
 
 Our mission is to make domain-specific AI development **easy to use, highly collaborative, and scalable**, especially for teams lacking AI professionals or computing resources.
 
-Whether you're an AI engineer or a business expert, DeepExtension provides a collaborative environment that leverages modern technologies like **PEFT**, **GRPO**, and **human-in-the-loop mechanisms** to help you build high-quality models — all through a modular web interface.
+Whether you're an AI engineer or a business expert, DeepExtension provides a collaborative environment that leverages modern technologies like **PEFT**, **GRPO**, to help you build high-quality models — all through a modular web interface.
 
 
 ## 🎮 2. Official Documentation
 
-Please visit [http://192.168.10.222:8080/zh/](http://192.168.10.222:8080/zh/) to view the official documentation.
+Please visit [https://docs.deepextension.com](https://docs.deepextension.com) to view the official documentation.
 
 <div align="center" style="margin-top:20px;margin-bottom:20px;">
 <img src="library/image-20250528150548686.png" width="1200"/>
