@@ -1,3 +1,8 @@
+<div style="display: flex; align-items: center; justify-content: center;">
+  <img src="library/favicon.svg" width="100" style="margin-right: 20px;" />
+  <h1>DeepExtension</h1>
+</div>
+
 ## 💡 1. What is DeepExtension?
 
 [DeepExtension](https://deepextension.ai/) is an AI infrastructure platform built to help enterprises easily manage the entire lifecycle of large language model (LLM) development—from data preparation to fine-tuning, evaluation, and deployment.
@@ -14,7 +19,10 @@ Whether you're an AI engineer or a business expert, DeepExtension offers a share
 <div align="left" style="margin-top:20px;margin-bottom:20px;">
 <img src="library/image-20250528150548686.png" width="1000"/>
 </div>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 6588f6af27508560e13a1ae3a149755d54bb1a11
 
 ## 🎉 3. Follow the Project
 
