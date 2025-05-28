@@ -1,3 +1,8 @@
+<div style="display: flex; align-items: center; justify-content: center;">
+  <img src="library/favicon.svg" width="100" style="margin-right: 20px;" />
+  <h1>DeepExtension</h1>
+</div>
+
 ## 💡 1.DeepExtension是什么？
 
 [DeepExtension](https://deepextension.ai/)是一个 AI 基础设施平台，帮助企业轻松管理大型语言模型（LLM）开发的完整生命周期——从数据准备到微调、评估和部署。
