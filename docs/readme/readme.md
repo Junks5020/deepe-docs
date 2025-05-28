@@ -117,10 +117,6 @@ Please include:
 
 - 📧 Email: contact@deepextension.ai  
 - 🌐 Website: [https://www.deepextension.ai](https://www.deepextension.ai)  
-- 📱 WeChat: jianweisoft
-<div align="left" style="margin-top:20px;margin-bottom:20px; ">
-<img src="library/20250528-163040.jpeg" width="300"/>
-</div>
 
 
 ## 👥 9. Feedback & Feature Requests

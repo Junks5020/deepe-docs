@@ -97,7 +97,7 @@ DeepExtension 采用模块化、分层式的系统架构，确保平台具备高
 - 官网：https://www.deepextension.ai
 - 微信公众号: 简帷软件
 <div align="left" style="margin-top:20px;margin-bottom:20px; ">
-<img src="library/20250528-163040.jpeg" width="300"/>
+<img src="library/wechat.png" width="300"/>
 </div>
 
 ## 👥 9. 意见与功能建议
