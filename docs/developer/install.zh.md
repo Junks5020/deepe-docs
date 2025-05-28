@@ -324,7 +324,7 @@ select is_init from sys_version_config where deploy_version = 0.1;
 2. 登录后立即修改密码  
 3. 删除 adminPassword.txt 文件确保安全  
 4. 访问 [用户管理](../user-guide/user-management.md) 添加普通用户  
-   > 仅 **admin** 用户应执行管理操作，普通用户应有独立账户
+   > **管理员**账户只应该执行管理操作，业务操作需通过普通用户账户访问系统。
 
 ---
 
