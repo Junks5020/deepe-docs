@@ -135,6 +135,23 @@ There are three options depending on your platform:
 
 ### Option A: CUDA (Linux or Windows via WSL, NVIDIA GPUs)
 
+Before starting, ensure that your environment supports GPU passthrough into Docker.
+
+Run the following command to verify if Docker and CUDA drivers are correctly installed and configured:
+```bash
+docker run -it --rm --gpus all pytorch/pytorch:latest python -c "import torch; print(torch.cuda.is_available())"
+```
+
+- If the output is True, your setup is correct.
+
+- If it returns False or shows errors, you need to install or fix the GPU drivers and Docker GPU support.
+
+> 💡 For Linux systems, make sure to install the NVIDIA Container Toolkit. You can follow the official instructions at:
+>
+> https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html
+
+Once this test passes, proceed with the following steps:
+
 1. In `{deepextension_base_dir}/prod.env`, find `TRAINING_AI_IMAGE_NAME` (e.g., `local_deep_e_python_image`) as {ai_image_name} `TRAINING_AI_IMAGE_VERSION` (e.g., `a1b2c3d4`) as {ai_image_version}
 2. Go to `{deepextension_base_dir}` and build the training image using the following command:
 
@@ -229,7 +246,7 @@ This ensures that the `mlx_lm.lora` module is correctly installed and that your 
 Specifically, confirm the following:
 
 - A base model (e.g., `Qwen2.5-1.5B-Instruct`) is available in `{deepextension_base_dir}/models` (see also [Add Base Models](how-to-add-base-models.md))
-- A dataset file is available at `examples/mlx-demo-train-dataset.jsonl`
+- A dataset file is available at `{deepextension_base_dir}/examples/mlx-demo-train-dataset.jsonl`
 
 Then run:
 
@@ -321,6 +338,21 @@ Verify that:
 
 Open `http://localhost:88` or `http://localhost:{preferred_webui_port}` to check the Web UI.
 
+To manage the application lifecycle, use the following commands:
+
+- Stop all running containers (without removing them):
+```bash
+./run_compose.sh stop
+```
+
+- Stop and **remove** the containers (images and volumes are not affected):
+```bash
+./run_compose.sh down
+```
+
+> These commands work similarly to `docker compose stop` and `docker compose down`.
+> You can use them safely during upgrades, maintenance, or when switching environments.
+
 ### Verify Database Initialization (First Run Only)
 During the first application launch, initial data will be populated into the database.
 To verify that the schema migration was successful, connect to the database and run:
@@ -361,3 +393,4 @@ During the first launch, a root user is created automatically. The initial passw
 
 - Do **not** manually modify any files or configurations without contacting the DeepExtension Team.
 - Always follow upgrade instructions during version updates.
+- If you still encounter problems during installation or have feedback regarding this guide, please email us at: install@deepextension.ai
