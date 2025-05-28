@@ -13,7 +13,7 @@ Egal ob Sie KI-Ingenieur oder Fachexperte sind, DeepExtension bietet Ihnen eine 
 
 ## 📘 2. Offizielle Dokumentation
 
-Bitte besuchen Sie https://docs.deepextension.com/de/ für die offizielle Dokumentation.
+Bitte besuchen Sie [https://docs.deepextension.com/de/](https://docs.deepextension.com/de/) für die offizielle Dokumentation.
 <div align="left" style="margin-top:20px;margin-bottom:20px;">
 <img src="library/image-20250528150548686.png" width="1000"/>
 </div>
@@ -79,11 +79,12 @@ DeepExtension verwendet eine modulare, mehrschichtige Systemarchitektur, die hoh
 - [Häufige Fragen (FAQs)](https://docs.deepextension.com/de/faq/)
 - [Architekturdokumentation](https://docs.deepextension.com/de/intro/architecture/)
 ## 🏄 6. Open-Source-Community
-- Dokumentationszentrum: Besuchen Sie das offizielle DeepExtension-Dokumentationsportal, [Dokumentationsadresse](https://docs.deepextension.com/de/)
+- Dokumentationszentrum: Besuchen Sie das offizielle DeepExtension-Dokumentationsportal, [https://docs.deepextension.com/de/](https://docs.deepextension.com/de/)
 - Community-Forum: Nehmen Sie an Diskussionen teil, geben Sie Feedback oder schlagen Sie Funktionen vor (demnächst verfügbar)
-- GitHub: Verfolgen Sie Releases, melden Sie Probleme oder beteiligen Sie sich an unseren Open-Source-Komponenten, [Projektadresse](https://github.com/DeepExtension-AI/DeepExtension)
+- GitHub: Verfolgen Sie Releases, melden Sie Probleme oder beteiligen Sie sich an unseren Open-Source-Komponenten, [https://github.com/DeepExtension-AI/DeepExtension](https://github.com/DeepExtension-AI/DeepExtension)
 ## 🙌 7. Technischer Support
 Wenn Sie bei der Nutzung von DeepExtension auf Probleme stoßen:
+
 1. Bitte konsultieren Sie zunächst die relevanten Dokumente und FAQs;
 2. Wenn das Problem weiterhin besteht, kontaktieren Sie uns bitte per E-Mail an support@deepextension.ai und geben Sie folgende Informationen an:
 - DeepExtension Versionsnummer
