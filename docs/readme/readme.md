@@ -1,86 +1,134 @@
 ## 💡 1. What is DeepExtension?
 
-[DeepExtension](https://deepextension.ai/) is an AI infrastructure platform that helps enterprises easily manage the full lifecycle of large language model (LLM) development — from data preparation to fine-tuning, evaluation, and deployment.
+[DeepExtension](https://deepextension.ai/) is an AI infrastructure platform designed to help enterprises effortlessly manage the full lifecycle of large language model (LLM) development—from data preparation to fine-tuning, evaluation, and deployment.
 
-Our mission is to make domain-specific AI development **easy to use, highly collaborative, and scalable**, especially for teams lacking AI professionals or computing resources.
+Our mission is to make domain-specific AI development **easy to use, highly collaborative, and easily scalable**, especially for teams lacking AI expertise or computational resources.
 
-Whether you're an AI engineer or a business expert, DeepExtension provides a collaborative environment that leverages modern technologies like **PEFT**, **GRPO**, and **human-in-the-loop mechanisms** to help you build high-quality models — all through a modular web interface.
+Whether you're an AI engineer or a business specialist, DeepExtension provides a collaborative environment that utilizes modern technologies such as **PEFT**, **GRPO**, and **human-in-the-loop** feedback mechanisms to build high-quality models—all accessible via a modular web interface.
 
+---
 
-## 🎮 2. Official Documentation
+## 📘 2. Official Documentation
 
-Please visit [http://192.168.10.222:8080/zh/](http://192.168.10.222:8080/zh/) to view the official documentation.
+📖 Visit: [https://docs.deepextension.com/](https://docs.deepextension.com/)
 
-<div align="center" style="margin-top:20px;margin-bottom:20px;">
-<img src="library/image-20250528150548686.png" width="1200"/>
-</div>
+![Documentation Screenshot](library/image-20250528150548686.png)
 
+---
 
 ## 🎉 3. Follow the Project
 
-⭐️ Click the Star button in the top-right corner of the DeepExtension GitHub repo to get real-time updates on new releases! 🌟
+⭐️ Star our [GitHub repository](https://github.com/DeepExtension-AI/DeepExtension) to stay updated and support the project!
 
+---
 
 ## 🌟 4. Key Features
 
-- 🤖 **Multi-model Chat & Knowledge Base Integration**: Communicate directly with locally trained models or various third-party models (from mainstream AI platforms), and combine them with personal or enterprise knowledge bases to enable intelligent Q&A and information retrieval.
-- 🔌 **Easy Integration with Third-party Models & Platforms**: Quickly add and switch between various third-party models and platforms to meet diverse application needs.
-- 🚀 **Local Model Training & One-click Deployment**: Support local fine-tuning and training of models; training results can be saved and deployed efficiently (e.g., in Ollama environments), greatly improving model iteration efficiency.
-- 📚 **Quick Personal Knowledge Base Creation**: One-click to build a personal knowledge base; flexibly import files in various formats (e.g., PDF, DOCX, XLSX) for easy knowledge management and expansion.
-- 📊 **Model Evaluation & Comparison**: Built-in model evaluation tools allow horizontal comparison across different models or versions, helping users select the most suitable target model.
-- 📊 **Dataset Upload & Parsing**: Supports uploading and automatic parsing of datasets needed for model training, simplifying data preparation and accelerating development.
+- 🤖 **Multi-Model Chat + Knowledge Base**  
+  Interact with local or third-party models integrated with personal or corporate knowledge bases.
 
+- 🔌 **Easy Integration with Third-Party Models**  
+  Quickly plug in and switch between models like OpenAI, Anthropic, and more.
 
-## 📚 5. Technical Documentation
+- 🚀 **Local Model Training & Deployment**  
+  Train and fine-tune models locally, save results, and deploy with one click using Ollama or other tools.
 
-This project is designed to offer an exceptionally user-friendly deployment and usage experience. It supports quick deployment on major operating systems like Linux, macOS, and Windows. By using Docker and Docker Compose, it significantly reduces environment setup complexity and dependency conflicts — enabling both individual developers and enterprise teams to get started quickly.
+- 📚 **Rapid Knowledge Base Creation**  
+  Import documents (PDF, DOCX, XLSX, etc.) to build structured, searchable knowledge bases.
 
-> **Note:** When deploying on macOS, Python-based training does not require image packaging. Please ensure dependencies like `pm2` are installed properly. See [Installation Guide](http://192.168.10.222:8080/zh/developer/install/) for details.
+- 📊 **Model Evaluation & Comparison**  
+  Benchmark different versions/models using built-in evaluation tools.
 
-- [Installation Guide](http://192.168.10.222:8080/zh/developer/install/)
-- [Frequently Asked Questions](http://192.168.10.222:8080/zh/faq/)
+- 🗂 **Dataset Upload & Parsing**  
+  Upload datasets and automatically parse them into structured formats to streamline training.
+
+---
+
+## 📚 5. Technical Overview
+
+### 🏗️ Architecture Diagram
+
+```
+┌─────────────────────────────┐
+          Web Frontend         
+└─────────────┬───────────────┘
+              │
+┌─────────────▼───────────────┐
+           Backend API         
+└─────────────┬───────────────┘
+              │
+┌─────────────▼───────────────┐
+     Task Orchestration Layer  
+└─────────────┬───────────────┘
+              │
+┌─────────────▼───────────────┐
+      Model Services Layer     
+└─────────────┬───────────────┘
+              │
+┌─────────────▼───────────────┐
+       Data & Knowledge Base   
+└─────────────────────────────┘
+```
+
+### Module Breakdown
+
+- **Frontend**: Web interface for end-to-end model management.
+- **API Layer**: Connects UI with backend services and handles business logic.
+- **Task Orchestration**: Manages workflows for training, evaluation, and inference.
+- **Model Services**: Supports inference and fine-tuning for both local and third-party models.
+- **Data Layer**: Manages structured data, vector databases, and document parsing.
+
+### Advantages
+
+- ✅ Decoupled, modular architecture  
+- 📈 High availability and scalability  
+- 🔐 Fine-grained permission control  
+- 🌐 API-friendly for external integrations  
+
+🔗 Learn more: [Architecture Documentation](https://docs.deepextension.com/zh/intro/architecture/)
 
 ---
 
 ## 🏄 6. Open Source Community
 
-- **Documentation Portal**: [DeepExtension Docs](http://192.168.10.222:8080/zh/)
-- **Community Forum**: Coming soon — join discussions and submit feedback or feature requests
-- **GitHub**: Track releases, submit issues, and contribute to our open-source components: [https://github.com/deepextension](https://github.com/deepextension)
-
-
-## 🙌 7. Technical Support
-
-If you encounter issues while using DeepExtension:
-
-1. First consult the documentation and FAQ.
-2. If the issue persists, contact **support@deepextension.ai** and include the following:
-   - DeepExtension version number
-   - Your operating system/environment
-   - Detailed error messages or screenshots (if applicable)
-
-We will respond within **two business days**.
-
-
-## 🤝 8. Contact Us
-
-For general inquiries, partnerships, or media requests, please reach out via:
-
-- Email: **contact@deepextension.ai**
-- Official Website: [https://www.deepextension.ai](https://www.deepextension.ai)
+- 🔧 Documentation: [https://docs.deepextension.com/](https://docs.deepextension.com/)
+- 💬 Forum: Coming soon
+- 🧑‍💻 GitHub: [https://github.com/DeepExtension-AI/DeepExtension](https://github.com/DeepExtension-AI/DeepExtension)
 
 ---
 
-## 👥 9. Feedback & Feature Suggestions
+## 🙌 7. Technical Support
 
-We highly value your feedback! Let us know:
+If you encounter any issues:
 
-- What features are working well
-- Any issues or bugs you’ve found
-- What features you’d like to see in the future
+1. Refer to [Docs](https://docs.deepextension.com/) or [FAQ](https://docs.deepextension.com/zh/faq/)
+2. Email us: **support@deepextension.ai**
 
-Feedback channels:
+Please include:
+- Platform version
+- System info
+- Screenshots or logs (if applicable)
 
-- Email: **contact@deepextension.ai**
-- GitHub Issues (for technical suggestions)
+---
 
+## 🤝 8. Contact Us
+
+- 📧 Email: contact@deepextension.ai  
+- 🌐 Website: [https://www.deepextension.ai](https://www.deepextension.ai)  
+- 📱 WeChat: jianweisoft
+<div align="left" style="margin-top:20px;margin-bottom:20px; ">
+<img src="library/20250528-163040.jpeg" width="300"/>
+</div>
+
+---
+
+## 👥 9. Feedback & Feature Requests
+
+We welcome feedback and suggestions!
+
+- Email: contact@deepextension.ai  
+- GitHub Issues: [Submit here](https://github.com/DeepExtension-AI/DeepExtension/issues)
+
+---
+
+Thank you for supporting DeepExtension! 🚀
