@@ -6,9 +6,9 @@
 
 无论您是 AI 工程师还是业务专家，DeepExtension 都为您提供一个协作环境，通过现代技术如 **PEFT**、**GRPO** 以及 **人类反馈闭环机制（human-in-the-loop）**，帮助构建高质量的模型——一切操作都通过模块化的网页界面完成。
 
-## 🎮 2.官方文档
+## 📘 2.官方文档
 
-请登录网址 http://192.168.10.222:8080/zh/ 查看官方文档。
+请登录网址 https://docs.deepextension.com/ 查看官方文档。
 <div align="center" style="margin-top:20px;margin-bottom:20px;">
 <img src="library/image-20250528150548686.png" width="1200"/>
 </div>
@@ -74,9 +74,9 @@ DeepExtension 采用模块化、分层式的系统架构，确保平台具备高
 - [常见问题 FAQs](https://docs.deepextension.com/zh/faq/)
 - [架构文档](https://docs.deepextension.com/zh/intro/architecture/)
 ## 🏄 6. 开源社区
-- 文档中心：访问官方 DeepExtension 文档门户，[文档地址](http://192.168.10.222:8080/zh/)
+- 文档中心：访问官方 DeepExtension 文档门户，[文档地址](https://docs.deepextension.com/)
 - 社区论坛：参与讨论、提交反馈或提出功能建议（即将上线）
-- GitHub：关注版本发布、提交问题、参与我们的开源组件项目，[项目地址](https://github.com/deepextension)
+- GitHub：关注版本发布、提交问题、参与我们的开源组件项目，[项目地址](https://github.com/DeepExtension-AI/DeepExtension)
 ## 🙌 7. 技术支持
 如果在使用 DeepExtension 时遇到问题：
 1. 请首先查阅相关文档与常见问题解答；
@@ -89,6 +89,10 @@ DeepExtension 采用模块化、分层式的系统架构，确保平台具备高
 如有一般性咨询、合作或媒体采访需求，请通过以下方式联系我们：
 - 邮箱：contact@deepextension.ai
 - 官网：https://www.deepextension.ai
+- 微信公众号: 简帷软件
+<div align="center" style="margin-top:20px;margin-bottom:20px;">
+<img src="library/20250528-163040.jpeg" width="1200"/>
+</div>
 ## 👥 9. 意见与功能建议
 我们非常重视您的反馈，欢迎告知好用的功能和存在的问题，以及您希望未来能加入功能。
 反馈渠道：
