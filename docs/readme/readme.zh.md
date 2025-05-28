@@ -9,8 +9,8 @@
 ## 📘 2.官方文档
 
 请登录网址 https://docs.deepextension.com/ 查看官方文档。
-<div align="center" style="margin-top:20px;margin-bottom:20px;">
-<img src="library/image-20250528150548686.png" width="1200"/>
+<div align="left" style="margin-top:20px;margin-bottom:20px;">
+<img src="library/image-20250528150548686.png" width="1000"/>
 </div>
 
 ## 🎉 3.关注项目
