@@ -74,9 +74,9 @@ DeepExtension 采用模块化、分层式的系统架构，确保平台具备高
 - [常见问题 FAQs](https://docs.deepextension.com/zh/faq/)
 - [架构文档](https://docs.deepextension.com/zh/intro/architecture/)
 ## 🏄 6. 开源社区
-- 文档中心：访问官方 DeepExtension 文档门户，[文档地址](https://docs.deepextension.com/zh/)
+- 文档中心：访问官方 DeepExtension 文档门户，[文档地址:https://docs.deepextension.com/zh/](https://docs.deepextension.com/zh/)
 - 社区论坛：参与讨论、提交反馈或提出功能建议（即将上线）
-- GitHub：关注版本发布、提交问题、参与我们的开源组件项目，[项目地址](https://github.com/DeepExtension-AI/DeepExtension)
+- GitHub：关注版本发布、提交问题、参与我们的开源组件项目，[项目地址:https://github.com/DeepExtension-AI/DeepExtension](https://github.com/DeepExtension-AI/DeepExtension)
 ## 🙌 7. 技术支持
 如果在使用 DeepExtension 时遇到问题：
 1. 请首先查阅相关文档与常见问题解答；

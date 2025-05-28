@@ -1,26 +1,25 @@
 ## 💡 1. What is DeepExtension?
 
-[DeepExtension](https://deepextension.ai/) is an AI infrastructure platform designed to help enterprises effortlessly manage the full lifecycle of large language model (LLM) development—from data preparation to fine-tuning, evaluation, and deployment.
+[DeepExtension](https://deepextension.ai/) is an AI infrastructure platform built to help enterprises easily manage the entire lifecycle of large language model (LLM) development—from data preparation to fine-tuning, evaluation, and deployment.
 
-Our mission is to make domain-specific AI development **easy to use, highly collaborative, and easily scalable**, especially for teams lacking AI expertise or computational resources.
+Our mission is to make domain-specific AI development accessible, collaborative, and scalable, especially for teams with limited AI expertise or compute resources.
 
-Whether you're an AI engineer or a business expert, DeepExtension provides a collaborative environment that leverages modern technologies like **PEFT**, **GRPO**, to help you build high-quality models — all through a modular web interface.
+Whether you're an AI engineer or a business expert, DeepExtension offers a shared environment to build impactful models using modern techniques like PEFT, GRPO, and human-in-the-loop workflows—all through a modular, web-based interface.
 
----
 
 ## 📘 2. Official Documentation
 
 📖 Visit: [https://docs.deepextension.com/](https://docs.deepextension.com/)
 
-![Documentation Screenshot](library/image-20250528150548686.png)
+<div align="left" style="margin-top:20px;margin-bottom:20px;">
+<img src="library/image-20250528150548686.png" width="1000"/>
+</div>
 
----
 
 ## 🎉 3. Follow the Project
 
 ⭐️ Star our [GitHub repository](https://github.com/DeepExtension-AI/DeepExtension) to stay updated and support the project!
 
----
 
 ## 🌟 4. Key Features
 
@@ -42,7 +41,6 @@ Whether you're an AI engineer or a business expert, DeepExtension provides a col
 - 🗂 **Dataset Upload & Parsing**  
   Upload datasets and automatically parse them into structured formats to streamline training.
 
----
 
 ## 📚 5. Technical Overview
 
@@ -85,9 +83,11 @@ Whether you're an AI engineer or a business expert, DeepExtension provides a col
 - 🔐 Fine-grained permission control  
 - 🌐 API-friendly for external integrations  
 
-🔗 Learn more: [Architecture Documentation](https://docs.deepextension.com/zh/intro/architecture/)
+🔗 Learn more: [Architecture Documentation](https://docs.deepextension.com/intro/architecture/)
 
----
+- [Installation Guide](https://docs.deepextension.com/developer/install/)
+- [Frequently Asked Questions (FAQs)](https://docs.deepextension.com/faq/)
+- [Architecture Documentation](https://docs.deepextension.com/intro/architecture/)
 
 ## 🏄 6. Open Source Community
 
@@ -95,13 +95,12 @@ Whether you're an AI engineer or a business expert, DeepExtension provides a col
 - 💬 Forum: Coming soon
 - 🧑‍💻 GitHub: [https://github.com/DeepExtension-AI/DeepExtension](https://github.com/DeepExtension-AI/DeepExtension)
 
----
 
 ## 🙌 7. Technical Support
 
 If you encounter any issues:
 
-1. Refer to [Docs](https://docs.deepextension.com/) or [FAQ](https://docs.deepextension.com/zh/faq/)
+1. Refer to [Docs](https://docs.deepextension.com/) or [FAQ](https://docs.deepextension.com/faq/)
 2. Email us: **support@deepextension.ai**
 
 Please include:
@@ -109,7 +108,6 @@ Please include:
 - System info
 - Screenshots or logs (if applicable)
 
----
 
 ## 🤝 8. Contact Us
 
@@ -120,7 +118,6 @@ Please include:
 <img src="library/20250528-163040.jpeg" width="300"/>
 </div>
 
----
 
 ## 👥 9. Feedback & Feature Requests
 
@@ -129,6 +126,5 @@ We welcome feedback and suggestions!
 - Email: contact@deepextension.ai  
 - GitHub Issues: [Submit here](https://github.com/DeepExtension-AI/DeepExtension/issues)
 
----
 
 Thank you for supporting DeepExtension! 🚀
