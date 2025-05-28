@@ -1,58 +1,65 @@
+# 如何实现自定义训练方法
 
-# 🛠️ 如何实现你自己的训练逻辑
+DeepExtension 支持您将自定义 AI 训练代码集成到其可视化界面驱动的工作流中。  
+只要您的训练代码可以在独立的 Python 环境中运行，就有很大可能可以改造为在 DeepExtension 中执行。
 
-DeepExtension 允许你将自定义的 AI 训练代码集成到其 UI 驱动的训练流程中。  
-只要你的代码能在本地 Python 环境中正常运行，它就几乎可以被扩展到 DeepExtension 中使用。
-
-本文将介绍如何通过 `custom01.py` （或 `custom02.py`） 将自定义训练脚本注册为可视化界面可用的方法。
-
----
-
-## 🚀 基本思路
-
-只要满足以下条件，你的训练代码就可以被 DeepExtension 接管运行：
-
-
-- 能接受从 UI 传入的参数
-- 支持日志回调（用于实时记录训练状态）
-- 使用标准接口保存模型与 tokenizer
-
-本质上，你只需要做：
-
-1. 把你的训练代码粘贴到指定模板中  
-2. 把 UI 参数连接到你的代码中  
-3. 注册日志回调函数  
-4. 留下模型保存与训练启动给 DeepExtension 自动执行
+本指南介绍了如何修改并注册您自己的训练脚本，使其成为一个自定义方法（如 `custom01`、`custom02`）供 DeepExtension 调用。
 
 ---
 
-## 📁 涉及的文件
+> 内置的训练方法 **SFT-Demo** 和 **GRPO-Demo** 的实现过程见  
+> [我们是如何实现 SFT-Demo 和 GRPO-Demo（CUDA）的](implement-sft-grpo-demo.md)。这两者就是严格遵循本指南的方式实现的，您可以参考它们来实现自己的训练方法。
 
-在 Docker 工作目录下，进入 `training/` 目录，你会看到以下文件：
+---
+
+## 基本思路
+
+只要您的训练代码满足以下条件，就可以集成至 DeepExtension：
+
+- 可以接收来自 UI 的参数输入
+- 支持日志回调函数 logging callback
+- 使用标准接口保存模型
+
+本质上，您只需完成以下四步：
+
+1. 将您的训练代码复制到模板文件中
+2. 接入参数输入
+3. 附加日志回调函数
+4. 模型保存与训练触发将由 DeepExtension 后台统一处理
+
+---
+
+## 涉及的文件
+
+假设 `{deepextension_base_dir}` 是您安装 DeepExtension 的根目录。
+
+进入目录 `{deepextension_base_dir}/deep-e-python`，您会看到以下文件：
 
 - `custom-template.py`  
 - `run_local_train_test_template.py`  
-- `test-training-code.py`  
 
-> ⚠️ 不要修改这些模板文件，它们是参考模板，仅供复制使用。
+> `{deepextension_base_dir}/deep-e-python` 是所有 AI 相关代码的基础目录。  
+> 除非特别说明，后续所有操作均应在该目录下进行。
+> 
+> **请勿修改**模板文件，务必在其副本上操作。
 
 ---
 
-## 🧪 准备你的自定义训练脚本
+## 准备您的自定义训练方法
 
-假设你现在要实现 `custom01.py`，它在 **Training Method Management** 页面中注册。
+假设您要实现的训练方法文件是 `{deepextension_base_dir}/deep-e-python/custom01.py`，该方法会在 [训练方法管理](../user-guide/training-methods.md) 页面中列出。
 
-### 步骤 1：复制模板文件
+### 步骤一：创建方法文件
+
+> 如果 `custom01.py` 已存在，请先备份。
 
 ```bash
 cp custom-template.py custom01.py
 ```
 
-如果 `custom01.py` 已存在，请提前备份。
+### 步骤二：将训练逻辑粘贴到定义区域
 
-### 步骤 2：插入你的代码到指定位置
-
-在 `custom01.py` 中，你会看到以下结构：
+打开 `custom01.py`，您会看到如下代码块：
 
 ```python
 #============ from here add your own train code
@@ -60,19 +67,19 @@ cp custom-template.py custom01.py
 #============ end here with your own train code
 ```
 
-把你完整的训练逻辑粘贴到这两个注释之间。
+请将您的训练逻辑粘贴到上述两行之间。
 
-你先前的代码需要定义以下对象：
+您的代码需定义以下对象：
 
-- `model`：具有 `save_pretrained()` 方法  
-- `tokenizer`：具有 `save_pretrained()` 方法  
-- `trainer`：具有 `train()` 方法  
+- 具有 `save_pretrained()` 方法的 `model` 对象  
+- 具有 `save_pretrained()` 方法的 `tokenizer` 对象  
+- 具有 `train()` 方法的 `trainer` 对象  
 
-如变量名不同，请改名为以上标准名称。
+如对象名称不同，请重命名为以上名称。
 
-### 步骤 3：连接参数
+### 步骤三：映射 UI 参数
 
-将以下变量（由 UI 传入）正确地映射到你的训练代码中：
+将以下 UI 参数接入训练逻辑中：
 
 ```text
 MODEL_PATH, MAX_SEQ_LENGTH, LORA_RANK, LOAD_IN_4BIT
@@ -82,11 +89,11 @@ BATCH_SIZE, GRAD_ACCUM_STEPS, LEARNING_RATE, WARMUP_STEPS
 PromptInputColumn, PromptOutputColumn
 ```
 
-> 🚨 至少 `MODEL_PATH` 和 `DATASET_PATH` 是必须使用的。
+> 至少需正确接入 `MODEL_PATH` 和 `DATASET_PATH`。
 
-### 步骤 4：绑定日志回调
+### 步骤四：绑定日志回调函数
 
-在初始化 `trainer` 时，增加如下代码：
+在 `trainer` 初始化中添加：
 
 ```python
 trainer = ...(
@@ -94,11 +101,11 @@ trainer = ...(
 )
 ```
 
-这是为了让 DeepExtension UI 能实时查看训练日志和指标。
+该操作用于将日志推送回 DeepExtension UI。
 
-### 步骤 5：删除训练与保存的手动调用
+### 步骤五：移除模型保存与训练触发代码
 
-在你自己的代码中不要显式调用以下方法：
+**请勿包含以下代码：**
 
 ```python
 trainer.train()
@@ -106,52 +113,52 @@ model.save_pretrained(...)
 tokenizer.save_pretrained(...)
 ```
 
-如果有请删除相关代码。这些会由 DeepExtension 自动完成。
+上述操作将由 DeepExtension 后台自动完成。
 
 ---
 
-## 🧪 本地测试自定义训练代码
+## 本地测试您的自定义代码
 
-在 UI 中正式运行前，建议你先在本地测试该方法。
+在通过 UI 执行之前，建议先在本地测试。
 
-### A. 复制测试模板
+### 步骤 A：准备本地测试脚本
 
 ```bash
 cp run_local_train_test_template.py run_local_train_test.py
 ```
 
-### B. 修改以下字段
+### 步骤 B：修改以下字段
 
-在 `run_local_train_test.py` 中修改：
+在 `run_local_train_test.py` 中替换：
 
-- `'your-model_path'` → 一个注册过的 base model 的绝对路径
-- `'your-dataset_path'` → 数据集的绝对路径
-- `'your-output_dir'` → 保存临时训练结果的输出目录
-- `'your-custom-file.py'` → 改为 `custom01.py`
-- 其他参数可根据需要微调
+- `'your-model_path'` → 实际基础模型的绝对路径
+- `'your-dataset_path'` → 实际数据集的绝对路径
+- `'your-output_dir'` → 输出目录
+- `'your-custom-file.py'` → `custom01.py`
+- 其他您希望测试的训练参数
 
-### C. 执行测试
+### 步骤 C：运行
 
 ```bash
-python run_local_train_test.py
+python3 run_local_train_test.py
 ```
 
-### D. 验证结果
+### 步骤 D：验证
 
-确认：
+确保：
 
-- 训练过程能顺利运行完毕  
-- 输出文件正确写入 `your-output_dir`  
-
----
-
-## ✅ 准备就绪
-
-如果测试通过，你现在就可以通过 DeepExtension UI 使用 **Custom01_Train** 启动训练任务了。
-
-有关训练任务的启动方法，请参考：  
-📘 [模型训练模块](../user-guide/model-training.md)
+- 训练过程顺利完成
+- 输出写入到指定目录中
 
 ---
 
-*DeepExtension — 让你的自定义训练代码无缝集成到企业级 AI 流水线中。*
+## 一切就绪后
+
+您现在可以在 DeepExtension 的 Web 界面中使用 **自定义训练方法 1** 启动训练任务。
+
+关于如何启动训练任务，请参见：  
+[模型训练](../user-guide/model-training.md)
+
+---
+
+*DeepExtension —— 让您的 AI 训练逻辑无缝接入企业级流水线，零后端改动。*
