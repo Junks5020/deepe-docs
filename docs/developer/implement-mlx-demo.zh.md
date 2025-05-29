@@ -69,7 +69,7 @@ python3 -m mlx_lm.lora     --model ../models/Qwen2.5-1.5B-Instruct     --train  
 `mlx-demo.py` 采用调用子进程的方式来执行训练命令：
 
 ```python
-cmd = ['python3', '-m', 'mlx_lm.lora', ...]
+cmd = ['python3', '-m', 'mlx_lm','lora']
 ```
 
 这种方式更具模块化特点，尤其适用于像 `mlx_lm` 这样的结构化外部模块，有助于后期维护与扩展。
