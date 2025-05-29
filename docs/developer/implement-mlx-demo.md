@@ -73,7 +73,7 @@ Unlike the CUDA demo described in [How You Implement Own Training (CUDA)](implem
 `mlx-demo.py` instead invokes training using a subprocess call:
 
 ```python
-cmd = ['python3', '-m', 'mlx_lm.lora', ...]
+cmd = ['python3', '-m', 'mlx_lm','lora']
 ```
 
 This makes the integration more modular and easier to maintain when using well-structured external modules like `mlx_lm`.

@@ -49,4 +49,4 @@ DeepExtension 是一个灵活可扩展的平台，专为构建领域特定的 AI
 - [安装指南](install.md)  
 - [添加基础模型](how-to-add-base-models.md)  
 - [实现自定义训练方法（CUDA）](implement-own-ai-training-cuda.md)  
-- [实现自定义训练方法（macOS）](implement-own-ai-training-mlx.md)
+- [实现自定义训练方法（macOS）](implement-own-ai-training-mac.zh.md)

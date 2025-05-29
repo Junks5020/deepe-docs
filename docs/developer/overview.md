@@ -57,5 +57,5 @@ Choose a chapter below to dive in:
 - [Installation Guide](install.md)  
 - [Add Base Models](how-to-add-base-models.md)  
 - [Implement Your Own Training (CUDA)](implement-own-ai-training-cuda.md)  
-- [Implement Your Own Training (MacOS)](implement-own-ai-training-mlx.md)
+- [Implement Your Own Training (MacOS)](implement-own-ai-training-mac.md)
 
