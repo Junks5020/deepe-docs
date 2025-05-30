@@ -18,6 +18,3 @@ mkdocs:
 python:
    install:
    - requirements: docs/requirements.txt
-git:
-  url: https://Junks5020:${TOKEN}@github.com/DeepExtension-AI/deepe-docs.git
-  depth: 1
