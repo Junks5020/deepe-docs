@@ -191,7 +191,7 @@ plugins:
             "Implement Customized Training (CUDA)": 实现自定义训练（CUDA）
             "How You Implement Own Training (CUDA)": 您的自定义训练实现方式（CUDA）
             "How We Implemented SFT-Demo and GRPO-Demo (CUDA)": 我们如何实现SFT和GRPO演示（CUDA）
-            "Implement Your Own Training (MacOS)": 自定义训练实现（MacOS）
+            "Implement Your Own Training (MacOS)": 实现自定义训练（MacOS）
             "How You Implement Own Training (MacOS)": 您的自定义训练实现方式（MacOS）
             "How We Implemented MLX-Demo (MacOS)": 我们如何实现MLX演示（MacOS）
 

@@ -161,7 +161,7 @@ docker build -t {ai_image_name}:{ai_image_version} -f Dockerfile . --load
 #### a. 准备 MLX 代码
 
 1. 下载 https://github.com/ml-explore/mlx-lm 仓库（测试版本 v0.24.1）
-2. 将 `mlx_lm` 文件夹复制到 {deepextension_base_dir}/deep-e-python
+2.  将 `mlx-lm`项目中的 `mlx_lm` 子目录复制到 {deepextension_base_dir}/deep-e-python 目录中
 3. 运行准备脚本：
 
 ```bash
