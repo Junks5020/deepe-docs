@@ -1,5 +1,5 @@
 site_name: DeepExtension Documentation
-site_url: https://docs.deepextension.ai/zh/latest
+site_url: https://docs.deepextension.ai/en/latest
 theme:
   name: material
   logo: assets/images/LOGO-White.svg
