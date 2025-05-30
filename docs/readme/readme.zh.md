@@ -13,7 +13,7 @@
 
 ## 📘 2.官方文档
 
-请登录网址 [https://docs.deepextension.com/zh/](https://docs.deepextension.com/zh/) 查看官方文档。
+请登录网址 [https://docs.deepextension.ai/zh/](https://docs.deepextension.ai/zh/) 查看官方文档。
 <div align="left" style="margin-top:20px;margin-bottom:20px;">
 <img src="library/image-20250528150548686.png" width="1000"/>
 </div>
@@ -73,23 +73,24 @@ DeepExtension 采用模块化、分层式的系统架构，确保平台具备高
 - **安全合规**：支持细粒度权限控制与数据隔离，保障数据安全。
 - **开放集成**：支持丰富调用三方API，便于与外部第三方模型平台对接。
 
-> 详细架构介绍请参考[官方架构文档](https://docs.deepextension.com/zh/intro/architecture/)。
+> 详细架构介绍请参考[官方架构文档](https://docs.deepextension.ai/zh/intro/architecture/)。
 
-- [安装指南](https://docs.deepextension.com/zh/developer/install/)
-- [常见问题 FAQs](https://docs.deepextension.com/zh/faq/)
-- [架构文档](https://docs.deepextension.com/zh/intro/architecture/)
+- [安装指南](https://docs.deepextension.ai/zh/developer/install/)
+- [常见问题 FAQs](https://docs.deepextension.ai/zh/faq/)
+- [架构文档](https://docs.deepextension.ai/zh/intro/architecture/)
 ## 🏄 6. 开源社区
-- 文档中心：访问官方 DeepExtension 文档门户，[文档地址:https://docs.deepextension.com/zh/](https://docs.deepextension.com/zh/)
+- 文档中心：访问官方 DeepExtension 文档门户，[文档地址:https://docs.deepextension.ai/zh/](https://docs.deepextension.ai/zh/)
 - 社区论坛：参与讨论、提交反馈或提出功能建议（即将上线）
 - GitHub：关注版本发布、提交问题、参与我们的开源组件项目，[项目地址:https://github.com/DeepExtension-AI/DeepExtension](https://github.com/DeepExtension-AI/DeepExtension)
 ## 🙌 7. 技术支持
 如果在使用 DeepExtension 时遇到问题：
-1. 请首先查阅相关文档与常见问题解答；
-2. 若问题仍未解决，请通过邮件support@deepextension.ai联系我们，并提供以下信息：
+1. 您可以优先查阅相关文档与常见问题解答；
+2. 若问题仍未解决，你也可以通过邮件support@deepextension.ai联系我们，并提供以下信息：
 - DeepExtension 的版本号
 - 所使用的操作系统 / 环境
 - 详细错误信息或截图（如适用）
-我们将在 两个工作日内给予回复。
+
+我们将在两个工作日内给予回复。
 ## 🤝 8. 联系我们
 如有一般性咨询、合作或媒体采访需求，请通过以下方式联系我们：
 
@@ -101,9 +102,11 @@ DeepExtension 采用模块化、分层式的系统架构，确保平台具备高
 </div>
 
 ## 👥 9. 意见与功能建议
-我们非常重视您的反馈，欢迎告知好用的功能和存在的问题，以及您希望未来能加入功能。
+我们欢迎反馈与建议！
 反馈渠道：
 
 - 邮箱：contact@deepextension.ai
 - GitHub Issues（适用于技术相关建议）
 
+
+感谢您对 DeepExtension 的支持！🚀
