@@ -6,7 +6,7 @@ serve as the starting point for fine-tuning and inference. These models form the
 pipeline.
 
 > **Note**: Adding a base model is required before you can initiate training or perform fine-tuning in DeepExtension. We classify this as a **developer task** since it requires access to the backend file system — typically only **admin users** have the necessary permissions.  
-> See [How to Add Base Models](../../developer/how-to-add-base-models.md) for step-by-step guidance.
+> See [How to Add Base Models](../developer/how-to-add-base-models.md) for step-by-step guidance.
 
 ---
 
