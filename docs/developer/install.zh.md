@@ -18,7 +18,7 @@ DeepExtension 是一个企业级 AI 平台。虽然我们力求简化安装过�
 
 ```bash
 cd /opt
-git clone {deepextension_github_url} deepextension
+git clone git@github.com:DeepExtension-AI/DeepExtension.git deepextension
 cd deepextension
 ```
 
@@ -139,7 +139,7 @@ docker run -it --rm --gpus all pytorch/pytorch:latest python -c "import torch; p
 - False 或报错表示驱动或 Docker GPU 设置需修复
 
 > 💡 Linux 系统请安装 NVIDIA Container Toolkit：
-> https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html
+> [https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html)
 
 接下来可以操作如下步骤：
 
@@ -160,7 +160,7 @@ docker build -t {ai_image_name}:{ai_image_version} -f Dockerfile . --load
 
 #### a. 准备 MLX 代码
 
-1. 下载 https://github.com/ml-explore/mlx-lm 仓库（测试版本 v0.24.1）
+1. 下载 [https://github.com/ml-explore/mlx-lm](https://github.com/ml-explore/mlx-lm) 仓库（测试版本 v0.24.1）
 2.  将 `mlx-lm`项目中的 `mlx_lm` 子目录复制到 {deepextension_base_dir}/deep-e-python 目录中
 3. 运行准备脚本：
 
@@ -272,7 +272,7 @@ AI_PY_REDIS_EXPOSED_PORT={preferred_redis_port}
 - 镜像下载完成
 - 所有容器成功启动
 
-访问：http://localhost:88 或 http://localhost:{preferred_webui_port}
+访问：[http://localhost:88](http://localhost:88) 或 [http://localhost:{preferred_webui_port](http://localhost:{preferred_webui_port})
 
 生命周期管理命令：
 

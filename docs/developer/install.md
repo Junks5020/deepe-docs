@@ -18,7 +18,7 @@ Clone the DeepExtension repository from GitHub.
 
 ```bash
 cd /opt
-git clone {deepextension_github_url} deepextension
+git clone git@github.com:DeepExtension-AI/DeepExtension.git deepextension
 cd deepextension
 ```
 
@@ -89,7 +89,7 @@ This indicates that the migration completed successfully. You can now proceed wi
 
 ### 2.5 Configure Database Access
 
-**Create** the confuguration file `{deepextension_base_dir}/custom.conf` from template:
+**Create** the configuration file `{deepextension_base_dir}/custom.conf` from template:
 
 ```
 cd {deepextension_base_dir}
@@ -148,7 +148,7 @@ docker run -it --rm --gpus all pytorch/pytorch:latest python -c "import torch; p
 
 > 💡 For Linux systems, make sure to install the NVIDIA Container Toolkit. You can follow the official instructions at:
 >
-> https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html
+> [https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html)
 
 Once this test passes, proceed with the following steps:
 
@@ -168,7 +168,7 @@ docker build -t {ai_image_name}:{ai_image_version} -f Dockerfile . --load
 
 #### a. Prepare the MLX code
 
-1. Download the entire repository from https://github.com/ml-explore/mlx-lm (tested successfully with v0.24.1)
+1. Download the entire repository from [https://github.com/ml-explore/mlx-lm](https://github.com/ml-explore/mlx-lm) (tested successfully with v0.24.1)
 2. Copy the `mlx_lm` subdirectory from the `mlx-lm` project  into `{deepextension_base_dir}/deep-e-python`
 3. Run the preparation script to apply required MLX code modifications for DeepExtension compatibility:
 
@@ -336,7 +336,7 @@ Verify that:
 - All images are downloaded
 - All containers start successfully
 
-Open `http://localhost:88` or `http://localhost:{preferred_webui_port}` to check the Web UI.
+Open `[http://localhost:88](http://localhost:88)` or `[http://localhost:{preferred_webui_port}](http://localhost:{preferred_webui_port})` to check the Web UI.
 
 To manage the application lifecycle, use the following commands:
 
