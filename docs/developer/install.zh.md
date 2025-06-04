@@ -28,9 +28,11 @@ cd deepextension
 
 ## 2. 准备数据库
 
-我们**不建议**使用 Docker 来运行 PostgreSQL 数据库。推荐使用本地或专用数据库服务器，以提升稳定性。
+我们**不建议**使用 Docker 运行 PostgreSQL 数据库。为提高稳定性，请使用本地或专用数据库服务器。但为简化配置，我们已在 Docker Compose 中集成了数据库。若您希望使用自己的外部数据库，请按以下步骤操作：
 
-1. 安装本地 PostgreSQL 数据库（建议使用 16 版本）
+> 如无需使用自己的数据库，可跳过此步骤
+
+手动安装本地 PostgreSQL 服务器（已知版本 16 运行稳定），或使用现有数据库信息。
 2. 为确保初始化成功，**必须使用默认超级用户**：  
    **dbuser = postgres**  
 3. 请记下以下参数，稍后需要用到：{dbname}, {dbuser}, {dbpassword}, {dbhost}, {dbport}
@@ -90,19 +92,11 @@ cp custom.conf.template custom.conf
 使用任何文本编辑器打开 custom.conf 并编辑以下字段：
 
 ```
+DB_HOST={dbhost}
 DB_PORT={dbport}
 DB_USER=postgres
 DB_PASS={dbpassword}
 DB_NAME={dbname}
-```
-
-如果数据库位于与 DeepExtension 安装在**同一台机器**上，  
-则无需修改 {dbhost} —— 默认值已在 {deepextension_base_dir}/prod.env 中指定。
-
-如果数据库托管在**其他机器**上，必须显式设置主机 IP，在 {deepextension_base_dir}/custom.conf 中添加以下行：
-
-```bash
-DB_HOST={dbhost}
 ```
 
 > 💡 重要提示：

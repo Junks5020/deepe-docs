@@ -28,9 +28,9 @@ Check that the clone was successful and without errors.
 
 ## 2. Prepare the Database
 
-We recommend **not** using Docker to run your PostgreSQL database. Use a local or dedicated database server for better stability.
-
-1. Install a local PostgreSQL server (version 16 is known to run stably)
+We recommend **not** using Docker to run your PostgreSQL database. Use a local or dedicated database server for better stability. But to simplify the setup, we've integrated the database in Docker Compose. If you prefer to use your own external database, please follow these steps:
+> If you don't need to use your own database, you can skip this step 
+1. Manually install a local PostgreSQL server or use existing database information(version 16 is known to run stably)
 2. To ensure successful initialization, you **must** use the default superuser:  
    **`dbuser = postgres`**  
 3. Make sure to note down the following parameters for later use: {dbname}, {dbuser}, {dbpassword}, {dbhost}, and {dbport}.
@@ -97,19 +97,11 @@ cp custom.conf.template custom.conf
 ```
 Open `custom.conf` with any text editor and edit the following fields:
 ```
+DB_HOST={dbhost}
 DB_PORT={dbport}
 DB_USER=postgres
 DB_PASS={dbpassword}
 DB_NAME={dbname}
-```
-
-For cases where the database is located on the **same machine** as the DeepExtension installation,  
-you do **not** need to modify `{dbhost}` — a default value is already specified in `{deepextension_base_dir}/prod.env`.
-
-If the database is hosted on a **different machine**, you must explicitly set the host IP by adding the following line to `{deepextension_base_dir}/custom.conf`:
-
-```bash
-DB_HOST={dbhost}
 ```
 
 > 💡  Important: 
