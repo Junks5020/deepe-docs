@@ -29,7 +29,7 @@ Check that the clone was successful and without errors.
 ## 2. Prepare the Database
 
 We recommend **not** using Docker to run your PostgreSQL database. Use a local or dedicated database server for better stability. But to simplify the setup, we've integrated the database in Docker Compose. If you prefer to use your own external database, please follow these steps:
-> If you don't need to use your own database, you can skip this step 
+> If you don't need to use your own database, you can skip Step 2: Prepare the Database
 1. Manually install a local PostgreSQL server or use existing database information(version 16 is known to run stably)
 2. To ensure successful initialization, you **must** use the default superuser:  
    **`dbuser = postgres`**  
