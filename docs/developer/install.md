@@ -18,7 +18,7 @@ Clone the DeepExtension repository from GitHub.
 
 ```bash
 cd /opt
-git clone {deepextension_github_url} deepextension
+git clone git@github.com:DeepExtension-AI/DeepExtension.git deepextension
 cd deepextension
 ```
 
@@ -28,9 +28,9 @@ Check that the clone was successful and without errors.
 
 ## 2. Prepare the Database
 
-We recommend **not** using Docker to run your PostgreSQL database. Use a local or dedicated database server for better stability.
-
-1. Install a local PostgreSQL server (version 16 is known to run stably)
+We recommend **not** using Docker to run your PostgreSQL database. Use a local or dedicated database server for better stability. But to simplify the setup, we've integrated the database in Docker Compose. If you prefer to use your own external database, please follow these steps:
+> If you don't need to use your own database, you can skip Step 2: Prepare the Database
+1. Manually install a local PostgreSQL server or use existing database information(version 16 is known to run stably)
 2. To ensure successful initialization, you **must** use the default superuser:  
    **`dbuser = postgres`**  
 3. Make sure to note down the following parameters for later use: {dbname}, {dbuser}, {dbpassword}, {dbhost}, and {dbport}.
@@ -89,7 +89,7 @@ This indicates that the migration completed successfully. You can now proceed wi
 
 ### 2.5 Configure Database Access
 
-**Create** the confuguration file `{deepextension_base_dir}/custom.conf` from template:
+**Create** the configuration file `{deepextension_base_dir}/custom.conf` from template:
 
 ```
 cd {deepextension_base_dir}
@@ -97,19 +97,11 @@ cp custom.conf.template custom.conf
 ```
 Open `custom.conf` with any text editor and edit the following fields:
 ```
+DB_HOST={dbhost}
 DB_PORT={dbport}
 DB_USER=postgres
 DB_PASS={dbpassword}
 DB_NAME={dbname}
-```
-
-For cases where the database is located on the **same machine** as the DeepExtension installation,  
-you do **not** need to modify `{dbhost}` — a default value is already specified in `{deepextension_base_dir}/prod.env`.
-
-If the database is hosted on a **different machine**, you must explicitly set the host IP by adding the following line to `{deepextension_base_dir}/custom.conf`:
-
-```bash
-DB_HOST={dbhost}
 ```
 
 > 💡  Important: 
@@ -148,7 +140,7 @@ docker run -it --rm --gpus all pytorch/pytorch:latest python -c "import torch; p
 
 > 💡 For Linux systems, make sure to install the NVIDIA Container Toolkit. You can follow the official instructions at:
 >
-> https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html
+> [https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html)
 
 Once this test passes, proceed with the following steps:
 
@@ -168,7 +160,7 @@ docker build -t {ai_image_name}:{ai_image_version} -f Dockerfile . --load
 
 #### a. Prepare the MLX code
 
-1. Download the entire repository from https://github.com/ml-explore/mlx-lm (tested successfully with v0.24.1)
+1. Download the entire repository from [https://github.com/ml-explore/mlx-lm](https://github.com/ml-explore/mlx-lm) (tested successfully with v0.24.1)
 2. Copy the `mlx_lm` subdirectory from the `mlx-lm` project  into `{deepextension_base_dir}/deep-e-python`
 3. Run the preparation script to apply required MLX code modifications for DeepExtension compatibility:
 
@@ -336,7 +328,7 @@ Verify that:
 - All images are downloaded
 - All containers start successfully
 
-Open `http://localhost:88` or `http://localhost:{preferred_webui_port}` to check the Web UI.
+Open `[http://localhost:88](http://localhost:88)` or `[http://localhost:{preferred_webui_port}](http://localhost:{preferred_webui_port})` to check the Web UI.
 
 To manage the application lifecycle, use the following commands:
 

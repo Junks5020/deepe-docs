@@ -18,7 +18,7 @@ DeepExtension 是一个企业级 AI 平台。虽然我们力求简化安装过�
 
 ```bash
 cd /opt
-git clone {deepextension_github_url} deepextension
+git clone git@github.com:DeepExtension-AI/DeepExtension.git deepextension
 cd deepextension
 ```
 
@@ -28,9 +28,11 @@ cd deepextension
 
 ## 2. 准备数据库
 
-我们**不建议**使用 Docker 来运行 PostgreSQL 数据库。推荐使用本地或专用数据库服务器，以提升稳定性。
+我们**不建议**使用 Docker 运行 PostgreSQL 数据库。为提高稳定性，请使用本地或专用数据库服务器。但为简化配置，我们已在 Docker Compose 中集成了数据库。若您希望使用自己的外部数据库，请按以下步骤操作：
 
-1. 安装本地 PostgreSQL 数据库（建议使用 16 版本）
+> 如无需使用自己的数据库，可跳过此步骤2：准备数据库
+
+手动安装本地 PostgreSQL 服务器（已知版本 16 运行稳定），或使用现有数据库信息。
 2. 为确保初始化成功，**必须使用默认超级用户**：  
    **dbuser = postgres**  
 3. 请记下以下参数，稍后需要用到：{dbname}, {dbuser}, {dbpassword}, {dbhost}, {dbport}
@@ -90,19 +92,11 @@ cp custom.conf.template custom.conf
 使用任何文本编辑器打开 custom.conf 并编辑以下字段：
 
 ```
+DB_HOST={dbhost}
 DB_PORT={dbport}
 DB_USER=postgres
 DB_PASS={dbpassword}
 DB_NAME={dbname}
-```
-
-如果数据库位于与 DeepExtension 安装在**同一台机器**上，  
-则无需修改 {dbhost} —— 默认值已在 {deepextension_base_dir}/prod.env 中指定。
-
-如果数据库托管在**其他机器**上，必须显式设置主机 IP，在 {deepextension_base_dir}/custom.conf 中添加以下行：
-
-```bash
-DB_HOST={dbhost}
 ```
 
 > 💡 重要提示：
@@ -139,7 +133,7 @@ docker run -it --rm --gpus all pytorch/pytorch:latest python -c "import torch; p
 - False 或报错表示驱动或 Docker GPU 设置需修复
 
 > 💡 Linux 系统请安装 NVIDIA Container Toolkit：
-> https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html
+> [https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html)
 
 接下来可以操作如下步骤：
 
@@ -160,7 +154,7 @@ docker build -t {ai_image_name}:{ai_image_version} -f Dockerfile . --load
 
 #### a. 准备 MLX 代码
 
-1. 下载 https://github.com/ml-explore/mlx-lm 仓库（测试版本 v0.24.1）
+1. 下载 [https://github.com/ml-explore/mlx-lm](https://github.com/ml-explore/mlx-lm) 仓库（测试版本 v0.24.1）
 2.  将 `mlx-lm`项目中的 `mlx_lm` 子目录复制到 {deepextension_base_dir}/deep-e-python 目录中
 3. 运行准备脚本：
 
@@ -272,7 +266,7 @@ AI_PY_REDIS_EXPOSED_PORT={preferred_redis_port}
 - 镜像下载完成
 - 所有容器成功启动
 
-访问：http://localhost:88 或 http://localhost:{preferred_webui_port}
+访问：[http://localhost:88](http://localhost:88) 或 [http://localhost:{preferred_webui_port](http://localhost:{preferred_webui_port})
 
 生命周期管理命令：
 
