@@ -26,87 +26,14 @@ cd deepextension
 
 ---
 
-## 2. 准备数据库
+## 2. 快速开始
+总体而言，DeepExtension的安装和部署是基于 Docker 的，这使得整个安装流程更加简洁高效，省去了许多繁琐的手动操作。由于用户平台的差异，**训练环境**的配置方式也有所不同。本节将对这些差异进行详细说明。
 
-我们**不建议**使用 Docker 运行 PostgreSQL 数据库。为提高稳定性，请使用本地或专用数据库服务器。但为简化配置，我们已在 Docker Compose 中集成了数据库。若您希望使用自己的外部数据库，请按以下步骤操作：
-
-> 如无需使用自己的数据库，可跳过此步骤2：准备数据库
-
-手动安装本地 PostgreSQL 服务器（已知版本 16 运行稳定），或使用现有数据库信息。
-2. 为确保初始化成功，**必须使用默认超级用户**：  
-   **dbuser = postgres**  
-3. 请记下以下参数，稍后需要用到：{dbname}, {dbuser}, {dbpassword}, {dbhost}, {dbport}
-4. 使用 **golang-migrate** 工具初始化数据库 schema：
-
-### 2.4.1 安装 golang-migrate
-
-你可以通过 CLI 或 Homebrew（macOS 用户）安装此工具：
-
-#### 选项 A：命令行（推荐）
-
-```bash
-cd {deepextension_base_dir}/migrate
-chmod +x install_migrate.sh
-./install_migrate.sh
-migrate -version
-# 示例输出：v4.18.3
-```
-
-#### 选项 B：Homebrew（仅适用于 macOS）
-
-```bash
-brew install golang-migrate
-migrate -version
-# 示例输出：v4.18.3
-```
-
-### 2.4.2 执行迁移
-
-```bash
-cd {deepextension_base_dir}
-migrate -path migrations -database "postgres://{dbuser}:{dbpassword}@{dbhost}:{dbport}/{dbname}?sslmode=disable" up
-```
-
-执行迁移后，如果无报错，你应看到类似如下输出：
-
-```
-1747303002/u create_initialize_type (***ms)
-1747303003/u create_initialize_table (***ms)
-```
-
-这表示迁移成功完成。你可以继续进行安装的下一步。
-
-> 如果 schema 初始化不正确，程序将无法启动。
-
----
-
-### 2.5 配置数据库访问
-
-**从模板创建**配置文件 {deepextension_base_dir}/custom.conf：
-
-```bash
-cd {deepextension_base_dir}
-cp custom.conf.template custom.conf
-```
-
-使用任何文本编辑器打开 custom.conf 并编辑以下字段：
-
-```
-DB_HOST={dbhost}
-DB_PORT={dbport}
-DB_USER=postgres
-DB_PASS={dbpassword}
-DB_NAME={dbname}
-```
-
-> 💡 重要提示：
+>**注意**
 >
-> - 如果数据库机器的 IP 地址经常变化（如笔记本或没有静态 IP 的网络），则需要手动更新该值。
-> - 在生产服务器上，强烈建议配置静态 IP 地址，以避免连接问题。
+>DeepExtension 默认使用 Docker 部署 PostgreSQL 数据库，因此无需额外安装。如果您希望连接自定义的数据库，请参阅本指南末尾的附录部分，了解手动配置和设置的方法。
 
----
-
-## 3. 设置模型训练环境
+## 2.1 设置模型训练环境
 
 > **注意**
 >
@@ -319,6 +246,83 @@ select is_init from sys_version_config where deploy_version = 0.1;
 3. 删除 adminPassword.txt 文件确保安全  
 4. 访问 [用户管理](../user-guide/user-management.md) 添加普通用户  
    > **管理员**账户只应该执行管理操作，业务操作需通过普通用户账户访问系统。
+
+---
+## 6. 附录：配置自己的数据库（可选）
+
+我们建议使用 **Docker** 运行 PostgreSQL 数据库，并且我们已在 Docker Compose 中集成了数据库。若您希望使用自己的外部数据库，请按以下步骤操作：
+
+1. 手动安装本地 PostgreSQL 服务器（已知版本 16 运行稳定），或使用现有数据库信息。
+2. 为确保初始化成功，**必须使用默认超级用户**：  
+   **dbuser = postgres**  
+3. 请记下以下参数，稍后需要用到：{dbname}, {dbuser}, {dbpassword}, {dbhost}, {dbport}
+4. 使用 **golang-migrate** 工具初始化数据库 schema：
+
+### 6.1 安装 golang-migrate
+
+你可以通过 CLI 或 Homebrew（macOS 用户）安装此工具：
+
+#### 选项 A：命令行（推荐）
+
+```bash
+cd {deepextension_base_dir}/migrate
+chmod +x install_migrate.sh
+./install_migrate.sh
+migrate -version
+# 示例输出：v4.18.3
+```
+
+#### 选项 B：Homebrew（仅适用于 macOS）
+
+```bash
+brew install golang-migrate
+migrate -version
+# 示例输出：v4.18.3
+```
+
+### 6.2 执行迁移
+
+```bash
+cd {deepextension_base_dir}
+migrate -path migrations -database "postgres://{dbuser}:{dbpassword}@{dbhost}:{dbport}/{dbname}?sslmode=disable" up
+```
+
+执行迁移后，如果无报错，你应看到类似如下输出：
+
+```
+1747303002/u create_initialize_type (***ms)
+1747303003/u create_initialize_table (***ms)
+```
+
+这表示迁移成功完成。你可以继续进行安装的下一步。
+
+> 如果 schema 初始化不正确，程序将无法启动。
+
+---
+
+### 6.3 配置数据库访问
+
+**从模板创建**配置文件 {deepextension_base_dir}/custom.conf：
+
+```bash
+cd {deepextension_base_dir}
+cp custom.conf.template custom.conf
+```
+
+使用任何文本编辑器打开 custom.conf 并编辑以下字段：
+
+```
+DB_HOST={dbhost}
+DB_PORT={dbport}
+DB_USER=postgres
+DB_PASS={dbpassword}
+DB_NAME={dbname}
+```
+
+> 💡 重要提示：
+>
+> - 如果数据库机器的 IP 地址经常变化（如笔记本或没有静态 IP 的网络），则需要手动更新该值。
+> - 在生产服务器上，强烈建议配置静态 IP 地址，以避免连接问题。
 
 ---
 
