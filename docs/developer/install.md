@@ -35,10 +35,80 @@ To simplify configuration, we have included an integrated database in Docker Com
 3. Make sure to note down the following parameters for later use: {dbname}, {dbuser}, {dbpassword}, {dbhost}, and {dbport}.
 4. Initialize the database schema using the **golang-migrate** tool:
 
-DeepExtension uses Docker to deploy the PostgreSQL database by default, so no additional installation is required.
-If you prefer to connect to a custom database, please refer to the Appendix at the end of this guide for manual setup and configuration.
+### 2.4.1 Install golang-migrate
 
-### 2.1 Set Up Model Training Environment
+You can install this tool via CLI or Homebrew (for macOS users):
+
+#### Option A: CLI (Recommended)
+```bash
+# 1. Navigate to the migrate folder in the DeepExtension codebase
+cd {deepextension_base_dir}/migrate
+
+# 2. Make the installation script executable
+chmod +x install_migrate.sh
+
+# 3. Run the script (administrator password may be required)
+./install_migrate.sh
+
+# 4. Verify installation
+migrate -version
+# Example output: v4.18.3
+```
+
+#### Option B: Homebrew (macOS only)
+```bash
+# 1. Install via Homebrew
+brew install golang-migrate
+
+# 2. Verify installation
+migrate -version
+# Example output: v4.18.3
+```
+
+### 2.4.2 Execute the Migration
+```bash
+# Run the migration command with the appropriate connection string
+cd {deepextension_base_dir}
+migrate -path migrations -database "postgres://{dbuser}:{dbpassword}@{dbhost}:{dbport}/{dbname}?sslmode=disable" up
+```
+
+After running the migration, you should see no error messages and output similar to the following:
+```
+1747303002/u create_initialize_type (***ms)
+1747303003/u create_initialize_table (***ms)
+```
+
+This indicates that the migration completed successfully. You can now proceed with the next steps of the installation.
+
+> If the schema is not initialized correctly, the program will fail to start.
+
+---
+
+
+
+### 2.5 Configure Database Access
+
+**Create** the configuration file `{deepextension_base_dir}/custom.conf` from template:
+
+```
+cd {deepextension_base_dir}
+cp custom.conf.template custom.conf
+```
+Open `custom.conf` with any text editor and edit the following fields:
+```
+DB_HOST={dbhost}
+DB_PORT={dbport}
+DB_USER=postgres
+DB_PASS={dbpassword}
+DB_NAME={dbname}
+```
+
+> 💡  Important: 
+> 
+> - If the db machine’s IP address changes frequently (e.g., on laptops or networks without static IPs), you will need to manually update this value. 
+> - For production servers, it is strongly recommended to configure a static IP address to prevent connection issues.
+
+## 3. Set Up Model Training Environment
 
 > **Note**  
 > 
@@ -217,6 +287,7 @@ WITH_AI_IMAGE=false
 > By default, WITH_AI_IMAGE is set to true.
 > To enable "No-Training Mode", you need to manually set this value to false.
 > If the training image build fails, the execution script will automatically set WITH_AI_IMAGE to false.
+
 
 ---
 ## 4. Configuring Optional Environment Parameters
