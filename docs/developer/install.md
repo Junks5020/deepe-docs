@@ -322,7 +322,7 @@ AI_PY_REDIS_EXPOSED_PORT={preferred_redis_port}
 
 ---
 
-## 5. Start the Application
+## 4. Start the Application
 
 Run:
 
@@ -362,7 +362,7 @@ If the result of `is_init` is `true`, it confirms that the schema was migrated s
 
 ---
 
-## 6. Root User Setup (First Run Only)
+## 5. Root User Setup (First Run Only)
 
 During the first launch, a root user is created automatically. The initial password is saved at:
 
@@ -387,6 +387,85 @@ During the first launch, a root user is created automatically. The initial passw
 
 
 ---
+## 6. Appendix: Custom Database Setup (Optional)
+
+We recommend using **Docker** to run your PostgreSQL database and we have already integrated the database setup in Docker Compose. If you prefer to use your custom database, please follow these steps:
+1. Manually install a local PostgreSQL server or use existing database information(version 16 is known to run stably)
+2. To ensure successful initialization, you **must** use the default superuser:  
+   **`dbuser = postgres`**  
+3. Make sure to note down the following parameters for later use: {dbname}, {dbuser}, {dbpassword}, {dbhost}, and {dbport}.
+4. Initialize the database schema using the **golang-migrate** tool:
+
+### 6.1 Install golang-migrate
+
+You can install this tool via CLI or Homebrew (for macOS users):
+
+#### Option A: CLI (Recommended)
+```bash
+# 1. Navigate to the migrate folder in the DeepExtension codebase
+cd {deepextension_base_dir}/migrate
+
+# 2. Make the installation script executable
+chmod +x install_migrate.sh
+
+# 3. Run the script (administrator password may be required)
+./install_migrate.sh
+
+# 4. Verify installation
+migrate -version
+# Example output: v4.18.3
+```
+
+#### Option B: Homebrew (macOS only)
+```bash
+# 1. Install via Homebrew
+brew install golang-migrate
+
+# 2. Verify installation
+migrate -version
+# Example output: v4.18.3
+```
+
+### 6.2 Execute the Migration
+```bash
+# Run the migration command with the appropriate connection string
+cd {deepextension_base_dir}
+migrate -path migrations -database "postgres://{dbuser}:{dbpassword}@{dbhost}:{dbport}/{dbname}?sslmode=disable" up
+```
+
+After running the migration, you should see no error messages and output similar to the following:
+```
+1747303002/u create_initialize_type (***ms)
+1747303003/u create_initialize_table (***ms)
+```
+
+This indicates that the migration completed successfully. You can now proceed with the next steps of the installation.
+
+> If the schema is not initialized correctly, the program will fail to start.
+
+---
+
+### 6.3 Configure Database Access
+
+**Create** the configuration file `{deepextension_base_dir}/custom.conf` from template:
+
+```
+cd {deepextension_base_dir}
+cp custom.conf.template custom.conf
+```
+Open `custom.conf` with any text editor and edit the following fields:
+```
+DB_HOST={dbhost}
+DB_PORT={dbport}
+DB_USER=postgres
+DB_PASS={dbpassword}
+DB_NAME={dbname}
+```
+
+> 💡  Important: 
+> 
+> - If the db machine’s IP address changes frequently (e.g., on laptops or networks without static IPs), you will need to manually update this value. 
+> - For production servers, it is strongly recommended to configure a static IP address to prevent connection issues.
 
 ## Important
 
