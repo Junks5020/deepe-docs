@@ -26,10 +26,14 @@ Check that the clone was successful and without errors.
 
 ---
 
-## 2. Quick Start with Docker 
-Overall, our installation and deployment are Docker-based, which makes the setup process simple and efficient, saving you from many tedious manual steps.
+2. Database Preparation (Optional)
+To simplify configuration, we have included an integrated database in Docker Compose. If you don't need to use an external database, you may skip this section.However, please note: We do not recommend using the Docker Compose-integrated PostgreSQL database in production environments. If you wish to use your own external database, please follow these steps:
 
-However, due to differences in user platforms, the training environment setup varies. This section provides a detailed explanation of these differences.
+1. Manually install a local PostgreSQL server or use existing database information(version 16 is known to run stably)
+2. To ensure successful initialization, you **must** use the default superuser:  
+   **`dbuser = postgres`**  
+3. Make sure to note down the following parameters for later use: {dbname}, {dbuser}, {dbpassword}, {dbhost}, and {dbport}.
+4. Initialize the database schema using the **golang-migrate** tool:
 
 DeepExtension uses Docker to deploy the PostgreSQL database by default, so no additional installation is required.
 If you prefer to connect to a custom database, please refer to the Appendix at the end of this guide for manual setup and configuration.
@@ -67,15 +71,7 @@ docker run -it --rm --gpus all pytorch/pytorch:latest python -c "import torch; p
 >
 > [https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html)
 
-Once this test passes, proceed with the following steps:
-
-1. In `{deepextension_base_dir}/prod.env`, find `TRAINING_AI_IMAGE_NAME` (e.g., `local_deep_e_python_image`) as {ai_image_name} `TRAINING_AI_IMAGE_VERSION` (e.g., `a1b2c3d4`) as {ai_image_version}
-2. Go to `{deepextension_base_dir}` and build the training image using the following command:
-
-```bash
-cd {deepextension_base_dir}/deep-e-python
-docker build -t {ai_image_name}:{ai_image_version} -f Dockerfile . --load
-```
+Upon confirmation of successful test execution and verification of all test criteria, proceed to implement the procedures outlined in Step 4.
 
 ### Option B: Apple macOS (M1–M4)
 
@@ -217,23 +213,39 @@ To run DeepExtension without training capabilities, open `{deepextension_base_di
 WITH_AI_IMAGE=false
 ```
 
+> This variable only takes effect in CUDA-enabled environments.
 > By default, WITH_AI_IMAGE is set to true.
-> If you intend to use no-training mode, you must explicitly set this value to false.
+> To enable "No-Training Mode", you need to manually set this value to false.
+> If the training image build fails, the execution script will automatically set WITH_AI_IMAGE to false.
 
 ---
+## 4. Configuring Optional Environment Parameters
+### Web Service Port Configuration
+- Default Port: **88**
 
-## 3. Configure Optional Environment Settings
+- Port Conflict Resolution: If the default port in use,, the system will automatically scan for available ports starting from **88**
 
-By default, the Web UI uses port **88**, which is defined by `{UI_AI_EXPOSED_PORT}` in `{deepextension_base_dir}/prod.env`.  
-If you prefer a different port, or if port 88 is already in use, open `{deepextension_base_dir}/custom.conf` with any text editor and set:
+- Configuration File Path: {deepextension_base_dir}/prod.env
+
+- Configuration Parameter: UI_AI_EXPOSED_PORT
+
+To configure a custom port, modify the following in the configuration file:
 
 ```ini
 UI_AI_EXPOSED_PORT={preferred_webui_port}
 ```
+### AI Redis Service Port Configuration
+- Default Port: **6490**
 
-Similarly, the default port for the AI Redis service is **6490**, defined by {AI_PY_REDIS_EXPOSED_PORT} in`{deepextension_base_dir}/prod.env`.
-If you prefer a different port, or if 6490 is already in use, add or edit the following in `{deepextension_base_dir}/custom.conf`:
-``` ini
+- Port Conflict Resolution: If the default port is in use, the system will automatically scan for available ports starting from **6490**
+
+- Configuration File Path: {deepextension_base_dir}/prod.env
+
+- Configuration Parameter: AI_PY_REDIS_EXPOSED_PORT
+
+To configure a custom port, modify the following in the configuration file:
+
+```ini
 AI_PY_REDIS_EXPOSED_PORT={preferred_redis_port}
 ```
 

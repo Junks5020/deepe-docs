@@ -26,10 +26,80 @@ cd deepextension
 
 ---
 
-## 2. 快速开始
-总体而言，DeepExtension的安装和部署是基于 Docker 的，这使得整个安装流程更加简洁高效，省去了许多繁琐的手动操作。由于用户平台的差异，**训练环境**的配置方式也有所不同。本节将对这些差异进行详细说明。
+## 2. 准备数据库（可选）
 
->**注意**
+
+为了简化配置，我们已在 Docker Compose 中集成了数据库。若您不需要使用外部数据库，可以跳过本小节。但是值得注意的是：在生产环境中，我们**不建议**使用 Docker Compose集成的 PostgreSQL 数据库。若您希望使用自己的外部数据库，请按以下步骤操作：
+
+
+1. 手动安装本地 PostgreSQL 服务器（已知版本 16 运行稳定），或使用现有数据库信息。
+2. 为确保初始化成功，**必须使用默认超级用户**：  
+   **dbuser = postgres**  
+3. 请记下以下参数，稍后需要用到：{dbname}, {dbuser}, {dbpassword}, {dbhost}, {dbport}
+4. 使用 **golang-migrate** 工具初始化数据库 schema：
+
+### 2.4.1 安装 golang-migrate
+
+你可以通过 CLI 或 Homebrew（macOS 用户）安装此工具：
+
+#### 选项 A：命令行（推荐）
+
+```bash
+cd {deepextension_base_dir}/migrate
+chmod +x install_migrate.sh
+./install_migrate.sh
+migrate -version
+# 示例输出：v4.18.3
+```
+
+#### 选项 B：Homebrew（仅适用于 macOS）
+
+```bash
+brew install golang-migrate
+migrate -version
+# 示例输出：v4.18.3
+```
+
+### 2.4.2 执行迁移
+
+```bash
+cd {deepextension_base_dir}
+migrate -path migrations -database "postgres://{dbuser}:{dbpassword}@{dbhost}:{dbport}/{dbname}?sslmode=disable" up
+```
+
+执行迁移后，如果无报错，你应看到类似如下输出：
+
+```
+1747303002/u create_initialize_type (***ms)
+1747303003/u create_initialize_table (***ms)
+```
+
+这表示迁移成功完成。你可以继续进行安装的下一步。
+
+> 如果 schema 初始化不正确，程序将无法启动。
+
+---
+
+### 2.5 配置数据库访问
+
+**从模板创建**配置文件 {deepextension_base_dir}/custom.conf：
+
+```bash
+cd {deepextension_base_dir}
+cp custom.conf.template custom.conf
+```
+
+使用任何文本编辑器打开 custom.conf 并编辑以下字段：
+
+```
+DB_HOST={dbhost}
+DB_PORT={dbport}
+DB_USER=postgres
+DB_PASS={dbpassword}
+DB_NAME={dbname}
+```
+
+> 💡 重要提示：
 >
 >DeepExtension 默认使用 Docker 部署 PostgreSQL 数据库，因此无需额外安装。如果您希望连接自定义的数据库，请参阅本指南末尾的附录部分，了解手动配置和设置的方法。
 
@@ -62,15 +132,7 @@ docker run -it --rm --gpus all pytorch/pytorch:latest python -c "import torch; p
 > 💡 Linux 系统请安装 NVIDIA Container Toolkit：
 > [https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html)
 
-接下来可以操作如下步骤：
-
-1. 在 {deepextension_base_dir}/prod.env 中找到 TRAINING_AI_IMAGE_NAME (设为{ai_image_name}) 和 TRAINING_AI_IMAGE_VERSION (设为{ai_image_version})
-2. 构建训练镜像：
-
-```bash
-cd {deepextension_base_dir}/deep-e-python
-docker build -t {ai_image_name}:{ai_image_version} -f Dockerfile . --load
-```
+测试验证通过后，请继续执行步骤4的操作流程。
 
 ---
 
@@ -157,22 +219,41 @@ pm2 delete training-py
 WITH_AI_IMAGE=false
 ```
 
+> 该变量仅对CUDA环境生效。
 > 默认情况下，WITH_AI_IMAGE 为 true。
 > 若需启用“无训练模式”，必须手动设为 false。
+> 若训练镜像打包失败，执行运行脚本会默认将WITH_AI_IMAGE调整为 false 。
 
 ---
 
 ## 4. 配置可选环境参数
 
-Web UI 默认使用端口 **88**，在 {deepextension_base_dir}/prod.env 中由 {UI_AI_EXPOSED_PORT} 定义。  
-如需修改：
+### Web 服务端口配置
+
+- 默认端口号：**88**
+
+- 端口冲突处理机制：当默认端口被占用时，系统将自动从**88**开始顺序检测可用端口
+
+- 配置文件路径：{deepextension_base_dir}/prod.env
+
+- 配置参数：UI_AI_EXPOSED_PORT
+
+如需自定义端口，请在配置文件中修改：
 
 ```ini
 UI_AI_EXPOSED_PORT={preferred_webui_port}
 ```
+### AI Redis 服务端口配置
 
-AI Redis 默认端口为 **6490**，在 {deepextension_base_dir}/prod.env 中由 {AI_PY_REDIS_EXPOSED_PORT} 定义。  
-如需修改：
+- 默认端口号：**6490**
+
+- 端口冲突处理机制：当默认端口被占用时，系统将自动从**6490**开始顺序检测可用端口
+
+- 配置文件路径：{deepextension_base_dir}/prod.env
+
+- 配置参数：AI_PY_REDIS_EXPOSED_PORT
+
+如需自定义端口，请在配置文件中修改：
 
 ```ini
 AI_PY_REDIS_EXPOSED_PORT={preferred_redis_port}
