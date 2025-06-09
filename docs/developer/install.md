@@ -306,7 +306,7 @@ During the first launch, a root user is created automatically. The initial passw
 ---
 ## 6. Appendix: Custom Database Setup (Optional)
 
-We recommend using **Docker** to run your PostgreSQL database and we have already integrated the database setup in Docker Compose. If you prefer to use your own external database, please follow these steps:
+We recommend using **Docker** to run your PostgreSQL database and we have already integrated the database setup in Docker Compose. If you prefer to use your custom database, please follow these steps:
 1. Manually install a local PostgreSQL server or use existing database information(version 16 is known to run stably)
 2. To ensure successful initialization, you **must** use the default superuser:  
    **`dbuser = postgres`**  
@@ -361,8 +361,6 @@ This indicates that the migration completed successfully. You can now proceed wi
 > If the schema is not initialized correctly, the program will fail to start.
 
 ---
-
-
 
 ### 6.3 Configure Database Access
 
