@@ -27,7 +27,7 @@ Check that the clone was successful and without errors.
 ---
 
 2. Database Preparation (Optional)
-To simplify configuration, we have included an integrated database in Docker Compose. If you don't need to use an external database, you may skip this section.However, please note: We do not recommend using the Docker Compose-integrated PostgreSQL database in production environments. If you wish to use your own external database, please follow these steps:
+To simplify configuration, we have included an integrated database in Docker Compose.If you don't use an external database for current installation, you may skip this section and go to section "3. Set Up Model Training Environment" directly.However, please note: We do not recommend using the Docker Compose-integrated PostgreSQL database in production environments. If you wish to use your own external database, please follow these steps:
 
 1. Manually install a local PostgreSQL server or use existing database information(version 16 is known to run stably)
 2. To ensure successful initialization, you **must** use the default superuser:  
@@ -294,9 +294,9 @@ WITH_AI_IMAGE=false
 ### Web Service Port Configuration
 - Default Port: **88**
 
-- Port Conflict Resolution: If the default port in use,, the system will automatically scan for available ports starting from **88**
+- Port Conflict Handling: If the default port is occupied, the system will incrementally search for available ports beginning from 88 in ascending order.
 
-- Configuration File Path: {deepextension_base_dir}/prod.env
+- Configuration File Path: {deepextension_base_dir}/custom.conf
 
 - Configuration Parameter: UI_AI_EXPOSED_PORT
 
@@ -308,9 +308,9 @@ UI_AI_EXPOSED_PORT={preferred_webui_port}
 ### AI Redis Service Port Configuration
 - Default Port: **6490**
 
-- Port Conflict Resolution: If the default port is in use, the system will automatically scan for available ports starting from **6490**
+- Port Conflict Handling: If the default port is occupied, the system will incrementally search for available ports beginning from 6490 in ascending order.
 
-- Configuration File Path: {deepextension_base_dir}/prod.env
+- Configuration File Path: {deepextension_base_dir}/custom.conf
 
 - Configuration Parameter: AI_PY_REDIS_EXPOSED_PORT
 
@@ -387,85 +387,6 @@ During the first launch, a root user is created automatically. The initial passw
 
 
 ---
-## 6. Appendix: Custom Database Setup (Optional)
-
-We recommend using **Docker** to run your PostgreSQL database and we have already integrated the database setup in Docker Compose. If you prefer to use your custom database, please follow these steps:
-1. Manually install a local PostgreSQL server or use existing database information(version 16 is known to run stably)
-2. To ensure successful initialization, you **must** use the default superuser:  
-   **`dbuser = postgres`**  
-3. Make sure to note down the following parameters for later use: {dbname}, {dbuser}, {dbpassword}, {dbhost}, and {dbport}.
-4. Initialize the database schema using the **golang-migrate** tool:
-
-### 6.1 Install golang-migrate
-
-You can install this tool via CLI or Homebrew (for macOS users):
-
-#### Option A: CLI (Recommended)
-```bash
-# 1. Navigate to the migrate folder in the DeepExtension codebase
-cd {deepextension_base_dir}/migrate
-
-# 2. Make the installation script executable
-chmod +x install_migrate.sh
-
-# 3. Run the script (administrator password may be required)
-./install_migrate.sh
-
-# 4. Verify installation
-migrate -version
-# Example output: v4.18.3
-```
-
-#### Option B: Homebrew (macOS only)
-```bash
-# 1. Install via Homebrew
-brew install golang-migrate
-
-# 2. Verify installation
-migrate -version
-# Example output: v4.18.3
-```
-
-### 6.2 Execute the Migration
-```bash
-# Run the migration command with the appropriate connection string
-cd {deepextension_base_dir}
-migrate -path migrations -database "postgres://{dbuser}:{dbpassword}@{dbhost}:{dbport}/{dbname}?sslmode=disable" up
-```
-
-After running the migration, you should see no error messages and output similar to the following:
-```
-1747303002/u create_initialize_type (***ms)
-1747303003/u create_initialize_table (***ms)
-```
-
-This indicates that the migration completed successfully. You can now proceed with the next steps of the installation.
-
-> If the schema is not initialized correctly, the program will fail to start.
-
----
-
-### 6.3 Configure Database Access
-
-**Create** the configuration file `{deepextension_base_dir}/custom.conf` from template:
-
-```
-cd {deepextension_base_dir}
-cp custom.conf.template custom.conf
-```
-Open `custom.conf` with any text editor and edit the following fields:
-```
-DB_HOST={dbhost}
-DB_PORT={dbport}
-DB_USER=postgres
-DB_PASS={dbpassword}
-DB_NAME={dbname}
-```
-
-> 💡  Important: 
-> 
-> - If the db machine’s IP address changes frequently (e.g., on laptops or networks without static IPs), you will need to manually update this value. 
-> - For production servers, it is strongly recommended to configure a static IP address to prevent connection issues.
 
 ## Important
 
