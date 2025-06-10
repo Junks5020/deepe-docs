@@ -26,13 +26,13 @@ cd deepextension
 
 ---
 
-## 2. 准备数据库
+## 2. 准备数据库（可选）
 
-我们**不建议**使用 Docker 运行 PostgreSQL 数据库。为提高稳定性，请使用本地或专用数据库服务器。但为简化配置，我们已在 Docker Compose 中集成了数据库。若您希望使用自己的外部数据库，请按以下步骤操作：
 
-> 如无需使用自己的数据库，可跳过此步骤2：准备数据库
+为了简化配置，我们已在 Docker Compose 中集成了数据库。若您不需要使用外部数据库，可以跳过本小节。但是值得注意的是：在生产环境中，我们**不建议**使用 Docker Compose集成的 PostgreSQL 数据库。若您希望使用自己的外部数据库，请按以下步骤操作：
 
-手动安装本地 PostgreSQL 服务器（已知版本 16 运行稳定），或使用现有数据库信息。
+
+1. 手动安装本地 PostgreSQL 服务器（已知版本 16 运行稳定），或使用现有数据库信息。
 2. 为确保初始化成功，**必须使用默认超级用户**：  
    **dbuser = postgres**  
 3. 请记下以下参数，稍后需要用到：{dbname}, {dbuser}, {dbpassword}, {dbhost}, {dbport}
@@ -135,15 +135,7 @@ docker run -it --rm --gpus all pytorch/pytorch:latest python -c "import torch; p
 > 💡 Linux 系统请安装 NVIDIA Container Toolkit：
 > [https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html)
 
-接下来可以操作如下步骤：
-
-1. 在 {deepextension_base_dir}/prod.env 中找到 TRAINING_AI_IMAGE_NAME (设为{ai_image_name}) 和 TRAINING_AI_IMAGE_VERSION (设为{ai_image_version})
-2. 构建训练镜像：
-
-```bash
-cd {deepextension_base_dir}/deep-e-python
-docker build -t {ai_image_name}:{ai_image_version} -f Dockerfile . --load
-```
+测试验证通过后，请继续执行步骤4的操作流程。
 
 ---
 
@@ -230,22 +222,41 @@ pm2 delete training-py
 WITH_AI_IMAGE=false
 ```
 
+> 该变量仅对CUDA环境生效。
 > 默认情况下，WITH_AI_IMAGE 为 true。
 > 若需启用“无训练模式”，必须手动设为 false。
+> 若训练镜像打包失败，执行运行脚本会默认将WITH_AI_IMAGE调整为 false 。
 
 ---
 
 ## 4. 配置可选环境参数
 
-Web UI 默认使用端口 **88**，在 {deepextension_base_dir}/prod.env 中由 {UI_AI_EXPOSED_PORT} 定义。  
-如需修改：
+### Web 服务端口配置
+
+- 默认端口号：**88**
+
+- 端口冲突处理机制：当默认端口被占用时，系统将自动从**88**开始顺序检测可用端口
+
+- 配置文件路径：{deepextension_base_dir}/custom.conf
+
+- 配置参数：UI_AI_EXPOSED_PORT
+
+如需自定义端口，请在配置文件中修改：
 
 ```ini
 UI_AI_EXPOSED_PORT={preferred_webui_port}
 ```
+### AI Redis 服务端口配置
 
-AI Redis 默认端口为 **6490**，在 {deepextension_base_dir}/prod.env 中由 {AI_PY_REDIS_EXPOSED_PORT} 定义。  
-如需修改：
+- 默认端口号：**6490**
+
+- 端口冲突处理机制：当默认端口被占用时，系统将自动从**6490**开始顺序检测可用端口
+
+- 配置文件路径：{deepextension_base_dir}/custom.conf
+
+- 配置参数：AI_PY_REDIS_EXPOSED_PORT
+
+如需自定义端口，请在配置文件中修改：
 
 ```ini
 AI_PY_REDIS_EXPOSED_PORT={preferred_redis_port}
