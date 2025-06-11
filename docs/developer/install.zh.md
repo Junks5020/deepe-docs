@@ -156,7 +156,39 @@ chmod +x prepare_mlx_changes.sh
 ./prepare_mlx_changes.sh
 ```
 
-该脚本将对以下代码做兼容性修改（详见原文）
+使用脚本可以节省时间并避免手动编辑导致的错误。具体修改如下：
+
+- 对于 `{deepextension_base_dir}/deep-e-python/mlx_lm/tuner/datasets.py` 文件：
+
+修改前：
+
+```python
+names = ("train", "valid", "test")
+train, valid, test = [load_subset(data_path / f"{n}.jsonl") for n in names]
+return train, valid, test
+```
+
+修改后：
+
+```python
+# names = ("train", "valid", "test")
+train = load_subset(data_path)
+return train, train, None
+```
+- 对于 `{deepextension_base_dir}/deep-e-python/mlx_lm/tuner/trainer.py` 文件：
+
+修改前：
+
+```python
+mx.set_wired_limit(mx.metal.device_info()["max_recommended_working_set_size"])
+```
+修改后：
+
+```python
+mx.set_wired_limit(8 * 1024 * 1024 * 1024)
+```
+
+> 这项修改将内存限制设置为8GB，适合在16GB内存的Mac电脑上对1.5B基础模型进行LoRA训练。您可以根据自己的系统配置调整此数值。
 
 #### b. 安装依赖
 

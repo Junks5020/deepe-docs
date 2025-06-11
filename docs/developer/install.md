@@ -26,7 +26,7 @@ Check that the clone was successful and without errors.
 
 ---
 
-2. Database Preparation (Optional)
+## 2. Database Preparation (Optional)
 To simplify configuration, we have included an integrated database in Docker Compose.If you don't use an external database for current installation, you may skip this section and go to section "3. Set Up Model Training Environment" directly.However, please note: We do not recommend using the Docker Compose-integrated PostgreSQL database in production environments. If you wish to use your own external database, please follow these steps:
 
 1. Manually install a local PostgreSQL server or use existing database information(version 16 is known to run stably)
@@ -165,7 +165,7 @@ Using the script saves time and helps avoid manual editing errors. The changes a
 
 -  For `{deepextension_base_dir}/deep-e-python/mlx_lm/tuner/datasets.py`,
 
-change from:
+Change from:
 ```python
 names = ("train", "valid", "test")
 train, valid, test = [load_subset(data_path / f"{n}.jsonl") for n in names]
@@ -180,7 +180,7 @@ return train, train, None
 
 -  For `{deepextension_base_dir}/deep-e-python/mlx_lm/tuner/trainer.py`,
 
-change from:
+Change from:
 ```python
 mx.set_wired_limit(mx.metal.device_info()["max_recommended_working_set_size"])
 ```
