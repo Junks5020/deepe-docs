@@ -31,17 +31,18 @@ To streamline the setup process, an integrated PostgreSQL database is included i
 >
 > Note: We do not recommend using the Docker Compose-integrated PostgreSQL database in production environments. If you prefer to use your own external database, please follow the steps below.
 
-1. Manually install a local PostgreSQL server or use existing database information(version 16 is known to run stably)
-2. To ensure successful initialization, you **must** use the default superuser:  
+### 2.1 Install Database 
+- Manually install a local PostgreSQL server or use existing database information(version 16 is known to run stably)
+- To ensure successful initialization, you **must** use the default superuser:  
    **`dbuser = postgres`**  
-3. Make sure to note down the following parameters for later use: {dbname}, {dbuser}, {dbpassword}, {dbhost}, and {dbport}.
-4. Initialize the database schema using the **golang-migrate** tool:
+- Make sure to note down the following parameters for later use: {dbname}, {dbuser}, {dbpassword}, {dbhost}, and {dbport}.
+### 2.2 Initialize the database schema
 
-### 2.4.1 Install golang-migrate
+#### 2.2.1 Install golang-migrate
 
 You can install this tool via CLI or Homebrew (for macOS users):
 
-#### Option A: CLI (Recommended)
+##### Option A: CLI (Recommended)
 ```bash
 # 1. Navigate to the migrate folder in the DeepExtension codebase
 cd {deepextension_base_dir}/migrate
@@ -57,7 +58,7 @@ migrate -version
 # Example output: v4.18.3
 ```
 
-#### Option B: Homebrew (macOS only)
+##### Option B: Homebrew (macOS only)
 ```bash
 # 1. Install via Homebrew
 brew install golang-migrate
@@ -67,7 +68,7 @@ migrate -version
 # Example output: v4.18.3
 ```
 
-### 2.4.2 Execute the Migration
+#### 2.2.2 Execute the Migration
 ```bash
 # Run the migration command with the appropriate connection string
 cd {deepextension_base_dir}
@@ -88,7 +89,7 @@ This indicates that the migration completed successfully. You can now proceed wi
 
 
 
-### 2.5 Configure Database Access
+### 2.3 Configure Database Access
 
 **Create** the configuration file `{deepextension_base_dir}/custom.conf` from template:
 

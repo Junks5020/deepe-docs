@@ -32,17 +32,19 @@ cd deepextension
 >
 >注意：我们不建议在生产环境中使用 Docker Compose 集成的 PostgreSQL 数据库。如果您希望使用自有的外部数据库，请按照以下步骤进行配置。
 
-1. 手动安装本地 PostgreSQL 服务器（已知版本 16 运行稳定），或使用现有数据库信息。
-2. 为确保初始化成功，**必须使用默认超级用户**：  
-   **dbuser = postgres**  
-3. 请记下以下参数，稍后需要用到：{dbname}, {dbuser}, {dbpassword}, {dbhost}, {dbport}
-4. 使用 **golang-migrate** 工具初始化数据库 schema：
+### 2.1 安装数据库 
 
-### 2.4.1 安装 golang-migrate
+- 手动安装本地 PostgreSQL 服务器（已知版本 16 运行稳定），或使用现有数据库信息。
+- 为确保初始化成功，**必须使用默认超级用户**：  **dbuser = postgres**  
+- 请记下以下参数，稍后需要用到：{dbname}, {dbuser}, {dbpassword}, {dbhost}, {dbport}
+
+### 2.2 初始化数据库 schema
+
+#### 2.2.1 安装 golang-migrate
 
 你可以通过 CLI 或 Homebrew（macOS 用户）安装此工具：
 
-#### 选项 A：命令行（推荐）
+##### 选项 A：命令行（推荐）
 
 ```bash
 cd {deepextension_base_dir}/migrate
@@ -52,7 +54,7 @@ migrate -version
 # 示例输出：v4.18.3
 ```
 
-#### 选项 B：Homebrew（仅适用于 macOS）
+##### 选项 B：Homebrew（仅适用于 macOS）
 
 ```bash
 brew install golang-migrate
@@ -60,7 +62,7 @@ migrate -version
 # 示例输出：v4.18.3
 ```
 
-### 2.4.2 执行迁移
+#### 2.2.2 执行迁移
 
 ```bash
 cd {deepextension_base_dir}
@@ -80,7 +82,7 @@ migrate -path migrations -database "postgres://{dbuser}:{dbpassword}@{dbhost}:{d
 
 ---
 
-### 2.5 配置数据库访问
+### 2.3 配置数据库访问
 
 **从模板创建**配置文件 {deepextension_base_dir}/custom.conf：
 
@@ -263,7 +265,7 @@ WITH_AI_IMAGE=false
 
 ## 4. 配置可选环境参数
 
-> 当使用 Docker Compose 内置数据库服务时，如需自定义端口信息，需预先在 `{deepextension}`目录下 **custom.conf** 文件。若已在 `2. 准备数据库（可选）` 完成 **custom.conf** 创建,则可直接沿用现有文件，无需重复创建。
+> 当使用 Docker Compose 内置数据库服务时，如需自定义端口信息，需预先在 `{deepextension}`目录下创建 **custom.conf** 文件。若已在 `2. 准备数据库（可选）` 完成 **custom.conf** 创建，则可直接沿用现有文件，无需重复创建。
 
 ### Web 服务端口配置
 
