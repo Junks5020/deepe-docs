@@ -28,9 +28,9 @@ cd deepextension
 
 ## 2. 准备数据库（可选）
 
-
-为了简化配置，我们已在 Docker Compose 中集成了数据库。若您不需要使用外部数据库，可以跳过本小节。但是值得注意的是：在生产环境中，我们**不建议**使用 Docker Compose集成的 PostgreSQL 数据库。若您希望使用自己的外部数据库，请按以下步骤操作：
-
+为了简化设置流程，Docker Compose 配置中已集成了一个 PostgreSQL 数据库。如果您不需要使用外部数据库，可以跳过本节内容。
+>
+>注意：我们不建议在生产环境中使用 Docker Compose 集成的 PostgreSQL 数据库。如果您希望使用自有的外部数据库，请按照以下步骤进行配置。
 
 1. 手动安装本地 PostgreSQL 服务器（已知版本 16 运行稳定），或使用现有数据库信息。
 2. 为确保初始化成功，**必须使用默认超级用户**：  
@@ -269,11 +269,11 @@ WITH_AI_IMAGE=false
 
 - 端口冲突处理机制：当默认端口被占用时，系统将自动从**88**开始顺序检测可用端口
 
-- 配置文件路径：{deepextension_base_dir}/custom.conf
+- 配置文件：{deepextension_base_dir}/custom.conf
 
 - 配置参数：UI_AI_EXPOSED_PORT
 
-如需自定义端口，请在配置文件中修改：
+如需自定义端口，请在配置文件中添加或者修改：
 
 ```ini
 UI_AI_EXPOSED_PORT={preferred_webui_port}
@@ -284,11 +284,11 @@ UI_AI_EXPOSED_PORT={preferred_webui_port}
 
 - 端口冲突处理机制：当默认端口被占用时，系统将自动从**6490**开始顺序检测可用端口
 
-- 配置文件路径：{deepextension_base_dir}/custom.conf
+- 配置文件：{deepextension_base_dir}/custom.conf
 
 - 配置参数：AI_PY_REDIS_EXPOSED_PORT
 
-如需自定义端口，请在配置文件中修改：
+如需自定义端口，请在配置文件中添加或者修改：
 
 ```ini
 AI_PY_REDIS_EXPOSED_PORT={preferred_redis_port}
