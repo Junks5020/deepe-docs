@@ -28,21 +28,23 @@ cd deepextension
 
 ## 2. 准备数据库（可选）
 
+为了简化设置流程，Docker Compose 配置中已集成了一个 PostgreSQL 数据库。如果您不需要使用外部数据库，可以跳过本节内容。
+>
+>注意：我们不建议在生产环境中使用 Docker Compose 集成的 PostgreSQL 数据库。如果您希望使用自有的外部数据库，请按照以下步骤进行配置。
 
-为了简化配置，我们已在 Docker Compose 中集成了数据库。若您不需要使用外部数据库，可以跳过本小节。但是值得注意的是：在生产环境中，我们**不建议**使用 Docker Compose集成的 PostgreSQL 数据库。若您希望使用自己的外部数据库，请按以下步骤操作：
+### 2.1 安装数据库 
 
+- 手动安装本地 PostgreSQL 服务器（已知版本 16 运行稳定），或使用现有数据库信息。
+- 为确保初始化成功，**必须使用默认超级用户**：  **dbuser = postgres**  
+- 请记下以下参数，稍后需要用到：{dbname}, {dbuser}, {dbpassword}, {dbhost}, {dbport}
 
-1. 手动安装本地 PostgreSQL 服务器（已知版本 16 运行稳定），或使用现有数据库信息。
-2. 为确保初始化成功，**必须使用默认超级用户**：  
-   **dbuser = postgres**  
-3. 请记下以下参数，稍后需要用到：{dbname}, {dbuser}, {dbpassword}, {dbhost}, {dbport}
-4. 使用 **golang-migrate** 工具初始化数据库 schema：
+### 2.2 初始化数据库 schema
 
-### 2.4.1 安装 golang-migrate
+#### 2.2.1 安装 golang-migrate
 
 你可以通过 CLI 或 Homebrew（macOS 用户）安装此工具：
 
-#### 选项 A：命令行（推荐）
+##### 选项 A：命令行（推荐）
 
 ```bash
 cd {deepextension_base_dir}/migrate
@@ -52,7 +54,7 @@ migrate -version
 # 示例输出：v4.18.3
 ```
 
-#### 选项 B：Homebrew（仅适用于 macOS）
+##### 选项 B：Homebrew（仅适用于 macOS）
 
 ```bash
 brew install golang-migrate
@@ -60,7 +62,7 @@ migrate -version
 # 示例输出：v4.18.3
 ```
 
-### 2.4.2 执行迁移
+#### 2.2.2 执行迁移
 
 ```bash
 cd {deepextension_base_dir}
@@ -80,7 +82,7 @@ migrate -path migrations -database "postgres://{dbuser}:{dbpassword}@{dbhost}:{d
 
 ---
 
-### 2.5 配置数据库访问
+### 2.3 配置数据库访问
 
 **从模板创建**配置文件 {deepextension_base_dir}/custom.conf：
 
@@ -156,7 +158,40 @@ chmod +x prepare_mlx_changes.sh
 ./prepare_mlx_changes.sh
 ```
 
-该脚本将对以下代码做兼容性修改（详见原文）
+使用脚本可以节省时间并避免手动编辑导致的错误。具体修改如下：
+
+- 对于 `{deepextension_base_dir}/deep-e-python/mlx_lm/tuner/datasets.py` 文件：
+
+修改前：
+
+```python
+names = ("train", "valid", "test")
+train, valid, test = [load_subset(data_path / f"{n}.jsonl") for n in names]
+return train, valid, test
+```
+
+修改后：
+
+```python
+# names = ("train", "valid", "test")
+train = load_subset(data_path)
+return train, train, None
+```
+
+- 对于 `{deepextension_base_dir}/deep-e-python/mlx_lm/tuner/trainer.py` 文件：
+
+修改前：
+
+```python
+mx.set_wired_limit(mx.metal.device_info()["max_recommended_working_set_size"])
+```
+修改后：
+
+```python
+mx.set_wired_limit(8 * 1024 * 1024 * 1024)
+```
+
+> 这项修改将内存限制设置为8GB，适合在16GB内存的Mac电脑上对1.5B基础模型进行LoRA训练。您可以根据自己的系统配置调整此数值。
 
 #### b. 安装依赖
 
@@ -231,17 +266,19 @@ WITH_AI_IMAGE=false
 
 ## 4. 配置可选环境参数
 
+> 当使用 Docker Compose 内置数据库服务时，如需自定义端口信息，需预先在 `{deepextension_base_dir}`目录下创建 **custom.conf** 文件。若已在 `2. 准备数据库（可选）` 完成 **custom.conf** 创建，则可直接沿用现有文件，无需重复创建。
+
 ### Web 服务端口配置
 
 - 默认端口号：**88**
 
 - 端口冲突处理机制：当默认端口被占用时，系统将自动从**88**开始顺序检测可用端口
 
-- 配置文件路径：{deepextension_base_dir}/custom.conf
+- 配置文件：{deepextension_base_dir}/custom.conf
 
 - 配置参数：UI_AI_EXPOSED_PORT
 
-如需自定义端口，请在配置文件中修改：
+如需自定义端口，请在配置文件中添加或者修改：
 
 ```ini
 UI_AI_EXPOSED_PORT={preferred_webui_port}
@@ -252,11 +289,11 @@ UI_AI_EXPOSED_PORT={preferred_webui_port}
 
 - 端口冲突处理机制：当默认端口被占用时，系统将自动从**6490**开始顺序检测可用端口
 
-- 配置文件路径：{deepextension_base_dir}/custom.conf
+- 配置文件：{deepextension_base_dir}/custom.conf
 
 - 配置参数：AI_PY_REDIS_EXPOSED_PORT
 
-如需自定义端口，请在配置文件中修改：
+如需自定义端口，请在配置文件中添加或者修改：
 
 ```ini
 AI_PY_REDIS_EXPOSED_PORT={preferred_redis_port}
@@ -277,7 +314,7 @@ AI_PY_REDIS_EXPOSED_PORT={preferred_redis_port}
 - 镜像下载完成
 - 所有容器成功启动
 
-访问：[http://localhost:88](http://localhost:88) 或 [http://localhost:{preferred_webui_port](http://localhost:{preferred_webui_port})
+访问：[http://localhost:88](http://localhost:88) 或 [http://localhost:{preferred_webui_port}](http://localhost:{preferred_webui_port})
 
 生命周期管理命令：
 

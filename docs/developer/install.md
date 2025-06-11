@@ -26,20 +26,23 @@ Check that the clone was successful and without errors.
 
 ---
 
-2. Database Preparation (Optional)
-To simplify configuration, we have included an integrated database in Docker Compose.If you don't use an external database for current installation, you may skip this section and go to section "3. Set Up Model Training Environment" directly.However, please note: We do not recommend using the Docker Compose-integrated PostgreSQL database in production environments. If you wish to use your own external database, please follow these steps:
+## 2. Database Preparation (Optional)
+To streamline the setup process, an integrated PostgreSQL database is included in the Docker Compose configuration. If you do not require an external database, you may safely skip this section.
+>
+> Note: We do not recommend using the Docker Compose-integrated PostgreSQL database in production environments. If you prefer to use your own external database, please follow the steps below.
 
-1. Manually install a local PostgreSQL server or use existing database information(version 16 is known to run stably)
-2. To ensure successful initialization, you **must** use the default superuser:  
+### 2.1 Install Database 
+- Manually install a local PostgreSQL server or use existing database information(version 16 is known to run stably)
+- To ensure successful initialization, you **must** use the default superuser:  
    **`dbuser = postgres`**  
-3. Make sure to note down the following parameters for later use: {dbname}, {dbuser}, {dbpassword}, {dbhost}, and {dbport}.
-4. Initialize the database schema using the **golang-migrate** tool:
+- Make sure to note down the following parameters for later use: {dbname}, {dbuser}, {dbpassword}, {dbhost}, and {dbport}.
+### 2.2 Initialize the database schema
 
-### 2.4.1 Install golang-migrate
+#### 2.2.1 Install golang-migrate
 
 You can install this tool via CLI or Homebrew (for macOS users):
 
-#### Option A: CLI (Recommended)
+##### Option A: CLI (Recommended)
 ```bash
 # 1. Navigate to the migrate folder in the DeepExtension codebase
 cd {deepextension_base_dir}/migrate
@@ -55,7 +58,7 @@ migrate -version
 # Example output: v4.18.3
 ```
 
-#### Option B: Homebrew (macOS only)
+##### Option B: Homebrew (macOS only)
 ```bash
 # 1. Install via Homebrew
 brew install golang-migrate
@@ -65,7 +68,7 @@ migrate -version
 # Example output: v4.18.3
 ```
 
-### 2.4.2 Execute the Migration
+#### 2.2.2 Execute the Migration
 ```bash
 # Run the migration command with the appropriate connection string
 cd {deepextension_base_dir}
@@ -86,7 +89,7 @@ This indicates that the migration completed successfully. You can now proceed wi
 
 
 
-### 2.5 Configure Database Access
+### 2.3 Configure Database Access
 
 **Create** the configuration file `{deepextension_base_dir}/custom.conf` from template:
 
@@ -165,7 +168,7 @@ Using the script saves time and helps avoid manual editing errors. The changes a
 
 -  For `{deepextension_base_dir}/deep-e-python/mlx_lm/tuner/datasets.py`,
 
-change from:
+Change from:
 ```python
 names = ("train", "valid", "test")
 train, valid, test = [load_subset(data_path / f"{n}.jsonl") for n in names]
@@ -180,7 +183,7 @@ return train, train, None
 
 -  For `{deepextension_base_dir}/deep-e-python/mlx_lm/tuner/trainer.py`,
 
-change from:
+Change from:
 ```python
 mx.set_wired_limit(mx.metal.device_info()["max_recommended_working_set_size"])
 ```
@@ -291,16 +294,20 @@ WITH_AI_IMAGE=false
 
 ---
 ## 4. Configuring Optional Environment Parameters
+
+> When using the built-in database service in Docker Compose, if custom port configuration is required, you need to prepare the **custom.conf** file in the **{deepextension_base_dir}** directory in advance. If you have already created the **custom.conf** file during `Step 2: Database Preparation (Optional)`, you can directly reuse the existing file without creating a new one.
+
 ### Web Service Port Configuration
 - Default Port: **88**
 
-- Port Conflict Handling: If the default port is occupied, the system will incrementally search for available ports beginning from 88 in ascending order.
+- Port Conflict Handling: If the default port is occupied, the system will automatically search for available ports beginning from 88 in ascending order.
 
-- Configuration File Path: {deepextension_base_dir}/custom.conf
+- Configuration File: {deepextension_base_dir}/custom.conf
 
 - Configuration Parameter: UI_AI_EXPOSED_PORT
 
-To configure a custom port, modify the following in the configuration file:
+
+To specify a custom port, add or modify the following line in the configuration file:
 
 ```ini
 UI_AI_EXPOSED_PORT={preferred_webui_port}
@@ -308,13 +315,14 @@ UI_AI_EXPOSED_PORT={preferred_webui_port}
 ### AI Redis Service Port Configuration
 - Default Port: **6490**
 
-- Port Conflict Handling: If the default port is occupied, the system will incrementally search for available ports beginning from 6490 in ascending order.
+- Port Conflict Handling: If the default port is occupied, the system will automatically search for available ports beginning from 6490 in ascending order.
 
-- Configuration File Path: {deepextension_base_dir}/custom.conf
+- Configuration File: {deepextension_base_dir}/custom.conf
 
 - Configuration Parameter: AI_PY_REDIS_EXPOSED_PORT
 
-To configure a custom port, modify the following in the configuration file:
+To specify a custom port, add or modify the following line in the configuration file:
+
 
 ```ini
 AI_PY_REDIS_EXPOSED_PORT={preferred_redis_port}
@@ -322,7 +330,7 @@ AI_PY_REDIS_EXPOSED_PORT={preferred_redis_port}
 
 ---
 
-## 4. Start the Application
+## 5. Start the Application
 
 Run:
 
@@ -335,7 +343,7 @@ Verify that:
 - All images are downloaded
 - All containers start successfully
 
-Open `[http://localhost:88](http://localhost:88)` or `[http://localhost:{preferred_webui_port}](http://localhost:{preferred_webui_port})` to check the Web UI.
+Open [http://localhost:88](http://localhost:88) or [http://localhost:{preferred_webui_port}](http://localhost:{preferred_webui_port}) to check the Web UI.
 
 To manage the application lifecycle, use the following commands:
 
@@ -362,7 +370,7 @@ If the result of `is_init` is `true`, it confirms that the schema was migrated s
 
 ---
 
-## 5. Root User Setup (First Run Only)
+## 6. Root User Setup (First Run Only)
 
 During the first launch, a root user is created automatically. The initial password is saved at:
 
