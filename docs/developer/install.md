@@ -293,6 +293,9 @@ WITH_AI_IMAGE=false
 
 ---
 ## 4. Configuring Optional Environment Parameters
+
+> When using the built-in database service in Docker Compose, if custom port configuration is required, you need to prepare the **custom.conf** file in the **{deepextension}** directory in advance. If you have already created the **custom.conf** file during `Step 2: Database Preparation (Optional)`, you can directly reuse the existing file without creating a new one.
+
 ### Web Service Port Configuration
 - Default Port: **88**
 
@@ -301,6 +304,7 @@ WITH_AI_IMAGE=false
 - Configuration File: {deepextension_base_dir}/custom.conf
 
 - Configuration Parameter: UI_AI_EXPOSED_PORT
+
 
 To specify a custom port, add or modify the following line in the configuration file:
 
@@ -325,7 +329,7 @@ AI_PY_REDIS_EXPOSED_PORT={preferred_redis_port}
 
 ---
 
-## 4. Start the Application
+## 5. Start the Application
 
 Run:
 
@@ -365,7 +369,7 @@ If the result of `is_init` is `true`, it confirms that the schema was migrated s
 
 ---
 
-## 5. Root User Setup (First Run Only)
+## 6. Root User Setup (First Run Only)
 
 During the first launch, a root user is created automatically. The initial password is saved at:
 

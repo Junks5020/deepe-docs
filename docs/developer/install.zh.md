@@ -263,6 +263,8 @@ WITH_AI_IMAGE=false
 
 ## 4. 配置可选环境参数
 
+> 当使用 Docker Compose 内置数据库服务时，如需自定义端口信息，需预先在 `{deepextension}`目录下 **custom.conf** 文件。若已在 `2. 准备数据库（可选）` 完成 **custom.conf** 创建,则可直接沿用现有文件，无需重复创建。
+
 ### Web 服务端口配置
 
 - 默认端口号：**88**
