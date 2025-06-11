@@ -167,7 +167,7 @@ Using the script saves time and helps avoid manual editing errors. The changes a
 
 -  For `{deepextension_base_dir}/deep-e-python/mlx_lm/tuner/datasets.py`,
 
-change from:
+Change from:
 ```python
 names = ("train", "valid", "test")
 train, valid, test = [load_subset(data_path / f"{n}.jsonl") for n in names]
@@ -182,7 +182,7 @@ return train, train, None
 
 -  For `{deepextension_base_dir}/deep-e-python/mlx_lm/tuner/trainer.py`,
 
-change from:
+Change from:
 ```python
 mx.set_wired_limit(mx.metal.device_info()["max_recommended_working_set_size"])
 ```
