@@ -343,7 +343,7 @@ Verify that:
 - All images are downloaded
 - All containers start successfully
 
-Open [http://localhost:88](http://localhost:88) or [http://localhost:{preferred_webui_port}(http://localhost:{preferred_webui_port}) to check the Web UI.
+Open [http://localhost:88](http://localhost:88) or [http://localhost:{preferred_webui_port}](http://localhost:{preferred_webui_port}) to check the Web UI.
 
 To manage the application lifecycle, use the following commands:
 
