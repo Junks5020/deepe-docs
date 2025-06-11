@@ -26,8 +26,10 @@ Check that the clone was successful and without errors.
 
 ---
 
-2. Database Preparation (Optional)
-To simplify configuration, we have included an integrated database in Docker Compose.If you don't use an external database for current installation, you may skip this section and go to section "3. Set Up Model Training Environment" directly.However, please note: We do not recommend using the Docker Compose-integrated PostgreSQL database in production environments. If you wish to use your own external database, please follow these steps:
+## 2. Database Preparation (Optional)
+To streamline the setup process, an integrated PostgreSQL database is included in the Docker Compose configuration. If you do not require an external database, you may safely skip this section.
+>
+> Note: We do not recommend using the Docker Compose-integrated PostgreSQL database in production environments. If you prefer to use your own external database, please follow the steps below.
 
 1. Manually install a local PostgreSQL server or use existing database information(version 16 is known to run stably)
 2. To ensure successful initialization, you **must** use the default superuser:  
@@ -294,13 +296,13 @@ WITH_AI_IMAGE=false
 ### Web Service Port Configuration
 - Default Port: **88**
 
-- Port Conflict Handling: If the default port is occupied, the system will incrementally search for available ports beginning from 88 in ascending order.
+- Port Conflict Handling: If the default port is occupied, the system will automatically search for available ports beginning from 88 in ascending order.
 
-- Configuration File Path: {deepextension_base_dir}/custom.conf
+- Configuration File: {deepextension_base_dir}/custom.conf
 
 - Configuration Parameter: UI_AI_EXPOSED_PORT
 
-To configure a custom port, modify the following in the configuration file:
+To specify a custom port, add or modify the following line in the configuration file:
 
 ```ini
 UI_AI_EXPOSED_PORT={preferred_webui_port}
@@ -308,13 +310,14 @@ UI_AI_EXPOSED_PORT={preferred_webui_port}
 ### AI Redis Service Port Configuration
 - Default Port: **6490**
 
-- Port Conflict Handling: If the default port is occupied, the system will incrementally search for available ports beginning from 6490 in ascending order.
+- Port Conflict Handling: If the default port is occupied, the system will automatically search for available ports beginning from 6490 in ascending order.
 
-- Configuration File Path: {deepextension_base_dir}/custom.conf
+- Configuration File: {deepextension_base_dir}/custom.conf
 
 - Configuration Parameter: AI_PY_REDIS_EXPOSED_PORT
 
-To configure a custom port, modify the following in the configuration file:
+To specify a custom port, add or modify the following line in the configuration file:
+
 
 ```ini
 AI_PY_REDIS_EXPOSED_PORT={preferred_redis_port}
