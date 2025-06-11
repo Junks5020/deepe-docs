@@ -177,6 +177,7 @@ return train, valid, test
 train = load_subset(data_path)
 return train, train, None
 ```
+
 - 对于 `{deepextension_base_dir}/deep-e-python/mlx_lm/tuner/trainer.py` 文件：
 
 修改前：
@@ -265,7 +266,7 @@ WITH_AI_IMAGE=false
 
 ## 4. 配置可选环境参数
 
-> 当使用 Docker Compose 内置数据库服务时，如需自定义端口信息，需预先在 `{deepextension}`目录下创建 **custom.conf** 文件。若已在 `2. 准备数据库（可选）` 完成 **custom.conf** 创建，则可直接沿用现有文件，无需重复创建。
+> 当使用 Docker Compose 内置数据库服务时，如需自定义端口信息，需预先在 `{deepextension_base_dir}`目录下创建 **custom.conf** 文件。若已在 `2. 准备数据库（可选）` 完成 **custom.conf** 创建，则可直接沿用现有文件，无需重复创建。
 
 ### Web 服务端口配置
 
@@ -313,7 +314,7 @@ AI_PY_REDIS_EXPOSED_PORT={preferred_redis_port}
 - 镜像下载完成
 - 所有容器成功启动
 
-访问：[http://localhost:88](http://localhost:88) 或 [http://localhost:{preferred_webui_port](http://localhost:{preferred_webui_port})
+访问：[http://localhost:88](http://localhost:88) 或 [http://localhost:{preferred_webui_port}](http://localhost:{preferred_webui_port})
 
 生命周期管理命令：
 

@@ -295,7 +295,7 @@ WITH_AI_IMAGE=false
 ---
 ## 4. Configuring Optional Environment Parameters
 
-> When using the built-in database service in Docker Compose, if custom port configuration is required, you need to prepare the **custom.conf** file in the **{deepextension}** directory in advance. If you have already created the **custom.conf** file during `Step 2: Database Preparation (Optional)`, you can directly reuse the existing file without creating a new one.
+> When using the built-in database service in Docker Compose, if custom port configuration is required, you need to prepare the **custom.conf** file in the **{deepextension_base_dir}** directory in advance. If you have already created the **custom.conf** file during `Step 2: Database Preparation (Optional)`, you can directly reuse the existing file without creating a new one.
 
 ### Web Service Port Configuration
 - Default Port: **88**
@@ -343,7 +343,7 @@ Verify that:
 - All images are downloaded
 - All containers start successfully
 
-Open `[http://localhost:88](http://localhost:88)` or `[http://localhost:{preferred_webui_port}](http://localhost:{preferred_webui_port})` to check the Web UI.
+Open [http://localhost:88](http://localhost:88) or [http://localhost:{preferred_webui_port}(http://localhost:{preferred_webui_port}) to check the Web UI.
 
 To manage the application lifecycle, use the following commands:
 
