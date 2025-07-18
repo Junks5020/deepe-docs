@@ -24,8 +24,9 @@ with explanation or scoring.
 ## Create a New Assessment
 
 1. Click **"Create a New"** on the Model Assessment page.
-2. Select an **assessment mode**, **dataset**, and **sample size** (default: all rows).
-3. Choose **Model A**, and if applicable, **Model B** and the **Judge Model**. Model selection follows the same scope and rules as described in [Deep Prompt](deep-prompt.md), and may include:
+2. Select an **assessment mode**, **dataset**, and **sample size** (default: all rows).  
+   - Datasets support image fields. Users can select datasets containing images to enable vision model assessment.
+3. Choose **Model A**, and if applicable, **Model B** and the **Judge Model**. Model selection follows the same scope and rules as described in [Deep Prompt](deep-prompt.md), and may include(including visual models):
 
     - Third-party API models (e.g., OpenAI, Anthropic, ModelScope, etc.)
     - Trained Models
@@ -34,9 +35,14 @@ with explanation or scoring.
 4. Define prompts:
 
     - **Candidate System Prompt**: Standard system prompt for inference (see [DeepPrompt](deep-prompt.md)). If blank, a default like *"I am an AI assistant."* is applied.
-    - **Candidate User Prompt**: Must include dynamic placeholders like `{{column_name}}` to pull values from the dataset (e.g., `Give a short answer to the question: {{question}}`).
+    - **Candidate User Prompt**: 
+      - Supports dynamic placeholders like `{{column_name}}` to pull values from the dataset (e.g., `Give a short answer to the question: {{question}}`), `{{question}}` is the name of a field in a certain column of the dataset
+      - Supports natural language prompts involving images (e.g., `Compare the differences between Picture 1 and Picture 2`). 
+      - When using image fields in prompts, select image fields like `image1`, `image2` from the dropdown menu. Selected image fields will automatically be used as model inputs with adjustable order.
     - **Judge System Prompt**: Tells the judge model what criteria to use; can include `{{CandidateSystemPrompt}}`.
-    - **Judge User Prompt**: Uses placeholders like `{{ResponseA}}`, `{{ResponseB}}`, `{{ref_answer}}`, etc. (e.g., `Compare answer A: {{ResponseA}} and B: {{ResponseB}} based on reference: {{ref_answer}}`).
+    - **Judge User Prompt**: 
+      - Uses placeholders like `{{ResponseA}}`, `{{ResponseB}}`, `{{ref_answer}}` (e.g., `Compare answer A: {{ResponseA}} and B: {{ResponseB}} based on reference: {{ref_answer}}`)
+      - When using image fields in prompts, select image fields like `image1`, `image2` from the dropdown menu. Selected image fields will automatically be used as model inputs with adjustable order.
 
 ---
 
@@ -47,6 +53,7 @@ validate correctness:
 
 - Click **"Preview"**
 - Review model outputs and prompt injection
+- If the dataset contains image fields, the preview interface will display corresponding images for the questions
 - Adjust parameters as needed
 
 Only when you're satisfied, click **"Submit the Assessment"** — the process will then run in 
@@ -62,7 +69,7 @@ On the Model Assessment main page:
 - Three tabs will be available:
   - **Assessment Overview**: Displays all configuration details
   - **Log**: System logs during the background process
-  - **Result**: Shows final results in table format
+  - **Result**: Shows final results in table format. If the dataset contains image fields, the result page will display corresponding images for each question
 
 ---
 

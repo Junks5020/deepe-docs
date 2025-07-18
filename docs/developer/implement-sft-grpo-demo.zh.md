@@ -3,7 +3,7 @@
 本文档展示了 DeepExtension 是如何实现两个内置训练方法：**SFT-Demo** 和 **GRPO-Demo** 的。
 
 这两个演示为只读示例，展示了如何将第三方训练代码接入 DeepExtension 的工作流。  
-它们完全遵循 [如何实现自定义训练（CUDA）](implement-own-ai-training-cuda.md) 中的指导原则。
+它们完全遵循 [如何实现自定义训练（CUDA）](implement-own-ai-training-cuda.zh.md) 中的指导原则。
 
 ---
 

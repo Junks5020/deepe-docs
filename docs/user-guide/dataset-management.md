@@ -1,59 +1,90 @@
+# Dataset Management  
 
-# Dataset Management
+The **Dataset Management** module is a core component of DeepExtension, designed for structured data processing. It supports standardized dataset uploads, versioned management, and end-to-end tracking, providing high-quality data for model training and evaluation.  
 
-The **Dataset Management** module in DeepExtension provides a structured and version-controlled environment for uploading and organizing the training 
-and evaluation data used across your AI workflows.
+## Key Features  
+- Supports **JSONL** format datasets  
+- Handles both **single-file** and **multimodal** datasets  
+- Asynchronous background processing for stable large-file uploads  
+- Comprehensive validation and error logging  
+- **Coming Soon**: Version control (under development)  
 
-You can manage datasets in formats **JSONL**, define their schema, and maintain clean records for traceability and reuse.
-
-> **Note:** Currently, only the **JSONL** format is supported. If your data is in other formats such as `JSON`, `CSV`, or `Parquet`, there are many readily available (online) tools to convert them into JSONL. Support for additional formats is on our roadmap.
-
----
-
-## Upload a Dataset
-
-To upload a new dataset:
-
-1. Click **"Upload a Dataset"** from the dataset page.  
-2. Fill in the **dataset name** and **dataset description**.  
-3. Click **"Upload"** to select a file in `.jsonl` format from your local directory.  
-4. After selecting the file, click **"Execute"** to start the upload. The upload runs in **background mode**.  
-5. Once complete, click **"View"** to inspect the uploaded dataset.  
-6. If any error occurs, click **"Log"** to check the detailed error messages.
-
-### Upload Requirements
-
-Currently, only UTF-8 encoded `.jsonl` files are supported. Please follow these format rules:
-
-1. The file **must be encoded in UTF-8**.  
-2. Each line must be a **valid JSON object** (for `.jsonl` files).  
-3. All JSON objects must share the **same field names and field count** as the first line.  
-4. Field values can be empty strings (`""`), but the fields must still be present.  
-5. Each data entry (line) must be **under 4000 characters total**.  
-6. **Blank lines and comment lines are not allowed**. The file should contain only clean JSON lines.
+> **Note**: Currently, only **JSONL** format is supported. For other formats (JSON/CSV/Parquet), please preprocess using conversion tools. Native support for additional formats is on our roadmap.  
 
 ---
 
-## Dataset Management Behavior
+## Dataset Upload Guide  
 
-Each dataset upload creates a **new, separate dataset entry**.  
-Version control is not yet available but is currently on the roadmap for future updates.
+### Upload Process  
+1. Navigate to **Datasets** → Click **【Upload Dataset】**  
+2. Select dataset type:  
 
-<!-- - Tracks version history for reproducibility  
-- Allows you to **revert to earlier versions** if needed  
-- Associates dataset versions with specific training jobs -->
+   - **Single-File Dataset**: Standalone JSONL file  
+   - **Multimodal Dataset**: Folder containing JSONL + images  
+
+3. Provide metadata:    
+
+   - **Dataset Name** (required)  
+   - **Description** (recommended for traceability)  
+
+4. File selection:    
+
+   - Single-file: Upload a JSONL file  
+   - Multimodal: Select a properly structured folder 
+
+5. Submit (processed asynchronously in the background)    
+6. Check results:    
+
+   - Success: Preview dataset  
+   - Failure: View detailed error logs  
+
+### Format Specifications  
+
+#### Single-File Dataset  
+1. Encoding: **UTF-8**  
+2. Structural requirements:  
+
+   - Each line = **valid JSON object**  
+   - All objects must match the **field structure** of the first line  
+   - Empty values (`""`) allowed, but fields must exist  
+   
+3. Technical limits:   
+
+   - Max **4,000 characters per line**  
+   - No empty lines or comments  
+
+#### Multimodal Dataset  
+1. Folder structure:  
+   ```
+   dataset_folder/  
+   ├── metadata.jsonl  # Primary data file  
+   └── images/        # Associated images  
+   ```  
+2. JSONL example:  
+   ```json  
+   {  
+       "images": [{"imageId": "sample.jpg"}],  
+       "qa": []  
+   }  
+   ```  
+3. Image requirements:
+
+   - Must reside in the `/images` subfolder  
+   - Filename must exactly match `imageId`  
 
 ---
 
-## Dataset Usage
+## Dataset Lifecycle Management  
+Each upload creates an independent dataset entity, supporting:    
 
-Datasets can be used in:
+- **Training**: Fine-tuning data source  
+- **Evaluation**: Test question sets (supports automated grading with reference answers)  
+- **Versioning**: Dataset rollback coming soon (Roadmap Q4)  
 
-- **Training jobs**: Paired with your chosen fine-tuning method  
-- **Model Assessment** ([see details](model-assessment.md)):  
-  Used as **input questions**, and if available, **reference answers** from the dataset can also be used by a judge model to assess inference quality or training effectiveness
+> **Best Practice**: Use the description field to document data sources, preprocessing steps, and key characteristics for future reuse.  
 
----
+---  
 
 *DeepExtension — Make your data structured, reusable, and ready for intelligent learning*
+
 

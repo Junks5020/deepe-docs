@@ -14,7 +14,13 @@ The **User Guide** is organized by feature areas of the DeepExtension interface.
 to use it effectively:
 
 ### Dashboard
-Get a real-time overview of active projects, training jobs, model deployments, usage stats, and recent activity — all in one glance.
+Get a real-time overview of active projects, training jobs, model deployments, usage stats, and recent activity — all in one glance. The dashboard includes:
+
+- **Core Data Statistics Overview**: Centralized display of key metrics across models, datasets, knowledge bases, and evaluations
+- **Fine-tuning Task Panel**: Bar chart visualization of model training task distribution by type
+- **Base Model Distribution**: Donut chart showing proportion of base models in trained models
+- **Model Assessment Analysis**: Area chart displaying evaluation mode distribution across assessment tasks
+- **Third-party Model Ecosystem**: Donut chart visualizing vendor distribution and type占比 of third-party models
 
 ### DeepPrompt
 Use structured prompt templates to guide LLM behavior. Ideal for business logic alignment and creating repeatable AI actions.
@@ -50,10 +56,6 @@ Key capabilities include:
 
 - Assessment is based on **questions sampled directly from your datasets**
 - Four flexible evaluation modes
-  <!-- - **Single Candidate**: Generate answers without judgment
-  - **Two Candidates**: Generate answers from two models for side-by-side comparison
-  - **1 Candidate + 1 Judge**: A judge model evaluates a single model's answer using predefined metrics
-  - **2 Candidates + 1 Judge**: A judge model compares both answers and selects the better one, with scoring -->
 - Each assessment job includes a **preview stage** to verify setup (model, dataset, measurement prompt, etc.)
 - Execution is done in **background mode**, allowing large-scale evaluations
 - Results are fully viewable in the UI and can also be **exported as local files**
