@@ -314,7 +314,9 @@ AI_PY_REDIS_EXPOSED_PORT={preferred_redis_port}
 - 镜像下载完成
 - 所有容器成功启动
 
-访问：[http://localhost:88](http://localhost:88) 或 [http://localhost:{preferred_webui_port}](http://localhost:{preferred_webui_port})
+> 注意：如果您在 Linux（或 Windows 通过 WSL）环境下运行，并且启用了 `WITH_AI_IMAGE=true` 配置项，`run_compose.sh` 脚本会自动为您构建本地 Python 镜像，以便直接使用 AI 相关功能。
+
+访问：[http://localhost:88](http://localhost:88) 或 [http://localhost:{preferred_webui_port](http://localhost:{preferred_webui_port})
 
 生命周期管理命令：
 

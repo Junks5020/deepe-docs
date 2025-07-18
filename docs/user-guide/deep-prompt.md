@@ -30,6 +30,8 @@ parameters”**, enabling fair comparisons with minimal effort.
 production flow. This allows for **early evaluation** of prompt effectiveness before full model deployment or 
 merging.
 
+- **Multimodal Image-to-Text**: Supports visual understanding tasks by **generating textual descriptions from images**, enabling applications like automated captioning and visual content analysis.
+
 ---
 
 ### Important Notes
@@ -53,6 +55,7 @@ merging.
 
 ## Next Steps
 
+- Select the model type
 - Start by selecting a model and input prompt  
 - Embed reference data or system instructions as needed  
 - Use the comparison mode to evaluate inference side by side  

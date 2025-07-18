@@ -1,7 +1,7 @@
 
-# Model Training
+# Training Jobs
 
-The **Model Training** module in DeepExtension allows users to fine-tune language models through a fully visual, no-code interface. It supports various 
+The **Training Jobs** module in DeepExtension allows users to fine-tune language models through a fully visual, no-code interface. It supports various 
 fine-tuning strategies, integrates seamlessly with your datasets, and provides transparent monitoring and comparison tools throughout the training 
 lifecycle.
 
@@ -40,7 +40,7 @@ To begin a new training job:
 | `PromptInputColumn`        | Dataset column used as input prompt (e.g., the "question")         | e.g., `question`, `instruction`, `query`               |
 | `PromptOutputColumn`       | Dataset column used as expected output (e.g., the "answer")        | e.g., `answer`, `response`, `completion`               |
 
-> Most of these parameters are passed directly to your training logic. To customize their use, refer to [Implement Your Own Training](../developer/implement-own-ai-training.md).
+> Most of these parameters are passed directly to your training logic. To customize their use, refer to [Implement Your Own Training](../developer/implement-own-ai-training-cuda.md).
 
 
 Once you click **"Run the Train"**, the job will be submitted and processed in **background mode** on your backend infrastructure.

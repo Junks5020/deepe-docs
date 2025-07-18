@@ -1,7 +1,7 @@
 
-# 模型训练
+# 训练任务
 
-**模型训练**模块是 DeepExtension 提供的可视化无代码界面操作模块，用于微调语言模型。它支持多种微调策略，可无缝对接上传的数据集，在训练全过程中可以清晰地进度监控和模型比较。
+**训练任务**模块是 DeepExtension 提供的可视化无代码界面操作模块，用于微调语言模型。它支持多种微调策略，可无缝对接上传的数据集，在训练全过程中可以清晰地进度监控和模型比较。
 
 ---
 
@@ -39,7 +39,7 @@
 | `PromptInputColumn`    | 数据集中用作输入提示的字段名                   | 如 `question`、`instruction`、`query`            |
 | `PromptOutputColumn`   | 数据集中用作参考答案的字段名                   | 如 `answer`、`response`、`completion`            |
 
-> 以上大多数参数会直接传递给训练逻辑。如需自定义处理，请参考 [实现自定义训练](../developer/implement-own-ai-training.zh.md)。
+> 以上大多数参数会直接传递给训练逻辑。如需自定义处理，请参考 [实现自定义训练](../developer/implement-own-ai-training-cuda.zh.md)。
 
 
 

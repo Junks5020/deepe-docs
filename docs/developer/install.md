@@ -343,7 +343,9 @@ Verify that:
 - All images are downloaded
 - All containers start successfully
 
-Open [http://localhost:88](http://localhost:88) or [http://localhost:{preferred_webui_port}](http://localhost:{preferred_webui_port}) to check the Web UI.
+> Note: If you are running in a Linux (or Windows via WSL) environment and have enabled `WITH_AI_IMAGE=true`, the `run_compose.sh` script will automatically build a local Python image for you to use AI-related features directly.
+
+Open `[http://localhost:88](http://localhost:88)` or `[http://localhost:{preferred_webui_port}](http://localhost:{preferred_webui_port})` to check the Web UI.
 
 To manage the application lifecycle, use the following commands:
 
