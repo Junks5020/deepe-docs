@@ -28,7 +28,10 @@ nav:
       - DeepPrompt: user-guide/deep-prompt.md
       - Dataset Management: user-guide/dataset-management.md
       - Knowledge Base (RAG): user-guide/document-embedding.md
-      - Model Training: user-guide/model-training.md
+      - Model Training: 
+          - Training Jobs: user-guide/model-training.md
+          - Training Parameter Profile: user-guide/model-parameter-profile.md
+          - Training Method Management: user-guide/training-methods.md
       - Model Assessment: user-guide/model-assessment.md
       - Model Management:
           - Base Models: user-guide/base-models.md
@@ -38,7 +41,6 @@ nav:
           - Third-party Models: user-guide/thirdparty-models.md
       - Setting:
           - Deployment Tool Configuration : user-guide/deployment-tool-configuration.md
-          - Training Method Management : user-guide/training-methods.md
           - User Management : user-guide/user-management.md
   - Tutorials:
       - Overview: tutorials/overview.md
@@ -55,6 +57,7 @@ nav:
       - Implement Your Own Training (MacOS):
           - How You Implement Own Training (MacOS): developer/implement-own-ai-training-mac.md
           - How We Implemented MLX-Demo (MacOS): developer/implement-mlx-demo.md
+      - Use Model Parameter Profile: developer/how-to-use-parameter-profile.md
   - Deployment & Ops:
       - Ollama as Deployment Tool: deployment/ollama-deployment.md
   - FAQ: faq.md
@@ -94,6 +97,9 @@ plugins:
             #    Dashboard: Dashboard
             DeepPrompt: DeepPrompt
             "Model Training": Modelltraining
+            "Training Jobs": Trainingsjobs
+            "Training Parameter Profile": Trainingsparameterprofil
+            "Training Method Management": Trainingsmethodenverwaltung
             "Dataset Management": Datensatzverwaltung
             "Knowledge Base (RAG)": Wissensdatenbank (RAG)
             "Model Assessment": Modellauswertung
@@ -106,7 +112,6 @@ plugins:
 
             Setting: Einstellungen
             "Deployment Tool Configuration": Bereitstellungskonfiguration
-            "Training Method Management": Trainingsmethodenverwaltung
             "User Management": Benutzerverwaltung
 
             Tutorials: Tutorials
@@ -160,6 +165,9 @@ plugins:
             #    Dashboard: 控制面板
             DeepPrompt: DeepPrompt
             "Model Training": 模型训练
+            "Training Jobs": 训练任务
+            "Training Parameter Profile": 训练配置文件
+            "Training Method Management": 训练方法管理
             "Dataset Management": 数据集管理
             "Knowledge Base (RAG)": 知识库（RAG）
             "Model Assessment": 模型评估
@@ -172,7 +180,6 @@ plugins:
 
             Setting: 系统设置
             "Deployment Tool Configuration": 部署工具配置
-            "Training Method Management": 训练方法管理
             "User Management": 用户管理
 
             Tutorials: 教程
@@ -187,6 +194,7 @@ plugins:
             "Add Base Models": 添加基础模型
             "Implement Your Own Training (CUDA)": 实现自定义训练（CUDA）
             "Implement Your Own Training (MacOS)": 实现自定义训练（MacOS）
+            "Use Model Parameter Profile": 使用训练参数文件
 
             "Implement Customized Training (CUDA)": 实现自定义训练（CUDA）
             "How You Implement Own Training (CUDA)": 您的自定义训练实现方式（CUDA）
