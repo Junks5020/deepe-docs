@@ -16,61 +16,54 @@ The **Dataset Management** module is a core component of DeepExtension, designed
 ## Dataset Upload Guide  
 
 ### Upload Process  
-1. Navigate to **Datasets** → Click **【Upload Dataset】**  
-2. Select dataset type:  
+- Navigate to **Datasets** → Click **【Upload Dataset】**  
+- Select dataset type:  
+    - **Single-File Dataset**: Standalone JSONL file  
+    - **Multimodal Dataset**: Folder containing JSONL + images  
 
-   - **Single-File Dataset**: Standalone JSONL file  
-   - **Multimodal Dataset**: Folder containing JSONL + images  
+- Provide metadata:    
+    - **Dataset Name** (required)  
+    - **Description** (recommended for traceability)  
 
-3. Provide metadata:    
+- File selection:    
+    - Single-file: Upload a JSONL file  
+    - Multimodal: Select a properly structured folder 
 
-   - **Dataset Name** (required)  
-   - **Description** (recommended for traceability)  
-
-4. File selection:    
-
-   - Single-file: Upload a JSONL file  
-   - Multimodal: Select a properly structured folder 
-
-5. Submit (processed asynchronously in the background)    
-6. Check results:    
-
-   - Success: Preview dataset  
-   - Failure: View detailed error logs  
+- Submit (processed asynchronously in the background)    
+- Check results:    
+    - Success: Preview dataset  
+    - Failure: View detailed error logs  
 
 ### Format Specifications  
 
 #### Single-File Dataset  
-1. Encoding: **UTF-8**  
-2. Structural requirements:  
-
-   - Each line = **valid JSON object**  
-   - All objects must match the **field structure** of the first line  
-   - Empty values (`""`) allowed, but fields must exist  
+-  Encoding: **UTF-8**  
+- Structural requirements:  
+    - Each line = **valid JSON object**  
+    - All objects must match the **field structure** of the first line  
+    - Empty values (`""`) allowed, but fields must exist  
    
-3. Technical limits:   
-
-   - Max **4,000 characters per line**  
-   - No empty lines or comments  
+-  Technical limits:   
+    - Max **4,000 characters per line**  
+    - No empty lines or comments  
 
 #### Multimodal Dataset  
-1. Folder structure:  
+- Folder structure:  
    ```
    dataset_folder/  
    ├── metadata.jsonl  # Primary data file  
    └── images/        # Associated images  
    ```  
-2. JSONL example:  
+- JSONL example:  
    ```json  
    {  
        "images": [{"imageId": "sample.jpg"}],  
        "qa": []  
    }  
    ```  
-3. Image requirements:
-
-   - Must reside in the `/images` subfolder  
-   - Filename must exactly match `imageId`  
+- Image requirements:
+    - Must reside in the `/images` subfolder  
+    - Filename must exactly match `imageId`  
 
 ---
 
