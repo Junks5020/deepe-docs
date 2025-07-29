@@ -38,6 +38,13 @@ DeepExtension 通过完全可视化的界面，帮助您在无需编写代码的
 - **MLX-Demo**（来自 MLX 官方仓库）：  
   [`mlx-demo-train-dataset.jsonl`](../assets/datasets/mlx-demo-train-dataset.jsonl)
 
+- **VL-SINGLE-Demo** :  
+  [`single-images-folder`](../assets/datasets/single-images.tar.gz)
+
+- **VL-MULTI-Demo** :  
+  [`multi-images-folder`](../assets/datasets/multi-images.tar.gz)
+
+
 也可以使用自己的数据集，需要确保其结构与上述任一示例保持一致，包括字段名的匹配。
 
 ---

@@ -38,6 +38,12 @@ We recommend starting with one of the following example datasets:
 - **MLX-Demo** (provided directly in the MLX repository):  
   [`mlx-demo-train-dataset.jsonl`](../assets/datasets/mlx-demo-train-dataset.jsonl)
 
+- **VL-SINGLE-Demo** :  
+  [`single-images-folder`](../assets/datasets/single-images.tar.gz)
+
+- **VL-MULTI-Demo** :  
+  [`multi-images-folder`](../assets/datasets/multi-images.tar.gz)
+
 You’re also welcome to use your own dataset — just make sure it follows the same structure as one of these examples, including matching field names.
 
 ---
