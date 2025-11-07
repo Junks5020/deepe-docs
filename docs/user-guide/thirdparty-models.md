@@ -15,7 +15,7 @@ Third-party models are deeply integrated into the DeepExtension ecosystem:
   - Compare your fine-tuned models or local adapters against public APIs like GPT-4
   - Test how external models interact with your **knowledge base** or **system prompts**
 
-- In **Document Embedding**, an **embedding model** must be registered as a third-party model to support vectorization of 
+- In **Knowledge Base**, an **embedding model** must be registered as a third-party model to support vectorization of 
 uploaded documents.
 
 - In **Model Assessment**, you can use any third-party model as a **candidate** or **judge** — enabling rich benchmarking 

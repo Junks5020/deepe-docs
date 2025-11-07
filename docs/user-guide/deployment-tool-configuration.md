@@ -1,6 +1,6 @@
 # Deployment Tool Configuration
 
-The **Deployment Tool Configuration** module in DeepExtension allows administrators to set up and manage the environment required to deploy **saved models**. This configuration is essential for enabling seamless integration with local deployment tools such as **Ollama**, with more tools like **LM Studio** planned for future support.
+The **Deployment Tool Configuration** module in DeepExtension allows administrators to set up and manage the environment required to deploy **Complete Models**. This configuration is essential for enabling seamless integration with local deployment tools such as **Ollama**, with more tools like **LM Studio** planned for future support.
 
 ---
 
@@ -28,7 +28,6 @@ Once saved, DeepExtension will use this configuration when deploying models.
 
 ## Important Notes
 
-- **Multi-environment support is not yet available**, but is on the roadmap for a future update.
 - This module is critical for ensuring the correct integration with local deployment services such as Ollama.
 - If you attempt to deploy a model without setting this configuration, the system will prompt you to complete it first.
 

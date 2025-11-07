@@ -29,8 +29,8 @@ with explanation or scoring.
 3. Choose **Model A**, and if applicable, **Model B** and the **Judge Model**. Model selection follows the same scope and rules as described in [Deep Prompt](deep-prompt.md), and may include(including visual models):
 
     - Third-party API models (e.g., OpenAI, Anthropic, ModelScope, etc.)
-    - Trained Models
-    - Fully deployed in-house models
+    - Customized Models
+    - Live models
 
 4. Define prompts:
 

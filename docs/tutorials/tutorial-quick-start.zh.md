@@ -87,7 +87,7 @@ DeepExtension 通过完全可视化的界面，帮助您在无需编写代码的
 
 - 进入主导航中的 [模型训练](../user-guide/model-training.md) 页面
 - 启动训练任务并查看实时进度
-- 当任务进入 **已完成** 状态后，可以在 [已训练模型](../user-guide/trained-models.md) 页面中查看结果
+- 当任务进入 **已完成** 状态后，可以在 [定制模型](../user-guide/trained-models.md) 页面中查看结果
 
 ---
 
