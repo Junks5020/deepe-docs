@@ -1,37 +1,37 @@
 
-# Saved Models
+# Complete Models
 
-**Saved Models** are fully materialized models created by merging trained adapters into their corresponding 
-base models. Once saved, these models are self-contained, versioned snapshots that can be independently 
+**Complete Models** are fully materialized models created by merging trained adapters into their corresponding 
+base models. Once Complete, these models are self-contained, versioned snapshots that can be independently 
 deployed, evaluated, or reused.
 
 ---
 
 ## Overview
 
-On the **Saved Models** page, you will find a list of all merged models that were successfully saved through 
-the [Trained Models](trained-models.md) interface.
+On the **Complete Models** page, you will find a list of all merged models that were successfully Complete through 
+the [Customized Models](trained-models.md) interface.
 
 Each model entry includes:
 
 - **Auto-Generated Name**: Created using the following format:
 
 ```
-[saved_model_name] = [trained_model_name]_s_[first4ofSavingUUID]
+[complete_model_name] = [customized_model_name]_s_[first4ofSavingUUID]
 ```
 
 - **Model Card**: A structured summary of technical details, configurations, and metadata from both the base model and the training process
 
 ---
 
-## Deploy a Saved Model
+## Deploy a Complete Model
 
-To make a saved model available for real-time use:
+To make a Complete model available for real-time use:
 
-1. Click **"Deploy"** on the desired saved model
+1. Click **"Deploy"** on the desired Complete model
 2. Provide any required extra parameters (e.g., quantization configuration, deployment environment)
-3. DeepExtension will forward deployment requests to your configured LLM deployment tool (currently only **Ollama** supported)
-4. Upon successful deployment, a new entry will appear under [Deployed Models](deployed-models.md)
+3. DeepExtension will forward deployment requests to your configured LLM deployment tool 
+4. Upon successful deployment, a new entry will appear under [Live Models](deployed-models.md)
 
 > **Note:**
 > 
@@ -42,15 +42,14 @@ To make a saved model available for real-time use:
 
 ---
 
-## Delete a Saved Model
+## Delete a Complete Model
 
-To remove a saved model:
+To remove a Complete model:
 
 - Click **"Delete"** on the selected model
 - This action will permanently delete the model directory from your local storage
 
-> If the model was already deployed via the **Deploy** button, the deployment entry in [Deployed 
-Models](deployed-models.md) will remain unaffected.
+> If the model was already deployed via the **Deploy** button, the deployment entry in [Live Models](deployed-models.md) will remain unaffected.
 
 ---
 

@@ -88,7 +88,7 @@ You can fine-tune these parameters later as you gain more experience.
 
 - Go to [Model Training](../user-guide/model-training.md) in the main navigation.
 - Launch the job and track its progress.
-- Once the job reaches the **Completed** state, the output will appear under [Trained Models](../user-guide/trained-models.md).
+- Once the job reaches the **Completed** state, the output will appear under [Customized Models](../user-guide/trained-models.md).
 
 ---
 

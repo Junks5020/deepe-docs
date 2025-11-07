@@ -13,7 +13,7 @@ Unlike traditional prompt playgrounds, DeepPrompt provides **tight integration w
 
 Key features include:
 
-- **Inference with Trained Models**: You can run prompts directly against **trained adapters or PEFT checkpoints** — even before they are merged into a base model. During model selection, **trained models** and all **third-party models** are listed, and each is clearly labeled by type.
+- **Inference with Customized Models**: You can run prompts directly against **trained adapters or PEFT checkpoints** — even before they are merged into a base model. During model selection, **customized models** and all **third-party models** are listed, and each is clearly labeled by type.
 
 - **Embedded Document Integration**: Reference enterprise documents or embedded knowledge bases directly 
 inside your prompts. This is especially useful for retrieval-augmented generation (RAG) use cases.
@@ -36,9 +36,9 @@ merging.
 
 ### Important Notes
 
-- For **trained models**, the corresponding **saved models** (after merging) are expected to produce identical outputs during inference.
-- We strongly recommend using **deployed saved models** for production scenarios, as they offer **significantly better inference speed and stability**.
-- The inference capability for trained models is primarily intended for **validation and experimentation**, not for high-load or low-latency production usage.
+- For **customized models**, the corresponding **complete models** (after merging) are expected to produce identical outputs during inference.
+- We strongly recommend using **live models** for production scenarios, as they offer **significantly better inference speed and stability**.
+- The inference capability for customized models is primarily intended for **validation and experimentation**, not for high-load or low-latency production usage.
 - **Base models** are not available for direct inference here. If you wish to use them, we recommend deploying them first to benefit from **much faster performance**.
 
 ---

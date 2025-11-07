@@ -41,7 +41,7 @@ All demo training methods come with sample datasets and configurations so you ca
 
 Once your training job completes successfully, you can:
 
-- Explore model results in the **Trained Models** tab
+- Explore model results in the **Customized Models** tab
 - Save or deploy your model for inference
 - Run prompt-based evaluations using **DeepPrompt**
 - Compare models using the **Model Assessment** module

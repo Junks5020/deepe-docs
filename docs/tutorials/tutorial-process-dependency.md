@@ -80,10 +80,10 @@ For more info, see the [Installation Guide](../developer/install.md)
 
 If you installed the full version, you can use the **Model Lifecycle Management** flow:
 
-- Train → from base + dataset → to create a **Trained Model**
-- Assess → use **DeepPrompt** or **Model Assessment** to evaluate **Trained Models** in real-time or background mode
-- Save → converts a trained model into a **Saved Model**
-- Deploy → turns a saved model into a **Deployed Model** that is ready for real-time use
+- Train → from base + dataset → to create a **Customized Model**
+- Assess → use **DeepPrompt** or **Model Assessment** to evaluate **Customized Models** in real-time or background mode
+- Save → converts a customized model into a **Complete Model**
+- Deploy → turns a complete model into a **Live Model** that is ready for real-time use
 - Register → allows your deployed model to be reused like third-party ones
 
 These are all blue arrows in the diagram.

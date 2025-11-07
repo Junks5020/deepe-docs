@@ -15,7 +15,7 @@ pipeline.
 On the main **Base Models** page, you’ll see a list of all currently loaded base models. Each base model entry includes:
 
 - **Technical Name**: A short, unique identifier used internally. This is critical for naming trained models (see 
-[Trained Models](trained-models.md) for naming rules).
+[Customized Models](trained-models.md) for naming rules).
 - **Model Name**: The full official name of the model (e.g., "Qwen-1.5-7B", "LLaMA2-13B").
 - **Path**: A relative path to the directory where the model is saved locally.
 - **Model Card Info**: Additional technical details automatically extracted from a `*.json` file located in the model 
@@ -32,10 +32,11 @@ To register a new base model:
 1. Click **"Add a New"** on the Base Models page.
 2. Provide the following information:
 
-    - **Technical Name** (must be unique and concise)
-    - **Model Name** (full descriptive name)
-    - **Model Path** (relative path to the local model folder)
-    - **Model Deployment Template** *(optional)*: Text block used as part of the **Modelfile** when deploying saved models using **Ollama**
+    - **Technical Name (Model Alias)** (Must be unique and concise)
+    - **Model Name (Base Model Name)** (Complete descriptive name)
+    - **Path (Model Path)** (Relative path to the model folder)
+    - **Deployment Environment** (Environment used for deploying the model)
+    - **Model Type** (Functional types supported by the model)
   
 
 Once saved, DeepExtension will attempt to load metadata and configuration details from the model directory, forming a **model card** that can be reused by training or inference workflows.
