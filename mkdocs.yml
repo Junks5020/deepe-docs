@@ -25,7 +25,9 @@ nav:
   - User Guide:
       - UI Overview: user-guide/ui-overview.md
 #      - Dashboard: user-guide/dashboard.md
-      - DeepPrompt: user-guide/deep-prompt.md
+      - DeepExtend: 
+          - DeepPrompt: user-guide/deep-prompt.md
+          - DeepImage: user-guide/deep-image.md
       - Dataset Management: user-guide/dataset-management.md
       - Knowledge Base (RAG): user-guide/document-embedding.md
       - Model Training: 
@@ -35,12 +37,13 @@ nav:
       - Model Assessment: user-guide/model-assessment.md
       - Model Management:
           - Base Models: user-guide/base-models.md
-          - Trained Models: user-guide/trained-models.md
-          - Saved Models: user-guide/saved-models.md
-          - Deployed Models: user-guide/deployed-models.md
+          - Customized Models: user-guide/trained-models.md
+          - Complete Models: user-guide/saved-models.md
+          - Live Models: user-guide/deployed-models.md
           - Third-party Models: user-guide/thirdparty-models.md
       - Setting:
           - Deployment Tool Configuration : user-guide/deployment-tool-configuration.md
+          #- Compute Environment Configuration : user-guide/compute-environment-configuration.md
           - User Management : user-guide/user-management.md
   - Tutorials:
       - Overview: tutorials/overview.md
@@ -55,12 +58,15 @@ nav:
       - Implement Customized Training (CUDA):
           - How You Implement Own Training (CUDA): developer/implement-own-ai-training-cuda.md
           - How We Implemented SFT-Demo and GRPO-Demo (CUDA): developer/implement-sft-grpo-demo.md
+          - How We Implemented SD-Demo(CUDA) : developer/implement-sd-demo.md
       - Implement Your Own Training (MacOS):
           - How You Implement Own Training (MacOS): developer/implement-own-ai-training-mac.md
           - How We Implemented MLX-Demo (MacOS): developer/implement-mlx-demo.md
       - Use Model Parameter Profile: developer/how-to-use-parameter-profile.md
+      - How To Configure Env Info: developer/how-to-configure-env.md
   - Deployment & Ops:
       - Ollama as Deployment Tool: deployment/ollama-deployment.md
+      - Standard Deployment Tool: deployment/deepe-series.md
   - FAQ: faq.md
   - Release Notes: changelog.md
   - About & Support:
@@ -106,10 +112,10 @@ plugins:
             "Model Assessment": Modellauswertung
             "Model Management": Modellverwaltung
             "Third-party Models": Drittanbieter-Modelle
-            "Base Models": Basismodelle
-            "Trained Models": Trainierte Modelle
-            "Saved Models": Gespeicherte Modelle
-            "Deployed Models": Bereitgestellte Modelle
+            "Base Models": Basis-Modell
+            "Customized Models": Angepasstes Modell
+            "Complete Models": Vollständige Modelle
+            "Live Models": Eingesetztes Modelle
 
             Setting: Einstellungen
             "Deployment Tool Configuration": Bereitstellungskonfiguration
@@ -132,11 +138,13 @@ plugins:
             "Implement Customized Training (CUDA)": Angepasstes Training implementieren (CUDA)
             "How You Implement Own Training (CUDA)": So implementieren Sie eigenes Training (CUDA)
             "How We Implemented SFT-Demo and GRPO-Demo (CUDA)": So haben wir SFT- und GRPO-Demo implementiert (CUDA)
+            
             "Implement Your Own Training (MacOS)": Eigenes Training implementieren (macOS)
             "How You Implement Own Training (MacOS)": So implementieren Sie eigenes Training (macOS)
             "How We Implemented MLX-Demo (MacOS)": So haben wir die MLX-Demo implementiert (macOS)
-
-
+            "How To Configure Env Info": "So konfigurieren Sie die Umgebungsinformationen"
+            "How We Implemented SD-Demo(CUDA)": "Wie wir SD-Demo (CUDA-Version) implementiert haben"
+            "Standard Deployment Tool": "Standard-Bereitstellungstool"
             "Deployment & Ops": Bereitstellung & Betrieb
             "Ollama as Deployment Tool": Ollama als Bereitstellungswerkzeug
 
@@ -176,9 +184,9 @@ plugins:
             "Model Management": 模型管理
             "Third-party Models": 第三方模型
             "Base Models": 基础模型
-            "Trained Models": 已训练模型
-            "Saved Models": 已保存模型
-            "Deployed Models": 已部署模型
+            "Customized Models": 定制模型
+            "Complete Models": 完整模型
+            "Live Models": 上线模型
 
             Setting: 系统设置
             "Deployment Tool Configuration": 部署工具配置
@@ -208,7 +216,9 @@ plugins:
 
             "Deployment & Ops": 部署与运维
             "Ollama as Deployment Tool": 使用 Ollama 部署模型
-
+            "How To Configure Env Info": "如何配置环境信息"
+            "How We Implemented SD-Demo(CUDA)": "我们如何实现 SD-Demo（CUDA版）"
+            "Standard Deployment Tool": "标准部署工具"
             FAQ: 常见问题
             "Release Notes": 更新日志
 
