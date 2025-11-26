@@ -1,15 +1,15 @@
 
-# DeepPrompt
+# DeepText
 
-**DeepPrompt** is a powerful prompt experimentation tool within DeepExtension that allows users to design, 
+**DeepText** is a powerful prompt experimentation tool within DeepExtension that allows users to design, 
 test, and compare structured prompts across different model states and sources. It is designed for **business 
 logic alignment**, **prompt evaluation**, and **reproducible model behavior** — all without writing code.
 
 ---
 
-## What Makes DeepPrompt Unique
+## What Makes DeepText Unique
 
-Unlike traditional prompt playgrounds, DeepPrompt provides **tight integration with your models and embedded enterprise documents**, enabling deeper control and more realistic testing environments.
+Unlike traditional prompt playgrounds, DeepText provides **tight integration with your models and embedded enterprise documents**, enabling deeper control and more realistic testing environments.
 
 Key features include:
 

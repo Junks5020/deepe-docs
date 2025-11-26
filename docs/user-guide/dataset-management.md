@@ -65,6 +65,11 @@ The **Dataset Management** module is a core component of DeepExtension, designed
     - Must reside in the `/images` subfolder  
     - Filename must exactly match `imageId`  
 
+
+> **Note**: Please refer to the "Before You Begin" section in [Quick Start: Run Your First Training Task](../tutorials/tutorial-quick-start.md) for relevant dataset examples.
+
+
+
 ---
 
 ## Dataset Lifecycle Management  

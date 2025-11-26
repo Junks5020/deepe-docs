@@ -1,60 +1,68 @@
 digraph g {
-	ratio=fill;
-	splines=spline;
-	overlap=scale;
+ratio=fill;
+splines=spline;
+overlap=scale;
 
-    edge [fontsize=20, fontname="Helvetica"];
+edge [fontsize=20, fontname="Helvetica"];
 
-	node [
-		shape=box,
-		// fixedsize=true,
-		width=0.3,
-		color="black",
-		fillcolor="#eeeeee",
-		style="filled,solid",
-		fontsize=25,
-        fontname="Helvetica"
-	];
+node [
+shape=box,
+// fixedsize=true,
+width=0.3,
+color="black",
+fillcolor="#eeeeee",
+style="filled,solid",
+fontsize=25,
+fontname="Helvetica"
+];
 
-    subgraph cluster_1 {
-		node [style=filled];
-		nRAG -> nPromp [style=dashed, label="optional"];
-        nThirdModel -> nRAG [label="embedding model(s)"];
-        nDataset -> nPromp [label="only required for Assessment"];
-        nThirdModel -> nPromp [style=dashed, label="optional"];
-		label = "No Training Mode";
-        fontsize=30
-	}
+subgraph cluster_1 {
+node [style=filled];
+nRAG -> nPromp [style=dashed, label="optional"];
+nThirdModel -> nRAG [label="embedding model(s)"];
+nDataset -> nPromp [label="only required for Assessment"];
+nThirdModel -> nPromp [style=dashed, label="optional"];
+label = "No Training Mode";
+fontsize=30
+}
 
-    subgraph cluster_0 {
-		style=filled;
-		color=lightgrey;
-		node [style=filled,color=white];
-		nBModel -> nTrainingModels;
-        nTrainingModels -> nTrainedModels [style="bold,tapered", arrowhead=vee, penwidth=3, color=blue, label="train", fontsize=30];
-        nTrainedModels -> nSavedModels [style="bold,tapered", arrowhead=vee, penwidth=3, color=blue, label="save", fontsize=30];
-        nSavedModels -> nDeployedModels [style="bold,tapered", arrowhead=vee, penwidth=3, color=blue, label="deploy", fontsize=30];
-        label = "Model Lifecycle\nManagement";
-        fontsize=30
-	}
+subgraph cluster_0 {
+style=filled;
+color=lightgrey;
+node [style=filled,color=white];
+nBModel -> nTrainingMethods;
+nTrainingMethods -> nCustomizedModels [style="bold,tapered", arrowhead=vee, penwidth=3, color=blue, label="train", fontsize=30];
+nTrainingMethods -> nCompleteModels [style="bold,tapered", arrowhead=vee, penwidth=3, color=blue, label="train", fontsize=30];
+nCustomizedModels -> nCompleteModels [style="bold,tapered", arrowhead=vee, penwidth=3, color=blue, label="save", fontsize=30];
+nCustomizedModels -> nLiveModels [style="bold,tapered", arrowhead=vee, penwidth=3, color=blue, label="deploy", fontsize=30];
+nCompleteModels -> nLiveModels [style="bold,tapered", arrowhead=vee, penwidth=3, color=blue, label="deploy", fontsize=30];
+nBModel -> nLiveModels [style="bold,tapered", arrowhead=vee, penwidth=3, color=blue, label="deploy", fontsize=30];
+nBModel -> nEvaluate [style="bold,tapered", arrowhead=vee, penwidth=3, color=blue, label="inference", fontsize=30];
+nCustomizedModels -> nEvaluate [style="bold,tapered", arrowhead=vee, penwidth=3, color=blue, label="inference", fontsize=30];
+nCompleteModels -> nEvaluate [style="bold,tapered", arrowhead=vee, penwidth=3, color=blue, label="inference", fontsize=30];
+label = "Model Lifecycle\nManagement";
+fontsize=30
+}
 
 
-	nRAG [label="Knowledge Base (RAG)"];
-	nBModel [label="Base Models"];
-	nDataset [label="Datasets"];
-	nThirdModel [label="Thirdparty Models"];
-	nPromp [label="DeepPrompt\nModel Assessment"];
-	nTrainingModels [label="Model Training"];
-	nTrainedModels [label="Trained Models"];
-	nSavedModels [label="Saved Models"];
-	nDeployedModels [label="Deployed Models"];
-	nDeployEnv [label="Deployment Environment"];
-	nTrainingMethods [label="Training Methods"];
-	// n [label=""]
-    nDataset -> nTrainingModels;
-    nTrainingMethods -> nTrainingModels;
-    nDeployEnv -> nDeployedModels;
-    nDeployedModels -> nThirdModel [style="bold,tapered", arrowhead=vee, penwidth=3, color=blue, taillabel="register", fontsize=30, labeldistance=40, labelangle=3 ];
-    nTrainedModels -> nPromp [style="bold,tapered", arrowhead=vee, penwidth=3, color=blue, taillabel="evaluate", fontsize=30, labeldistance=4, labelangle=35];
-    // https://edotor.net/
+nRAG [label="Knowledge Base (RAG)"];
+nBModel [label="Base Models" shape="ellipse"];
+nDataset [label="Datasets"];
+nThirdModel [label="Thirdparty Models"];
+nPromp [label="DeepExtend (Inference) \nModel Assessment"];
+nTrainingMethods [label="Training Methods"];
+nCustomizedModels [label="Customized Models" shape="ellipse"];
+nCompleteModels [label="Complete Models" shape="ellipse"];
+nLiveModels [label="Live Models" shape="ellipse"];
+nDeployEnv [label="Deployment Environment"];
+nTrainingProfile [label="Training Profile"];
+nTrainingMethods [label="Training Methods" shape=hexagon];
+nEvaluate [label="evaluate" shape=point color="blue"];
+// n [label=""]
+nDataset -> nTrainingMethods;
+nDeployEnv -> nLiveModels;
+nTrainingProfile -> nTrainingMethods;
+nLiveModels -> nThirdModel [style="bold,tapered", arrowhead=vee, penwidth=3, color=blue, label="register", fontsize=30];
+nEvaluate -> nPromp [style="bold,tapered", arrowhead=vee, penwidth=3, color=blue, label="evaluate", fontsize=30];
+// https://edotor.net/
 }

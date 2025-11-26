@@ -43,7 +43,7 @@ Once your training job completes successfully, you can:
 
 - Explore model results in the **Customized Models** tab
 - Save or deploy your model for inference
-- Run prompt-based evaluations using **DeepPrompt**
+- Run prompt-based evaluations using **DeepExtend**
 - Compare models using the **Model Assessment** module
 
 ---

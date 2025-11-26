@@ -24,9 +24,9 @@ nav:
   - Getting Started: getting-started/quick-start.md
   - User Guide:
       - UI Overview: user-guide/ui-overview.md
-#      - Dashboard: user-guide/dashboard.md
+      - Dashboard: user-guide/ui-dashboard.md
       - DeepExtend: 
-          - DeepPrompt: user-guide/deep-prompt.md
+          - DeepText: user-guide/deep-prompt.md
           - DeepImage: user-guide/deep-image.md
       - Dataset Management: user-guide/dataset-management.md
       - Knowledge Base (RAG): user-guide/document-embedding.md
@@ -66,7 +66,7 @@ nav:
       - How To Configure Env Info: developer/how-to-configure-env.md
   - Deployment & Ops:
       - Ollama as Deployment Tool: deployment/ollama-deployment.md
-      - Standard Deployment Tool: deployment/deepe-series.md
+      - Deployment Tool for Stable Diffusion Model Series: deployment/deepe-series.md
   - FAQ: faq.md
   - Release Notes: changelog.md
   - About & Support:
@@ -101,8 +101,8 @@ plugins:
 
             User Guide: Benutzerhandbuch
             "UI Overview": UI-Übersicht
-            #    Dashboard: Dashboard
-            DeepPrompt: DeepPrompt
+            Dashboard: Dashboard
+            DeepText: DeepText
             "Model Training": Modelltraining
             "Training Jobs": Trainingsjobs
             "Training Parameter Profile": Trainingsparameterprofil
@@ -144,7 +144,7 @@ plugins:
             "How We Implemented MLX-Demo (MacOS)": So haben wir die MLX-Demo implementiert (macOS)
             "How To Configure Env Info": "So konfigurieren Sie die Umgebungsinformationen"
             "How We Implemented SD-Demo(CUDA)": "Wie wir SD-Demo (CUDA-Version) implementiert haben"
-            "Standard Deployment Tool": "Standard-Bereitstellungstool"
+            "Deployment Tool for Stable Diffusion Model Series": "Bereitstellungstool für die Stable-Diffusion-Modellserie"
             "Deployment & Ops": Bereitstellung & Betrieb
             "Ollama as Deployment Tool": Ollama als Bereitstellungswerkzeug
 
@@ -172,8 +172,8 @@ plugins:
 
             User Guide: 用户指南
             "UI Overview": UI 总览
-            #    Dashboard: 控制面板
-            DeepPrompt: DeepPrompt
+            Dashboard: 控制面板
+            DeepText: DeepText
             "Model Training": 模型训练
             "Training Jobs": 训练任务
             "Training Parameter Profile": 训练配置文件
@@ -218,7 +218,7 @@ plugins:
             "Ollama as Deployment Tool": 使用 Ollama 部署模型
             "How To Configure Env Info": "如何配置环境信息"
             "How We Implemented SD-Demo(CUDA)": "我们如何实现 SD-Demo（CUDA版）"
-            "Standard Deployment Tool": "标准部署工具"
+            "Deployment Tool for Stable Diffusion Model Series": "Stable Diffusion 系列模型部署工具"
             FAQ: 常见问题
             "Release Notes": 更新日志
 

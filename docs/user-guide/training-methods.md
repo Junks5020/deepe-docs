@@ -1,46 +1,67 @@
-
 # Training Method Management
 
-The **Training Method Management** module allows you to configure and register custom fine-tuning strategies 
-used in DeepExtension. These strategies are selectable in [Model Training](model-training.md) and define how 
-base models are adapted to domain-specific tasks.
+The **Training Method Management** module allows for the registration and configuration of large language model fine-tuning strategies within DeepExtension. These strategies can be selected in the [Model Training](model-training.md) module and define how base models are adapted for specific domain tasks.
 
-Supported method types include:
+Supported training method types include:
 
-- **SFT** (Supervised Fine-Tuning)
-<!-- - **DPO** (Direct Preference Optimization) -->
-- **PEFT** (Parameter-Efficient Fine-Tuning, e.g., LoRA, adapters)
-- **PPO**, **GRPO**, and other reinforcement-based methods
+*   **SFT** (Supervised Fine-Tuning)
+*   **PEFT** (Parameter-Efficient Fine-Tuning, e.g., LoRA, Adapters)
+*   **PPO**, **GRPO**, and other reinforcement learning-based methods
+*   **VL** Training for vision-language models
+*   **SD** Training for image generation models, implemented using the open-source SimpleTuner framework.
 
 ---
 
 ## Overview
 
-On the main **Training Methods** page, you can see a list of all currently registered training methods. 
-These are the entries available for selection when creating a new job in the [Model 
-Training](model-training.md) interface.
+The **Training Method Management** list on the main page displays all registered training methods. These methods will be available for selection in the [Model Training](model-training.md) interface when creating a new training task.
 
-If you are a developer or infrastructure maintainer, refer to the **Developer Guide** for instructions on 
-how to implement your own training logic and link it to the DeepExtension platform.
+If you are a developer or platform maintainer, please refer to the **Developer Guide** for instructions on implementing your own training logic and integrating it into the DeepExtension platform.
 
 ---
 
-## Add a New Training Method
+## Adding a New Training Method
 
-To register a new method:
+This section describes the complete process for adding a new training method to the system.
 
-1. Click **"Add a New"**
-2. Fill in required details such as:
-   - Internal Name
-   - Display Name
-   - Method Type (e.g., SFT, PEFT)
-   - Description
-   - Configuration Options (if applicable)
+### Procedure
+
+1.  Click the **"Add New Method"** button in the interface.
+2.  Fill in the following required information in the pop-up form:
+
+### Configuration Field Descriptions
+
+#### Basic Information
+*   **Training Name**: Assign a unique identifier for the new training method.
+*   **Training Type**: Select the corresponding training type from the dropdown list:
+    *   `chat`: Plain text dialogue model training
+    *   `embedding`: Text parsing model training
+    *   `vision-language`: Vision-to-language multimodal model training
+    *   `image-generation`: Image generation model training
+
+#### Lifecycle Configuration
+*   **Lifecycle**: Select the model's lifecycle path.
+    *   *For detailed explanations, please refer to: [Model Lifecycle Management](../tutorials/tutorial-process-dependency.md)*
+    *   **Configuration requirements corresponding to different lifecycle options:**
+
+| Lifecycle Option | Mandatory Configurations | Optional Configurations |
+| :--------------- | :----------------------- | :---------------------- |
+| **Customized Model** | Training code file, Training environment | Customized Model Inference Function<br>• If enabled, requires: Inference code file, Conda environment name |
+| **Complete Model**   | Saving code file, Training environment | Complete Model Inference Function<br>• If enabled, requires: Inference code file, Conda environment name |
+| **Live Model**     | Deployment environment selection | • Custom deployment environment requires: Deployment environment code file, Conda environment name |
+
+#### Python File Configuration
+Configure the actual Python files and execution environments for each stage:
+
+*   **`training`**: Python file and Conda environment used for the training stage.
+*   **`saving`**: Python file and Conda environment used for the model saving stage.
+*   **`inference-customized`**: Python file and Conda environment used for Customized Model inference.
+*   **`inference-complete`**: Python file and Conda environment used for Complete Model inference.
+
+**Tips**: Fields marked with * are mandatory. Please complete the file configurations for the corresponding stages based on the selected lifecycle path.
 
 > **Note**: Adding new training methods is available **only for commercial users**.
-
-> Noncommercial users are encouraged to modify and use the built-in `custom01` and `custom02` methods, which 
-are fully customizable and serve as templates. See the **Developer Guide** for implementation details.
+> Noncommercial users are encouraged to modify and use the built-in `custom01` and `custom02` methods, which are fully customizable and serve as templates. See the **Developer Guide** for implementation details.
 
 ---
 

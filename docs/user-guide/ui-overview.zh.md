@@ -16,8 +16,8 @@
 ### DeepExtend
 使用结构化提示模板引导 LLM 行为，非常适合业务逻辑对齐和构建可重复的 AI 任务,主要包括对文字和图像的推理支持。
 
-####DeepPrompt
-相比传统的 prompt 工作台，**DeepPrompt** 提供了与数据和模型更深度的集成能力，允许用户：
+####DeepText
+相比传统的 prompt 工作台，**DeepText** 提供了与数据和模型更深度的集成能力，允许用户：
 
 - 在提示中直接嵌入和引用基于文档的知识
 - 对 **训练阶段的适配器或 PEFT 检查点** 直接进行推理
@@ -106,10 +106,12 @@ DeepExtension 提供了强大的 **后来处理模型评估框架**，可使用�
 
 您可以继续阅读以下章节了解详情：
 
-- [DeepPrompt](deep-prompt.zh.md)  
+- [UI Dashboard](ui-dashboard.zh.md)
+- [DeepText](deep-prompt.zh.md)  
+- [DeepImage](deep-image.zh.md)
 - [模型训练](model-training.zh.md)  
 - [数据集管理](dataset-management.zh.md)  
-- [文档嵌入](document-embedding.zh.md)  
+- [知识库](document-embedding.zh.md)  
 - [模型评估](model-assessment.zh.md)  
 - [模型管理](thirdparty-models.zh.md)  
 - [设置](deployment-tool-configuration.zh.md)

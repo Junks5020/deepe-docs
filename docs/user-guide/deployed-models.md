@@ -24,7 +24,7 @@ Each model entry includes:
 - **Model Card**: Displays configuration metadata inherited from the complete model and deployment process
 
 > Live models are locally served by external tools and must be registered separately if you want to 
-use them in workflows like DeepPrompt or Model Assessment.
+use them in workflows like DeepExtend or Model Assessment.
 
 ---
 

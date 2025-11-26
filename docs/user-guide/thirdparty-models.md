@@ -11,7 +11,7 @@ of DeepExtension workflows and can be used for inference, evaluation, and embedd
 
 Third-party models are deeply integrated into the DeepExtension ecosystem:
 
-- In **DeepPrompt**, you can:
+- In **DeepText**, you can:
   - Compare your fine-tuned models or local adapters against public APIs like GPT-4
   - Test how external models interact with your **knowledge base** or **system prompts**
 
@@ -35,7 +35,7 @@ To add a new third-party model:
 
 | Field               | Description                                                                 |
 |---------------------|-----------------------------------------------------------------------------|
-| Provider            | The service provider (e.g., OpenAI, Anthropic, ModelScope, custom)          |
+| Provider            | The service provider (e.g., OpenAI, dashscope, Black Forest Labs, other)          |
 | Model Type          | Either `text` (for generation) or `embedding` (for vector output)           |
 | Model Name          | Exact model name as defined by the provider (e.g., `gpt-4`, `text-embedding-ada-002`) |
 | API Address         | The full API endpoint URL for the model                                     |

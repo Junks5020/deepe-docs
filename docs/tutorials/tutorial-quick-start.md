@@ -44,6 +44,14 @@ We recommend starting with one of the following example datasets:
 - **VL-MULTI-Demo** :  
   [`multi-images-folder`](../assets/datasets/multi-images.tar.gz)
 
+- **SFT-Demo-IN-VIDEO** :  
+  [`origin.jsonl`](../assets/datasets/origin.jsonl)
+  [`merge.jsonl`](../assets/datasets/merge.jsonl)
+ 
+- **SD-DEMO-IN-VIDEO** :
+  [`sd-in-video`](../assets/datasets/sd-in-video.zip)
+
+
 You’re also welcome to use your own dataset — just make sure it follows the same structure as one of these examples, including matching field names.
 
 ---
@@ -97,7 +105,7 @@ You can fine-tune these parameters later as you gain more experience.
 From here, you can:
 
 - Evaluate the trained model using [Model Assessment](../user-guide/model-assessment.md)
-- Run inference in [DeepPrompt](../user-guide/deep-prompt.md)
+- Run inference in [DeepText](../user-guide/deep-prompt.md)
 - Save and deploy your model
 
 ---
