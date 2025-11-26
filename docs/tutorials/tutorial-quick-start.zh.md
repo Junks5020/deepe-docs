@@ -43,7 +43,13 @@ DeepExtension 通过完全可视化的界面，帮助您在无需编写代码的
 
 - **VL-MULTI-Demo** :  
   [`multi-images-folder`](../assets/datasets/multi-images.tar.gz)
-
+  
+- **SFT-Demo-IN-VIDEO** :  
+  [`origin.jsonl`](../assets/datasets/origin.jsonl)
+  [`merge.jsonl`](../assets/datasets/merge.jsonl)
+ 
+- **SD-DEMO-IN-VIDEO** :
+  [`sd-in-video`](../assets/datasets/sd-in-video.zip)
 
 也可以使用自己的数据集，需要确保其结构与上述任一示例保持一致，包括字段名的匹配。
 
@@ -96,7 +102,7 @@ DeepExtension 通过完全可视化的界面，帮助您在无需编写代码的
 完成训练后，可以：
 
 - 使用 [模型评估](../user-guide/model-assessment.md) 功能进行效果评估
-- 在 [DeepPrompt](../user-guide/deep-prompt.md) 中运行推理
+- 在 [DeepText](../user-guide/deep-prompt.md) 中运行推理
 - 保存并部署模型
 
 ---

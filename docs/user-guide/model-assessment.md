@@ -26,7 +26,7 @@ with explanation or scoring.
 1. Click **"Create a New"** on the Model Assessment page.
 2. Select an **assessment mode**, **dataset**, and **sample size** (default: all rows).  
    - Datasets support image fields. Users can select datasets containing images to enable vision model assessment.
-3. Choose **Model A**, and if applicable, **Model B** and the **Judge Model**. Model selection follows the same scope and rules as described in [Deep Prompt](deep-prompt.md), and may include(including visual models):
+3. Choose **Model A**, and if applicable, **Model B** and the **Judge Model**. Model selection follows the same scope and rules as described in [DeepText](deep-prompt.md), and may include(including visual models):
 
     - Third-party API models (e.g., OpenAI, Anthropic, ModelScope, etc.)
     - Customized Models
@@ -34,7 +34,7 @@ with explanation or scoring.
 
 4. Define prompts:
 
-    - **Candidate System Prompt**: Standard system prompt for inference (see [DeepPrompt](deep-prompt.md)). If blank, a default like *"I am an AI assistant."* is applied.
+    - **Candidate System Prompt**: Standard system prompt for inference (see [DeepText](deep-prompt.md)). If blank, a default like *"I am an AI assistant."* is applied.
     - **Candidate User Prompt**: 
       - Supports dynamic placeholders like `{{column_name}}` to pull values from the dataset (e.g., `Give a short answer to the question: {{question}}`), `{{question}}` is the name of a field in a certain column of the dataset
       - Supports natural language prompts involving images (e.g., `Compare the differences between Picture 1 and Picture 2`). 

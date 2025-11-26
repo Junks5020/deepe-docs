@@ -119,27 +119,58 @@ status_response = requests.get(status_url)
 print(status_response.json())
 ```
 
-## Troubleshooting
+---
+
+## Deployment
+
+This container is typically used in conjunction with DeepExtension. Please follow the procedures below to deploy your models.
+
+### 1. Deploying a Fine-tuned Model
+- After successfully deploying DeepExtension, install this container using the method described in the installation guide.
+- Access the DeepExtension UI interface and select the customized `stable-diffusion-3.5-medium` fine-tuned model.
+- Click the **Deploy** button and wait for the process to complete.
+- Once successful, the model status can be viewed in the **Live Model**.
+
+### 2. Deploying a Base Model
+- The base model `stable-diffusion-3.5-medium` can also be deployed to this container after being added to the system.
+- Select the model and click **Deploy** to initiate the process.
+
+### 3. Using the Models
+- **Base Models**: After deployment, they become available for use in the [**DeepExtend-DeepImage**](../user-guide/deep-image.md) model list for image generation.
+- **Fine-tuned Models**: Once deployed, they must be loaded to a third-party system via the **Live Model**. Select `BlackForestLabs Local` as the provider, and after successfully testing the connection, the model will appear in the [**DeepExtend-DeepImage**](../user-guide/deep-image.md) model list for image generation.
+
+---
+
+
 
 ### Common Issues
 
 1. **GPU Inaccessible**
+
    ```bash
    # Verify GPU access
    docker run --rm --gpus all nvidia/cuda:11.8-base nvidia-smi
    ```
 
 2. **Port Conflict**
+
    - Ensure port 5051 is not occupied by other processes
+
    - Modify port mapping in script: `-p 5051:5050`
 
+
 3. **Storage Permission Issues**
+
    - Ensure mounted directories have read-write permissions
+
    - Check Docker container access to mounted directories
 
 4. **Model Loading Failure**
+
    - Verify model file paths are correct
+
    - Check model file integrity
+
    - Check container logs for detailed error information
 
 ### Log Viewing
@@ -151,42 +182,15 @@ docker logs flux_app_prod
 docker logs -f flux_app_prod
 ```
 
-## Performance Optimization Recommendations
-
-1. **GPU Memory Optimization**
-   - Adjust image dimensions and batch size based on available VRAM
-   - Use `CUDA_VISIBLE_DEVICES` to limit GPU usage
-
-2. **Storage Optimization**
-   - Use SSD storage to improve model loading speed
-   - Regularly clean generated image files
-
-3. **Network Optimization**
-   - Consider enabling GPU passthrough for LAN deployments
-   - Configure appropriate timeout parameters
-
-## Important Notes
-
-1. **Security Warnings**
-   - Do not expose the service to the public internet without proper authentication
-   - Regularly update base images to get security patches
-
-2. **Resource Management**
-   - Monitor GPU memory usage to avoid memory overflow
-   - Set task queue limits to prevent system overload
-
-3. **Data Persistence**
-   - Regularly backup important data
-   - Ensure data persistence configuration for mounted volumes
-
-4. **Version Compatibility**
-   - Ensure model versions are compatible with inference code
-   - Pay attention to API interface backward compatibility during upgrades
 
 ## Technical Support
 
 If you encounter problems, please:
-1. Check container logs for detailed error information
-2. Verify environment configuration meets requirements
-3. Refer to the GitHub repository's Issues page
-4. Contact the technical support team
+
+   1. Check container logs for detailed error information
+
+   2. Verify environment configuration meets requirements
+
+   3. Refer to the GitHub repository's Issues page
+
+   4. Contact the technical support team

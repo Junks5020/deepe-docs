@@ -51,7 +51,7 @@
     - Download CSV results (from list page)
 
 ## Quick Testing Tips
-1. Access `DeepPrompt` feature
+1. Access `DeepText` feature
 2. Workflow:
     - Select vision-language model
     - Upload two comparison images

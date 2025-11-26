@@ -25,8 +25,8 @@ Get a real-time overview of active projects, training jobs, model deployments, u
 ### DeepExtend
 Uses structured prompt templates to guide LLM behavior, making it ideal for business logic alignment and building repeatable AI tasks. It primarily supports reasoning for both text and images.
 
-#### DeepPrompt
-Compared to traditional prompt workbenches, **DeepPrompt** offers deeper integration capabilities with data and models, enabling users to:
+#### DeepText
+Compared to traditional prompt workbenches, **DeepText** offers deeper integration capabilities with data and models, enabling users to:
 
 - Directly embed and reference document-based knowledge in prompts
 - Perform inference directly on **adapters or PEFT checkpoints from the training phase**
@@ -118,8 +118,9 @@ This guide is ideal for:
 
 You can continue with the following chapters for more detail:
 
-<!-- - [UI Dashboard](ui-dashboard.md)   -->
-- [DeepPrompt](deep-prompt.md)  
+- [UI Dashboard](ui-dashboard.md)
+- [DeepText](deep-prompt.md)  
+- [DeepImage](deep-image.md)
 - [Model Training](model-training.md)  
 - [Dataset Management](dataset-management.md)  
 - [Document Embedding](document-embedding.md)  

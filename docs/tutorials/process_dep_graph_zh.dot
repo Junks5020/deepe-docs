@@ -1,58 +1,68 @@
-
 digraph g {
-	ratio=fill;
-	splines=spline;
-	overlap=scale;
+ratio=fill;
+splines=spline;
+overlap=scale;
 
-    edge [fontsize=20, fontname="Helvetica"];
+edge [fontsize=20, fontname="Helvetica"];
 
-	node [
-		shape=box,
-		width=0.3,
-		color="black",
-		fillcolor="#eeeeee",
-		style="filled,solid",
-		fontsize=25,
-        fontname="Helvetica"
-	];
+node [
+shape=box,
+// fixedsize=true,
+width=0.3,
+color="black",
+fillcolor="#eeeeee",
+style="filled,solid",
+fontsize=25,
+fontname="Helvetica"
+];
 
-    subgraph cluster_1 {
-		node [style=filled];
-		nRAG -> nPromp [style=dashed, label="可选"];
-        nThirdModel -> nRAG [label="嵌入模型"];
-        nDataset -> nPromp [label="仅模型评估时需要"];
-        nThirdModel -> nPromp [style=dashed, label="可选"];
-		label = "无训练模式";
-        fontsize=30
-	}
+subgraph cluster_1 {
+node [style=filled];
+nRAG -> nPromp [style=dashed, label="可选"];
+nThirdModel -> nRAG [label="嵌入模型"];
+nDataset -> nPromp [label="仅模型评估时需要"];
+nThirdModel -> nPromp [style=dashed, label="可选"];
+label = "无训练模式";
+fontsize=30
+}
 
-    subgraph cluster_0 {
-		style=filled;
-		color=lightgrey;
-		node [style=filled,color=white];
-		nBModel -> nTrainingModels;
-        nTrainingModels -> nTrainedModels [style="bold,tapered", arrowhead=vee, penwidth=3, color=blue, label="训练", fontsize=30];
-        nTrainedModels -> nSavedModels [style="bold,tapered", arrowhead=vee, penwidth=3, color=blue, label="保存", fontsize=30];
-        nSavedModels -> nDeployedModels [style="bold,tapered", arrowhead=vee, penwidth=3, color=blue, label="部署", fontsize=30];
-        label = "模型生命周期
-管理";
-        fontsize=30
-	}
+subgraph cluster_0 {
+style=filled;
+color=lightgrey;
+node [style=filled,color=white];
+nBModel -> nTrainingMethods;
+nTrainingMethods -> nCustomizedModels [style="bold,tapered", arrowhead=vee, penwidth=3, color=blue, label="训练", fontsize=30];
+nTrainingMethods -> nCompleteModels [style="bold,tapered", arrowhead=vee, penwidth=3, color=blue, label="训练", fontsize=30];
+nCustomizedModels -> nCompleteModels [style="bold,tapered", arrowhead=vee, penwidth=3, color=blue, label="保存", fontsize=30];
+nCustomizedModels -> nLiveModels [style="bold,tapered", arrowhead=vee, penwidth=3, color=blue, label="部署", fontsize=30];
+nCompleteModels -> nLiveModels [style="bold,tapered", arrowhead=vee, penwidth=3, color=blue, label="部署", fontsize=30];
+nBModel -> nLiveModels [style="bold,tapered", arrowhead=vee, penwidth=3, color=blue, label="部署", fontsize=30];
+nBModel -> nEvaluate [style="bold,tapered", arrowhead=vee, penwidth=3, color=blue, label="推理", fontsize=30];
+nCustomizedModels -> nEvaluate [style="bold,tapered", arrowhead=vee, penwidth=3, color=blue, label="推理", fontsize=30];
+nCompleteModels -> nEvaluate [style="bold,tapered", arrowhead=vee, penwidth=3, color=blue, label="推理", fontsize=30];
+label = "模型生命周期管理";
+fontsize=30
+}
 
-	nRAG [label="知识库（RAG）"];
-	nBModel [label="基础模型"];
-	nDataset [label="数据集"];
-	nThirdModel [label="第三方模型"];
-	nPromp [label="推理与评估"];
-	nTrainingModels [label="模型训练"];
-	nTrainedModels [label="训练中模型"];
-	nSavedModels [label="保存的模型"];
-	nDeployedModels [label="部署的模型"];
-	nDeployEnv [label="部署环境"];
-	nTrainingMethods [label="训练方法"];
-    nDataset -> nTrainingModels;
-    nTrainingMethods -> nTrainingModels;
-    nDeployEnv -> nDeployedModels;
-    nDeployedModels -> nThirdModel [style="bold,tapered", arrowhead=vee, penwidth=3, color=blue, taillabel="注册", fontsize=30, labeldistance=40, labelangle=3 ];
-    nTrainedModels -> nPromp [style="bold,tapered", arrowhead=vee, penwidth=3, color=blue, taillabel="评估", fontsize=30, labeldistance=4, labelangle=35];
+
+nRAG [label="知识库 (RAG)"];
+nBModel [label="基础模型" shape="ellipse"];
+nDataset [label="数据集"];
+nThirdModel [label="第三方模型"];
+nPromp [label="DeepExtend推理 \n模型评估"];
+nTrainingMethods [label="训练方法"];
+nCustomizedModels [label="定制模型" shape="ellipse"];
+nCompleteModels [label="完整模型" shape="ellipse"];
+nLiveModels [label="上线模型" shape="ellipse"];
+nDeployEnv [label="部署环境"];
+nTrainingProfile [label="训练参数文件"];
+nTrainingMethods [label="训练方法" shape=hexagon];
+nEvaluate [label="评估" shape=point color="blue"];
+// n [label=""]
+nDataset -> nTrainingMethods;
+nDeployEnv -> nLiveModels;
+nTrainingProfile -> nTrainingMethods;
+nLiveModels -> nThirdModel [style="bold,tapered", arrowhead=vee, penwidth=3, color=blue, label="注册", fontsize=30];
+nEvaluate -> nPromp [style="bold,tapered", arrowhead=vee, penwidth=3, color=blue, label="评估", fontsize=30];
+// https://edotor.net/
 }

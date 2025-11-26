@@ -1,93 +1,109 @@
 # Process Overview
 
-This guide gives you a simple overview of how different parts of **DeepExtension** connect with each other.  
-It answers a key question:
-
-> What do I need to prepare before running training, doing inference, or starting an assessment?
+This guide provides a concise explanation of the connections between various modules in **DeepExtension**. It answers a key question: What do I need to prepare before starting training, performing inference, or conducting an assessment?
 
 ---
 
-## Understanding the Diagram
+## How to Interpret the Diagram Below
 
-![Process Dependency](../assets/images/process-dependency.png)
+![Process Dependency Diagram](../assets/images/process-dependency.jpg)
 
-Here’s how to read the arrows:
+The arrows represent the following:
 
-- **Black solid arrows** show something that is **required** before another step.
-- **Black dashed arrows** show an **optional connection** — useful, but not required.
-- **Blue arrows** show a process that **creates** a new model state (like training or saving).  
-  These are **not real dependencies**, but part of the model’s journey.
+*   **Black Solid Arrow**: Indicates a mandatory prerequisite. The preceding step must be completed before the subsequent step can begin.
+*   **Black Dashed Arrow**: Indicates an optional connection. This step is helpful but not strictly required.
+*   **Blue Arrow**: Indicates a process that generates a new model state (e.g., Training or Saving). These represent part of the model lifecycle rather than strict dependencies.
 
 ---
 
-## To Start Your First Model Training
+## How to Start Your First Model Training
 
-You need:
+You will need:
 
-- A **Base Model** (see [Base Models](../user-guide/base-models.md))
-- A **Dataset** (see [Dataset Management](../user-guide/dataset-management.md))
+*   A **Base Model** (see [Base Models](../user-guide/base-models.md))
+*   A **Dataset** (see [Dataset Management](../user-guide/dataset-management.md))
 
-Don’t worry about training methods — some are already built in.
+The system comes with several built-in training methods ready for use.
 
-➡️ Once ready, try this tutorial:  
+➡️ Once everything is prepared, please refer to the tutorial:
 [Quick Start: Run Your First Training](tutorial-quick-start.md)
 
 ---
 
-## To Start Prompt Inference (Try a Prompt with a Model)
+## How to Start Prompt Inference (Trying out prompts with a model)
 
-To run a prompt with **DeepPrompt**, you need a model.  
-You can use:
+To perform prompt inference using **DeepExtend**, you need a model. Possible sources include:
 
-- A model you’ve just trained
-- A third-party model
+*   A newly trained model
+*   A saved Complete Model from a previous training session
+*   A Third-party Model
 
-You can also attach an **Knowledge Base** (RAG), but that’s optional.  
-See [DeepPrompt](../user-guide/deep-prompt.md) and [Document Embedding](../user-guide/document-embedding.md)
-
----
-
-## To Start a Model Assessment
-
-To compare two models or test a model’s quality, use **Model Assessment**.
-
-You’ll need:
-
-- One or more models (trained, or third-party)
-- A dataset (used to generate test questions)
-
-More in [Model Assessment](../user-guide/model-assessment.md)
+Attaching a **Knowledge Base** (RAG) is optional.
+Refer to [DeepText](../user-guide/deep-prompt.md) or [DeepImage](../user-guide/deep-image.md) and [RAG](../user-guide/document-embedding.md).
 
 ---
 
-## What If I Installed in “No-Training Mode”?
+## How to Start Model Evaluation
 
-Some users may install DeepExtension **without training capabilities**.  
-This is useful for:
+Use the **Model Assessment** module to compare two models or test the output quality of a model.
 
-- RAG-style applications
-- Knowledge base construction
-- Trying out third-party models
+You need to prepare:
 
-In that case, only the parts in the **left box** of the diagram are active.  
-(You won’t be able to run training or save/deploy models.)
+*   One or more models (trained models or third-party models)
+*   A dataset (used to generate evaluation questions)
 
-For more info, see the [Installation Guide](../developer/install.md)
+For details, see [Model Assessment](../user-guide/model-assessment.md)
 
 ---
 
-## Model Lifecycle (The Right Box)
+## What if I installed in "Training-Free Mode"?
 
-If you installed the full version, you can use the **Model Lifecycle Management** flow:
+Some users may have installed DeepExtension in **Training-Free Mode**.
+This is suitable for scenarios such as:
 
-- Train → from base + dataset → to create a **Customized Model**
-- Assess → use **DeepPrompt** or **Model Assessment** to evaluate **Customized Models** in real-time or background mode
-- Save → converts a customized model into a **Complete Model**
-- Deploy → turns a complete model into a **Live Model** that is ready for real-time use
-- Register → allows your deployed model to be reused like third-party ones
+*   RAG-based applications
+*   Building knowledge bases
+*   Testing third-party models
 
-These are all blue arrows in the diagram.
+In this case, you can only use the processes covered in the **right-hand section** of the diagram.
+(You cannot run training, save models, or deploy models.)
+
+For a detailed explanation, please refer to the [Installation Guide](../developer/install.md)
 
 ---
 
-That’s it! This map helps you understand where you are and what’s next.
+## Model Lifecycle Management
+
+If you have installed the full version, you can use the **Model Lifecycle Management** feature to manage base models and customized models throughout their entire lifecycle.
+
+### **Lifecycle Path Overview**
+
+The base model supports the following six main lifecycle paths:
+
+1.  Base Model → Customized Model
+2.  Base Model → Customized Model → Live Model
+3.  Base Model → Customized Model → Live Model
+4.  Base Model → Customized Model → Complete Model → Live Model
+5.  Base Model → Complete Model
+6.  Base Model → Complete Model → Live Model
+
+### **Key Operations Explanation**
+
+*   **Train**
+    Train a specific base model using a designated dataset to generate a corresponding **Customized Model**.
+
+*   **Assess**
+    Use the **DeepExtend** tool or the **Model Assessment** function to perform real-time or batch evaluation of a **Customized Model**.
+
+*   **Save**
+    Convert an assessed **Customized Model** into an independent, reusable **Complete Model**.
+
+*   **Deploy**
+    Deploy a **Complete Model** as an **Online Model** available for production inference.
+
+*   **Register**
+    Register a deployed model as a reusable resource within the system, making it accessible similarly to a third-party model.
+
+---
+
+This flowchart helps you quickly understand your current stage and determine what to do next.
