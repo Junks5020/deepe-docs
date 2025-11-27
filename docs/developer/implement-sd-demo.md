@@ -1,55 +1,55 @@
 # SD-Demo Implementation Guide
 
-This document explains how the built-in training method **SD-Demo** is implemented within DeepExtension.
-
-SD-Demo is a read-only reference example demonstrating how to integrate third-party training code into DeepExtension's workflow.
+This document details the technical implementation of the built-in training method **SD-Demo** on the DeepExtension platform. This read-only example demonstrates how third-party training code integrates with the platform's workflow.
 
 ---
 
-## Example Source
+## Technical Architecture
 
-**SD-Demo** is based on the LoRA training implementation from the [SimpleTuner project](https://github.com/bghira/SimpleTuner.git). Since it has been tested only with a specific commit hash and includes adjustments to dependency versions and entry scripts, we provide an adapted downloadable package.
+### Implementation Foundation
+**SD-Demo** is built upon the LoRA training module from the [SimpleTuner project](https://github.com/bghira/SimpleTuner.git). To ensure compatibility, we made the following adjustments to the specified commit version:
+- Dependency version adaptation
+- Entry script optimization
+- Data interface standardization
 
-[Download Adapted SimpleTuner Version](../assets/datasets/SimpleTuner.zip)
+[Get Adapted Version](../assets/datasets/SimpleTuner.zip)
 
 ---
 
-## Prerequisites: Local Runtime Environment
+## Environment Configuration
 
-By default, the SD example reads datasets from directories, while DeepExtension requires file-based input format.
-
-### Base Model (Local)
-
-Ensure compatible base models (e.g., `stable-diffusion-3.5-medium`) are downloaded to the following path:
-
+### Resource Preparation
+#### Base Model
+The platform requires base models to be stored in a specified path:
 ```
 {deepextension_base_dir}/models/stable-diffusion-3.5-medium
 ```
+> Note: Compatible with any SD series models
 
-> Note: You can also use any other locally available SD-compatible model.
+#### Dataset
+Training datasets follow standard formats and can be obtained from:
+[`sd-in-video`](../assets/datasets/sd-in-video.zip)
 
-### Dataset (Local)
+For dataset upload procedures, refer to: [Dataset Management](../user-guide/dataset-management.md)
 
-The dataset used by SD-Demo is located within the SimpleTuner directory:
+#### Training Code
 
-```
-SimpleTuner/datasets/sd3.5_generated_hard_examples
-```
-
-> Important: Due to limitations of the SimpleTuner project, the dataset currently uses a fixed path and will be integrated into the unified system management in the future.
+Extract the adapted SimpleTuner version to the `deep-e-python` folder in the project root directory.
 
 ---
 
-## Environment Setup and Local Testing
+## Environment Validation
 
-Before integration, verify that the SimpleTuner example code can run normally on your local machine:
+### Local Testing Process
+
+Environment validation must be completed before integration:
 
 ```bash
-# Create Conda environment
-conda create -n sd-demo python=3.11 -y
-conda activate sd-demo
+# Create isolated environment
+conda create -n sd python=3.11 -y
+conda activate sd
 
-# Enter project directory and install dependencies
+# Install dependencies
 cd SimpleTuner/
 pip install -U poetry pip -i https://pypi.tuna.tsinghua.edu.cn/simple --trusted-host pypi.tuna.tsinghua.edu.cn
 poetry config virtualenvs.create false
@@ -57,36 +57,99 @@ poetry source add --priority=default tsinghua https://pypi.tuna.tsinghua.edu.cn/
 poetry lock
 poetry install
 
-# Run training script
+# Execute validation
 ./train.sh
 ```
 
-If everything is set up correctly, the script should run normally and complete after several iterations.
+Expected result: The script executes normally and completes the preset iteration count.
 
-> **Important: Proceed with integration steps only after successful local testing.**
+> **Key Requirement: Platform integration can only proceed after successful local validation**
 
 ---
 
-## Integration with `sd-demo.py`
+## Platform Integration
 
-After validating the training script, we created the `sd-demo.py` entry file.The environment configuration within the container can be found in [How to Configure Environment](how-to-configure-env.md).
+### Entry Implementation
+Training task scheduling is implemented through the `sd-demo.py` entry file. For environment configuration details, refer to: [Python Environment Management Guide](how-to-configure-env.md)
 
-Currently, all training code follows a unified startup format:
-
+### Execution Mechanism
+The platform uses standardized startup commands:
 ```python
 cmd = ['conda', 'run', '-n', envName, 'python', pythonFile]
 ```
 
-This approach offers better modularity, provides certain flexibility, and facilitates future maintenance and expansion.
+This design offers the following advantages:
+
+- **Modularity**: Each training method runs independently
+
+- **Flexibility**: Supports parallel multi-environment execution
+
+- **Maintainability**: Unified execution interface
+
+---
+
+## Container Environment Deployment
+
+### Option 1: Real-time Installation
+
+Follow the "Environment Validation" steps above within the container.
+
+### Option 2: Pre-configured Environment
+
+The system presets the environment name for SD models as `sd`, which can be pre-configured via:
+
+```bash
+# Environment packaging (on machine with existing environment)
+conda install -c conda-forge conda-pack
+conda pack -n sd -o sd.tar.gz
+
+# Environment deployment (on machine requiring new dependencies)
+cd {deepextension_dir}/conda/envs
+mkdir -p sd
+tar -xzf sd.tar.gz -C sd
+
+# Activation within container
+docker exec -it deepE-training-prod bash
+## First entry into container
+conda init
+exit
+source /opt/conda/envs/sd/bin/conda-unpack
+## You will see like 
+# bash: import: command not found
+# bash: import: command not found
+# bash: import: command not found
+# bash: import: command not found
+# bash: import: command not found
+# bash: on_win: command not found
+# bash: /opt/conda/envs/sd/bin/conda-unpack: line 48: syntax error near unexpected token `('
+# bash: /opt/conda/envs/sd/bin/conda-unpack: line 48: `SHEBANG_REGEX = ('
+```
+
+---
+
+## Technical Validation
+
+### Implementation Achievements
+
+- ✅ Seamless integration of third-party training code
+
+- ✅ Standardized workflow support
+
+- ✅ Image generation model training task scheduling
+
+### Platform Compatibility
+
+- Supports multiple SD base models
+
+- Adapts to standard dataset formats
+
+- Provides complete environment management solutions
 
 ---
 
 ## Summary
 
-- **SD-Demo** demonstrates how to integrate SimpleTuner-based training workflows into the DeepExtension platform
-- Validates the feasibility of using image generation models for training tasks through DeepExtension
+SD-Demo successfully validates DeepExtension platform's capability to integrate complex training workflows, establishing a technical foundation for standardizing future image generation model training tasks.
 
----
-
-> DeepExtension — Integrate real training workflows into your enterprise AI stack.
-> No hacks, no workarounds, just clean integration.
+> DeepExtension - Enterprise AI Training Workflow Standardization Platform  
+> Professional Integration | Stable Operation | Efficient Scheduling

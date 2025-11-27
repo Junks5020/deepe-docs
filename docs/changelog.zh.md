@@ -199,7 +199,7 @@
 
 - 🌐 **官网地址**: www.deepextension.ai
 
-- 📚 **文档中心**: hhttps://deepextension.readthedocs.io/en/latest/zh/
+- 📚 **文档中心**: https://deepextension.readthedocs.io/en/latest/zh/
 
 - ⬇️ **源码下载**: https://github.com/DeepExtension-AI/DeepExtension  
 

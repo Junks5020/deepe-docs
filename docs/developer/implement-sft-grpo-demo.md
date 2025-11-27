@@ -179,6 +179,8 @@ python3 run_local_train_test.py
 
 ---
 
+> Note: If fine-tuning the Qwen3 model, you need to download [llama.cpp](https://github.com/ggml-org/llama.cpp) to the deep-e-python folder in advance, and select the `transformer_env` environment to use it normally.
+
 ## Summary
 
 - The **SFT-Demo** and **GRPO-Demo** are fully functional examples integrated into DeepExtension.
