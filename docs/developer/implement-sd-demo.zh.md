@@ -1,55 +1,60 @@
 # SD-Demo 实现说明
 
-本文档说明了 DeepExtension 内部如何实现内置训练方法 **SD-Demo**。
-
-SD-Demo 是一个只读参考示例，展示了如何将第三方训练代码集成到 DeepExtension 的工作流中。
+本文档详细说明 DeepExtension 平台中内置训练方法 **SD-Demo** 的技术实现方案。该示例作为只读参考，展示第三方训练代码与平台工作流的集成方法。
 
 ---
 
-## 示例来源
+## 技术架构
 
-**SD-Demo** 基于 [SimpleTuner 项目](https://github.com/bghira/SimpleTuner.git) 中的 LoRA 训练实现。由于仅对指定哈希值版本进行测试，且对依赖版本和入口脚本进行了微调，我们提供了调整后的可用下载包。
+### 实现基础
+**SD-Demo** 基于 [SimpleTuner 项目](https://github.com/bghira/SimpleTuner.git) 的 LoRA 训练模块构建。为确保兼容性，我们对指定提交版本进行了以下调整：
 
-[获取 SimpleTuner 调整版本](../assets/datasets/SimpleTuner.zip)
+- 依赖版本适配
+
+- 入口脚本优化
+
+- 数据接口标准化
+
+[获取适配版本](../assets/datasets/SimpleTuner.zip)
 
 ---
 
-## 前提条件：本地运行环境准备
+## 环境配置
 
-默认情况下，SD 示例从目录读取数据集，而 DeepExtension 要求以文件作为输入格式。
+### 资源准备
 
-### 基础模型（本地）
+#### 基础模型
 
-请确保已下载兼容的基础模型（如 `stable-diffusion-3.5-medium`）至以下路径：
-
+平台要求基础模型存放于指定路径：
 ```
 {deepextension_base_dir}/models/stable-diffusion-3.5-medium
 ```
+> 注：支持任意兼容的 SD 系列模型
 
-> 提示：您也可以使用其他任意本地可用的 SD 兼容模型。
+#### 数据集
+训练数据集采用标准格式，可从以下位置获取：
 
-### 数据集（本地）
+[`sd-in-video`](../assets/datasets/sd-in-video.zip)
 
-SD-Demo 使用的数据集位于 SimpleTuner 目录中：
+数据集上传流程详见：[数据集管理指南](../user-guide/dataset-management.zh.md)
 
-```
-SimpleTuner/datasets/sd3.5_generated_hard_examples
-```
+#### 训练代码
 
-> 注意：由于 SimpleTuner 项目的局限性，当前数据集采用固定路径，后续将接入系统统一管理。
+将适配版 SimpleTuner 解压至项目根目录下的 `deep-e-python` 文件夹。
 
 ---
 
-## 环境安装与本地测试
+## 环境验证
 
-在集成前，请先验证 SimpleTuner 示例代码是否可在本地正常运行：
+### 本地测试流程
+在集成前需完成环境验证：
 
 ```bash
-# 创建 Conda 环境
-conda create -n sd-demo python=3.11 -y
-conda activate sd-demo
+# 创建隔离环境
+conda create -n sd python=3.11 -y
+conda activate sd
 
-# 进入项目目录并安装依赖
+# 安装依赖
 cd SimpleTuner/
 pip install -U poetry pip -i https://pypi.tuna.tsinghua.edu.cn/simple --trusted-host pypi.tuna.tsinghua.edu.cn
 poetry config virtualenvs.create false
@@ -57,36 +62,98 @@ poetry source add --priority=default tsinghua https://pypi.tuna.tsinghua.edu.cn/
 poetry lock
 poetry install
 
-# 运行训练脚本
+# 执行验证
 ./train.sh
 ```
 
-如果一切设置正确，脚本应能正常运行并在完成若干迭代后结束。
+预期结果：脚本正常执行并完成预设迭代次数。
 
-> **重要：仅当本地测试通过后，才建议进行后续集成步骤。**
+> **关键要求：必须通过本地验证后方可进行平台集成**
 
 ---
 
-## 集成 `sd-demo.py`
+## 平台集成
 
-验证训练脚本后，我们创建了 `sd-demo.py` 入口文件。容器中的环境配置可见[如何配置环境](how-to-configure-env.zh.md)
+### 入口实现
+通过 `sd-demo.py` 入口文件实现训练任务调度，环境配置详见：[环境配置指南](how-to-configure-env.zh.md)
 
-现阶段，所有训练代码均采用统一格式启动：
-
+### 执行机制
+平台采用标准化启动命令：
 ```python
 cmd = ['conda', 'run', '-n', envName, 'python', pythonFile]
 ```
 
-这种方式具有更好的模块化特性，提供了一定的灵活性，并有利于后期的维护与扩展。
+该设计具备以下优势：
+
+- **模块化**：各训练方法独立运行
+
+- **灵活性**：支持多环境并行
+
+- **可维护性**：统一的执行接口
+
+---
+
+## 容器环境部署
+
+### 方案一：实时安装
+按照上述"环境验证"步骤在容器内执行。
+
+### 方案二：预置环境
+系统为 SD 类模型预设环境名称为 `sd`，可通过以下方式预置：
+
+```bash
+# 环境打包 原已装环境机器
+conda install -c conda-forge conda-pack
+conda pack -n sd -o sd.tar.gz
+
+# 环境部署 需要新装依赖机器
+cd {deepextension_dir}/conda/envs
+mkdir -p sd
+tar -xzf sd.tar.gz -C sd
+
+# 容器内激活
+docker exec -it deepE-training-prod bash
+## 初次进入容器内部 
+conda init
+exit
+source /opt/conda/envs/sd/bin/conda-unpack
+# 你会看到
+# bash: import: command not found
+# bash: import: command not found
+# bash: import: command not found
+# bash: import: command not found
+# bash: import: command not found
+# bash: on_win: command not found
+# bash: /opt/conda/envs/sd/bin/conda-unpack: line 48: syntax error near unexpected token `('
+# bash: /opt/conda/envs/sd/bin/conda-unpack: line 48: `SHEBANG_REGEX = ('
+```
+
+
+---
+
+## 技术验证
+
+### 实现成果
+
+- ✅ 第三方训练代码无缝集成
+
+- ✅ 标准化工作流支持
+
+- ✅ 生图模型训练任务调度
+
+### 平台兼容性
+
+- 支持多种 SD 基础模型
+
+- 适配标准数据集格式
+
+- 提供完整环境管理方案
 
 ---
 
 ## 总结
 
-- **SD-Demo** 展示了如何将基于 SimpleTuner 的训练流程集成到 DeepExtension 平台
-- 验证了生图模型通过 DeepExtension 参与训练任务的可行性
+SD-Demo 成功验证了 DeepExtension 平台对复杂训练流程的集成能力，为后续生图模型训练任务的标准化提供了技术基础。
 
----
-
-> DeepExtension —— 将真实训练流程纳入您的企业 AI 栈。
-> 无需 hack，无需绕路，只需干净整合。
+> DeepExtension —— 企业级 AI 训练流程标准化平台  
+> 专业集成 | 稳定运行 | 高效调度
