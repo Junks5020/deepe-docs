@@ -27,7 +27,7 @@ To create a new user:
 2. Enter the new user's:
    - Username
    - Display name
-   - **initial password** 
+   - **initial password** :12345678
 
 Once created, users can log in and are encouraged to change their password upon first use.
 
